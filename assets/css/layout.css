@@ -1,0 +1,68 @@
+header, footer {
+  background: #222;
+  color: white;
+  padding: 10px 20px;
+}
+main {
+  padding: 20px;
+}
+nav a {
+  color: white;
+  margin-right: 15px;
+}
+
+/* 16-column responsive grid system */
+
+/* container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* the row uses CSS Grid with 16 equal columns and a gutter */
+.row {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* default column (full width) */
+.col {
+  grid-column: span 16;
+}
+
+/* explicit span classes */
+.col-1  { grid-column: span 1;  }
+.col-2  { grid-column: span 2;  }
+.col-3  { grid-column: span 3;  }
+.col-4  { grid-column: span 4;  }
+.col-5  { grid-column: span 5;  }
+.col-6  { grid-column: span 6;  }
+.col-7  { grid-column: span 7;  }
+.col-8  { grid-column: span 8;  }
+.col-9  { grid-column: span 9;  }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+.col-13 { grid-column: span 13; }
+.col-14 { grid-column: span 14; }
+.col-15 { grid-column: span 15; }
+.col-16 { grid-column: span 16; }
+
+/* simple responsive behavior:
+   - desktop: 16 columns
+   - tablet: 8 columns
+   - phone: 4 columns (and columns default to full width when necessary)
+*/
+@media (max-width: 1024px) {
+  .row { grid-template-columns: repeat(8, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .row { grid-template-columns: repeat(4, 1fr); }
+  /* ensure .col without specific classes stays full width on small screens */
+  .col { grid-column: span 4; }
+}
+
