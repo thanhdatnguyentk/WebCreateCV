@@ -1,0 +1,10 @@
+.cv-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+.cv-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
