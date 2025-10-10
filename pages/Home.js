@@ -8,6 +8,12 @@ export default function HomePage() {
         <h1>Explore over 100000 types of portfolio templates 
         and edit as your own professional portfolio</h1>
 
+    <div class="Category">
+        <div class="Category Card 1">All</div>
+        <div class="Category Card 2">Creative</div>
+        <div class="Category Card 3">Modern</div>
+        <div class="Category Card 4">Simple</div>
+    </div>
         <div class="Template container">
             <div class="Template Card 1"></div>
             <div class="Template Card 2"></div>
