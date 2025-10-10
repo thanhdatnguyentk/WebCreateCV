@@ -8,3 +8,20 @@
   padding: 8px;
   border: 1px solid #ccc;
 }
+
+/* Mau Anh's code */
+
+h1 {
+  width: 963px;
+
+  color: #000;
+  font-family: Inter;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -2.56px;
+
+  margin-top: 80px;
+  margin-left: 85px;
+}
