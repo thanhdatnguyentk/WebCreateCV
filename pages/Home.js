@@ -1,10 +1,5 @@
 export default function HomePage() {
   return `
-    <div class="Menu-navigation-bar">
-            <div class="Homepage"></div>
-            <div class="Explore"></div>
-        </div>
-
         <h1>Explore over 100000 types of portfolio templates 
         and edit as your own professional portfolio</h1>
 
