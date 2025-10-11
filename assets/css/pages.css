@@ -36,7 +36,7 @@ h1 {
   margin-left: 86px;
 }
 
-.Category-Card1.Category-Card2.Category-Card3.Category-Card4 {
+.Category-Card1, .Category-Card2, .Category-Card3, .Category-Card4 {
   color: var(--M3-sys-light-secondary, var(--Schemes-Secondary, #625B71));
 
   font-family: var(--Static-Titile-Medium-Font, Roboto);
@@ -45,4 +45,20 @@ h1 {
   font-weight: 500;
   line-height: var(--Static-Title-Medium-Line-Height, 24px); /* 150% */
   letter-spacing: var(--Static-Title-Medium-tracking, 0.15px);
+}
+
+.Template-Card {
+
+  border: 1px solid #df2a2a;
+  background: rgb(185, 255, 191);
+  min-width: 340px;
+  min-height: 560px;
+}
+
+.Template-container{
+  display: grid;
+  grid-template-columns: repeat(3, 340px);
+  grid-template-rows: repeat(2, 560px);
+  gap: 30px;
+  border: 10px solid #000;
 }
