@@ -49,10 +49,10 @@ h1 {
 
 .Template-Card {
 
-  border: 1px solid #df2a2a;
-  background: rgb(185, 255, 191);
-  min-width: 340px;
-  min-height: 560px;
+  border-radius: 29px;
+  border: 1px solid #000;
+  background: #F2F2F2;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .Template-container{
