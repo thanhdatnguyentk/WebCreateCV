@@ -13,37 +13,31 @@ export default function HomePage() {
     <div class="Template-container">
             <div class="Template-Card">
               <div class="Template-Thumbnail">
-                <img src="images/mau-cv-an-tuong-1.webp" alt="CV template1" />
-              </div>
-            </div>
-            
-             <div class="Template-Card">
-              <div class="Template-Thumbnail">
-                <img src="images/mau-cv-an-tuong-1.webp" alt="CV template1" />
               </div>
             </div>
 
-             <div class="Template-Card">
+            <div class="Template-Card">
               <div class="Template-Thumbnail">
-                <img src="images/mau-cv-an-tuong-1.webp" alt="CV template1" />
               </div>
             </div>
 
-             <div class="Template-Card">
+            <div class="Template-Card">
               <div class="Template-Thumbnail">
-                <img src="images/mau-cv-an-tuong-1.webp" alt="CV template1" />
               </div>
             </div>
 
-             <div class="Template-Card">
+            <div class="Template-Card">
               <div class="Template-Thumbnail">
-                <img src="images/mau-cv-an-tuong-1.webp" alt="CV template1" />
               </div>
             </div>
 
-             <div class="Template-Card">
+            <div class="Template-Card">
               <div class="Template-Thumbnail">
-                <img src="images/mau-cv-an-tuong-1.webp" alt="CV template1" />
+              </div>
+            </div>
+
+            <div class="Template-Card">
+              <div class="Template-Thumbnail">
               </div>
             </div>
     </div>
