@@ -27,24 +27,13 @@ h1 {
 }
 
 
-.Category {
+.Category-Selector1 {
   display: inline-flex;
   align-items: center;
   gap: 28px;
-
+  
   margin-top: 80px;
-  margin-left: 86px;
-}
-
-.Category-Card1, .Category-Card2, .Category-Card3, .Category-Card4 {
-  color: var(--M3-sys-light-secondary, var(--Schemes-Secondary, #625B71));
-
-  font-family: var(--Static-Titile-Medium-Font, Roboto);
-  font-size: var(--Static-Title-Medium-Font-Size, 16px);
-  font-style: normal;
-  font-weight: 500;
-  line-height: var(--Static-Title-Medium-Line-Height, 24px); /* 150% */
-  letter-spacing: var(--Static-Title-Medium-tracking, 0.15px);
+  margin-left: 85px;
 }
 
 .Template-container{
@@ -76,5 +65,47 @@ h1 {
   border-radius: 20px 20px 0 0;
   border: 1px solid #000;
   background: url(../../images/mau-cv-an-tuong-1.webp) lightgray 0px -4.731px / 100% 106.149% no-repeat;
+}
+
+.Template-Color-Selector {
+  display: inline-flex;
+  padding: 4px 10px;
+  align-items: center;
+  gap: 11px;
+
+  border-radius: 28px;
+  background: rgba(226, 225, 225, 0.80);
+  width: 184px;
+  height: 32px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.Template-Name {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.96px;
+
+  margin-left: 28px;
+  margin-top: 10px;
+}
+
+.Category-Selector2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  padding: 4px 10px;
+  margin-left: 19px;
+  margin-top: 10px;
+}
+
+.Category-Card1, .Category-Card2, .Category-Card3, .Category-Card4 {
+border-radius: 80px;
+background: #FFF;
 }
 
