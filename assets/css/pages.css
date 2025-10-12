@@ -8,3 +8,104 @@
   padding: 8px;
   border: 1px solid #ccc;
 }
+
+/* Mau Anh's code */
+
+h1 {
+  width: 963px;
+
+  color: #000;
+  font-family: Inter;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -2.56px;
+
+  margin-top: 80px;
+  margin-left: 85px;
+}
+
+
+.Category-Selector1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  
+  margin-top: 80px;
+  margin-left: 85px;
+}
+
+.Template-container{
+  display: grid;
+  grid-template-columns: repeat(3, 340px);
+  grid-template-rows: repeat(2, 560px);
+  row-gap: 60px;
+  column-gap: 124px;
+
+  margin-left: 85px;
+  margin-top: 90px;
+}
+
+
+.Template-Card {
+  border-radius: 29px;
+  border: 1px solid #000;
+  background: #F2F2F2;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.Template-Thumbnail {
+  width: 300px;
+  height: 401px;
+  margin-left: 20px;
+  margin-top: 20px;
+  flex-shrink: 0;
+
+  border-radius: 20px 20px 0 0;
+  border: 1px solid #000;
+  background: url(../../images/mau-cv-an-tuong-1.webp) lightgray 0px -4.731px / 100% 106.149% no-repeat;
+}
+
+.Template-Color-Selector {
+  display: inline-flex;
+  padding: 4px 10px;
+  align-items: center;
+  gap: 11px;
+
+  border-radius: 28px;
+  background: rgba(226, 225, 225, 0.80);
+  width: 184px;
+  height: 32px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.Template-Name {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.96px;
+
+  margin-left: 28px;
+  margin-top: 10px;
+}
+
+.Category-Selector2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  padding: 4px 10px;
+  margin-left: 19px;
+  margin-top: 10px;
+}
+
+.Category-Card1, .Category-Card2, .Category-Card3, .Category-Card4 {
+border-radius: 80px;
+background: #FFF;
+}
+
