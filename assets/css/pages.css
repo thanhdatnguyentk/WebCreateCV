@@ -9,7 +9,7 @@
   border: 1px solid #ccc;
 }
 
-/* Mau Anh's code */
+/* Home Page Styles */
 
 h1 {
   width: 963px;
@@ -45,6 +45,7 @@ h1 {
 
   margin-left: 85px;
   margin-top: 90px;
+  margin-bottom: 100px;
 }
 
 
@@ -53,6 +54,7 @@ h1 {
   border: 1px solid #000;
   background: #F2F2F2;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
 }
 
 .Template-Thumbnail {
