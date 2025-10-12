@@ -1,0 +1,118 @@
+/* ======================================================= */
+/* 2. Định kiểu cho Trang Giới thiệu (AboutPage/GioiThieu) */
+/* ======================================================= */
+
+/* --- Thiết lập chung cho main content --- */
+.gioithieu-page {
+    max-width: 1200px; /* Chiều rộng tối đa của nội dung trang */
+    margin: 0 auto; /* Căn giữa trang */
+    padding: 20px;
+}
+
+/* --- Phần HERO (Tiêu đề lớn) --- */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f4f4f9; /* Màu nền nhẹ */
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Định kiểu cho nút Bắt đầu ngay */
+.hero .btn-primary {
+    background-color: #007bff; /* Màu xanh nổi bật */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.hero .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* --- Phần Portfolio/Danh mục --- */
+.portfolio-section {
+    padding: 20px 0;
+}
+
+.portfolio-section h2 {
+    font-size: 2em;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* --- Lưới (Grid) cho các Card --- */
+.portfolio-grid {
+    display: grid;
+    /* Chia thành 3 cột bằng nhau, tự động điều chỉnh */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Khoảng cách giữa các card */
+}
+
+/* --- Định kiểu cho từng Card --- */
+.portfolio-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Giúp ảnh không tràn ra ngoài border-radius */
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px); /* Hiệu ứng nổi lên khi di chuột */
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 200px; /* Chiều cao cố định cho ảnh */
+    object-fit: cover; /* Đảm bảo ảnh che phủ toàn bộ khu vực mà không bị méo */
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-size: 1.2em;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.card-content p {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Định kiểu cho Tag Premium */
+.portfolio-card .tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffc107; /* Màu vàng nổi bật */
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
