@@ -1,0 +1,128 @@
+body {
+    background: #ffffff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.signup-bg {
+    background: #ffffff;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signup-container {
+    background: #fff;
+    padding: 32px 32px 24px 32px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    width: 450px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup-container h2 {
+    margin: 0 0 18px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+.google-btn {
+    width: 100%;
+    background: #555;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 0;
+    font-size: 1em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.google-btn:hover {
+    background: #222;
+}
+.google-logo {
+    width: 22px;
+    height: 22px;
+}
+.divider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0 18px 0;
+}
+.divider hr {
+    flex: 1;
+    border: none;
+    border-top: 2px solid #222222;
+}
+.divider span {
+    font-size: 0.95em;
+    color: #222;
+    font-weight: bold;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.input-row {
+    display: flex;
+    gap: 12px;
+}
+.input-row input {
+    flex: 1;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.2s;
+    margin-top: 10px;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #2196f3;
+}
+.continue-btn {
+    width: 100%;
+    background: #888;
+    color: #000000;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 10px 0;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-color: #000000;
+}
+.continue-btn:hover {
+    background: #3b3b3b;
+    color: #fff;
+}
+.login-link {
+    margin-top: 25px;
+    font-size: 0.98em;
+    color: #222;
+    text-align: center;
+}
+.login-link a {
+    color: #e53935;
+    text-decoration: none;
+    font-weight: bold;
+}
+.login-link a:hover {
+    text-decoration: underline;
+}
