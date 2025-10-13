@@ -58,6 +58,8 @@ nav a {
 */
 @media (max-width: 1024px) {
   .row { grid-template-columns: repeat(8, 1fr); }
+  /* ensure .col without specific classes stays full width on medium screens */
+  .col { grid-column: span 8; }
 }
 
 @media (max-width: 600px) {
