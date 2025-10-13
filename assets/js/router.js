@@ -16,7 +16,6 @@ const routes = {
   "/": GioiThieu,
 };
 
-console.log("Routes:", routes);
 export function router() {
   const path = getHashPath();
   const Page = routes[path] || (() => `<main><h2>404 - Không tìm thấy trang</h2></main>`);
