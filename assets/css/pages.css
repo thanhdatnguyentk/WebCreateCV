@@ -34,14 +34,11 @@ h1 {
   padding-top: 20px ;
 }
 
-.Template-container{
-  display: grid;
-  grid-template-columns: repeat(3, 340px);
-  grid-template-rows: repeat(2, 560px);
-  row-gap: 60px;
-  column-gap: 124px;
-  margin-left: 85px;
-  margin-top: 90px;
+
+.template-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Vertical gap between rows */
 }
 
 
