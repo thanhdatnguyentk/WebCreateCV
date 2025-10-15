@@ -108,14 +108,19 @@ padding-left: 12px;
 padding-right: 12px;
 }
 
-.row-gap{
-  height: 30px;
-}
-
 .Referrence-container {
   margin-top: 50px;
   margin-bottom: 50px;
+  padding: 20px;
   border-radius: 29px;
   background: #F2F2F2;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.Category-Button1 {
+  border-radius: 80px;
+  max-width: 240px;
+  background: #ffffff;
+  padding-left: 20px;
+  margin-top: 10px;
 }
