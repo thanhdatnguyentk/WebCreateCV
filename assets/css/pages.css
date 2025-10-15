@@ -53,6 +53,7 @@ h1 {
 
 .Template-Thumbnail {
   width: 80%;
+  max-width: 245px;
   height: 320px;
   margin : auto;
   margin-top: 20px;
