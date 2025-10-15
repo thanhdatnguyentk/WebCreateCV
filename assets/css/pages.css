@@ -101,7 +101,10 @@ h1 {
 
 .Category-Card1, .Category-Card2, .Category-Card3, .Category-Card4 {
 border-radius: 80px;
-background: #FFF;
+background: #273F4F;
+color: #EFEEEA;
+padding-left: 12px;
+padding-right: 12px;
 }
 
 .row-gap{
