@@ -8,9 +8,8 @@ export default function Header() {
                 </a>
             </div>
             <div class="navbar-links">
-                <a href="#/homePage">Portfolio</a>
+                <a href="#/homePage">Library</a>
                 <a href="#/contact">Contact</a>
-                <a href="#/about">About</a>
             </div>
             <div class="navbar-actions">
                 <a href="#/login" class="btn btn-login">Log in</a>
