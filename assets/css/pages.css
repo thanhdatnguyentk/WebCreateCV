@@ -267,3 +267,64 @@ padding-right: 12px;
  .signup-link a:hover, .login-link a:hover {
      text-decoration: underline;
  }
+
+ .Contact-Container {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.contact-intro {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.Contact-Form {
+  text-align: left;
+}
+
+.Contact-Form .form-group {
+  margin-bottom: 20px;
+}
+
+.Contact-Form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.Contact-Form input,
+.Contact-Form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: #00C8B3;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #009E8E;
+}
+
+.contact-info {
+  text-align: left;
+  padding-left: 40px;
+}
+
+.social-links img {
+  width: 36px;
+  transition: transform 0.2s;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}

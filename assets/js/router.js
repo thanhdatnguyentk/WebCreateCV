@@ -1,7 +1,7 @@
 import HomePage from "../../pages/Home.js"; 
 import AboutPage from "../../pages/About.js";
 import CreatePage from "../../pages/Create.js";
-import GioiThieu from "../../pages/GioiThieu.js";
+
 import ContactPage from "../../pages/Contact.js";
 import LoginPage from "../../pages/LoginPage.js";
 import SignupPage from "../../pages/SignupPage.js";
@@ -12,12 +12,11 @@ import Footer from "./components/footer.js";
 
 const routes = {
   "/homePage": HomePage,
-  "/about": AboutPage,
   "/create": CreatePage,
   "/contact": ContactPage,
   "/login": LoginPage,
   "/signup": SignupPage,
-  "/": GioiThieu,
+  "/": AboutPage,
 };
 
 export function router() {
