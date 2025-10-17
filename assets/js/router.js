@@ -3,6 +3,8 @@ import AboutPage from "../../pages/About.js";
 import CreatePage from "../../pages/Create.js";
 import GioiThieu from "../../pages/GioiThieu.js";
 import ContactPage from "../../pages/Contact.js";
+import LoginPage from "../../pages/LoginPage.js";
+import SignupPage from "../../pages/SignupPage.js";
 import { render, getHashPath } from "./utils.js";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
@@ -13,6 +15,8 @@ const routes = {
   "/about": AboutPage,
   "/create": CreatePage,
   "/contact": ContactPage,
+  "/login": LoginPage,
+  "/signup": SignupPage,
   "/": GioiThieu,
 };
 
