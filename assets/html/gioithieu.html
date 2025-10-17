@@ -1,5 +1,12 @@
-export default function AboutPage() {
-  return `
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới thiệu Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
   <main class="gioithieu-page">
     <section class="hero">
       <h1>Khám phá mẫu Portfolio chuyên nghiệp</h1>
@@ -12,7 +19,7 @@ export default function AboutPage() {
       <div class="portfolio-grid">
         <div class="image-wrapper">
             <div class="portfolio-card">
-                <img src="../../assets/images/HoangAnh/img1.jpg" alt="John Alwin">
+                <img src="../assets/images/HoangAnh/img1.jpg" alt="John Alwin">
                 <div class="card-content">
                     <h3>John Alwin</h3>
                     <p>Painter Artist</p>
@@ -23,7 +30,7 @@ export default function AboutPage() {
 
         <div class="image-wrapper">
             <div class="portfolio-card">
-                <img src="../../assets/images/HoangAnh/img2.jpg" alt="John Alwin">
+                <img src="../assets/images/HoangAnh/img2.jpg" alt="John Alwin">
                 <div class="card-content">
                     <h3>John Alwin</h3>
                     <p>Painter Artist</p>
@@ -34,7 +41,7 @@ export default function AboutPage() {
 
         <div class="image-wrapper">
             <div class="portfolio-card">
-                <img src="../../assets/images/HoangAnh/img3.jpg" alt="John Alwin">
+                <img src="../assets/images/HoangAnh/img3.jpg" alt="John Alwin">
                 <div class="card-content">
                     <h3>John Alwin</h3>
                     <p>Painter Artist</p>
@@ -81,18 +88,5 @@ export default function AboutPage() {
       </div>
     </section>
   </main>
-`;
-}
-
-function createCard(title, subtitle, image, tag) {
-return `
-  <div class="portfolio-card">
-    <img src="./assets/${image}" alt="${title}">
-    <div class="card-content">
-      <h3>${title}</h3>
-      <p>${subtitle}</p>
-      ${tag ? `<span class="tag">${tag}</span>` : ""}
-    </div>
-  </div>
-`;
-}
+</body>
+</html>
