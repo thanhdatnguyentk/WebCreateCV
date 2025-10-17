@@ -1,0 +1,78 @@
+body 
+{
+    background: #222;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.navbar-container {
+    margin: 16px;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #2196f3;
+    padding: 20px 40px;
+    border-radius: 4px;
+}
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.uit-logo {
+    height: 36px;
+    width: auto;
+}
+.navbar-links {
+    display: flex;
+    gap: 40px;
+    margin-left: 20px;
+}
+.navbar-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+.navbar-links a:hover {
+    color: #2196f3;
+}
+.navbar-actions {
+    display: flex;
+    gap: 16px;
+    margin-left: auto;
+}
+.btn {
+    border: none;
+    outline: none;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+}
+.btn-login {
+    background: #e0e0e0;
+    color: #222;
+    border: 2px solid transparent;
+}
+.btn-login:hover {
+    background: #8c8c8c;
+    color: #fff;
+    border : 2px solid #222;
+}
+.btn-signup {
+    background: #222;
+    color: #fff;
+    border: 2px solid transparent;
+}
+.btn-signup:hover {
+    background: #fff;
+    color: #222;
+    border: 2px solid #222;
+}
