@@ -10,25 +10,35 @@
 }
 
 /* --- Phần HERO (Tiêu đề lớn) --- */
+/* --- Phần HERO (Tiêu đề lớn) --- */
 .hero {
     text-align: center;
     padding: 60px 20px;
-    background-color: #f4f4f9; /* Màu nền nhẹ */
+    /* THAY THẾ background-color BẰNG background-image SAU: */
+    /* background-color: #f4f4f9; */ /* Màu nền nhẹ */
+    
+    /* Thêm gradient nhẹ (từ trên xuống, từ màu trắng/rất nhạt sang màu trắng ngà) */
+    background-image: linear-gradient(180deg, #000000 0%, #f7f7fc 100%);
+    
     border-radius: 10px;
     margin-bottom: 40px;
 }
 
 .hero h1 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 25px;
-}
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #222; /* Đậm hơn */
+    margin-bottom: 15px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #444; /* Tối hơn một chút */
+    max-width: 600px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+  }
 
 /* Định kiểu cho nút Bắt đầu ngay */
 .hero .btn-primary {
@@ -82,10 +92,43 @@
     transform: translateY(-5px); /* Hiệu ứng nổi lên khi di chuột */
 }
 
-.portfolio-card img {
+
+
+.portfolio-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease; 
+}
+
+.image-wrapper {
     width: 100%;
-    height: 200px; /* Chiều cao cố định cho ảnh */
-    object-fit: cover; /* Đảm bảo ảnh che phủ toàn bộ khu vực mà không bị méo */
+    height: 200px;
+    overflow: hidden; 
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px;
+    position: relative; 
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    transition: transform 0.6s ease-out; 
+    
+    transform: translateY(4); 
+}
+
+.portfolio-card:hover .image-wrapper img {
+    transform: translateY(200px); /* ảnh trượt xuống sâu hơn */
+    transition-delay: 0.1s; /* có thể giữ hoặc bỏ */
+  }
+  
+
+/* Giữ lại hiệu ứng nổi của Card khi hover */
+.portfolio-card:hover {
+    transform: translateY(-200px); 
 }
 
 .card-content {
