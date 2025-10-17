@@ -69,3 +69,82 @@ nav a {
   .col { grid-column: span 4; }
 }
 
+/* =========================
+  Navbar Styles
+  ========================= */
+.navbar-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+.navbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto; 
+    align-items: center;
+    background: #ffffff;
+    padding: 20px 40px;
+}
+.navbar-logo {
+    display: flex; 
+    align-items: center;
+    margin-right: 32px;
+    flex-shrink: 0; 
+}
+
+.uit-logo {
+    height: 36px;
+    width: auto;
+    max-width: none; 
+}
+.navbar-links {
+    display: flex;
+    margin-left: 40px;
+    gap: 40px;
+}
+.navbar-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+.navbar-links a:hover {
+    color: #2196f3;
+}
+.navbar-actions {
+    display: flex;
+    gap: 16px;
+}
+.navbar-actions .btn {
+    border: none;
+    outline: none;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+}
+.navbar-actions .btn-login {
+    background: #e0e0e0;
+    color: #222;
+}
+.navbar-actions .btn-signup {
+    background: #222;
+    color: #fff;
+}
+
+/* =========================
+  Navbar Responsive 
+  ========================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+  .navbar-links {
+    gap: 20px;
+  }
+  .navbar-actions {
+    gap: 10px;
+  }
+}

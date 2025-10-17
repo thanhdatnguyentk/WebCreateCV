@@ -137,8 +137,133 @@ padding-right: 12px;
   border-color: #4caf50;
 }
 
-.Template-block1:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  border-color: #4caf50;
-}
+/* =========================
+  Login & Signup Pages
+  ========================= */
+
+ .login-bg, .signup-bg {
+     background: #ffffff;
+     /* Dùng min-height để đảm bảo nội dung không bị cắt nếu cửa sổ quá nhỏ */
+     min-height: calc(100vh - 180px); /* Chiều cao màn hình trừ đi khoảng trống cho header/footer */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     /* Thêm padding ngang để container không dính vào cạnh màn hình */
+     padding: 2rem 1rem; 
+ }
+ .login-container, .signup-container {
+     background: #ebebeb;
+     padding: 32px 32px 24px 32px;
+     border-radius: 16px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+     width: 100%; /* Chiếm toàn bộ chiều rộng có thể */
+     max-width: 450px; /* Nhưng không rộng hơn 450px */
+     min-height: 380px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+ .login-container h2, .signup-container h2 {
+     margin: 0 0 18px 0;
+     font-size: 1.5em;
+     font-weight: bold;
+     text-align: center;
+ }
+ .google-btn {
+     width: 100%;
+     background: #555;
+     color: #fff;
+     border: none;
+     border-radius: 12px;
+     padding: 10px 0;
+     font-size: 1em;
+     font-weight: 500;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     margin-bottom: 18px;
+     cursor: pointer;
+     transition: background 0.2s;
+ }
+ .google-btn:hover {
+     background: #222;
+ }
+ .google-logo {
+     width: 22px;
+     height: 22px;
+ }
+ .divider {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     margin: 10px 0 18px 0;
+ }
+ .divider hr {
+     flex: 1;
+     border: none;
+     border-top: 2px solid #222222;
+ }
+ .divider span {
+     font-size: 0.95em;
+     color: #222;
+     font-weight: bold;
+ }
+ .login-container form, .signup-container form {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+ }
+ .signup-container .input-row {
+     display: grid;
+     grid-template-columns: 1fr 1fr; /* Tạo 2 cột bằng nhau */
+     gap: 12px;
+ }
+ .login-container input, .signup-container input {
+     padding: 10px;
+     border: 2px solid #ccc;
+     border-radius: 8px;
+     font-size: 1em;
+     outline: none;
+     transition: border 0.2s;
+     margin-top: 10px;
+ }
+ .login-container input:focus, .signup-container input:focus {
+     border-color: #2196f3;
+ }
+ .continue-btn {
+     width: 100%;
+     background: #888;
+     color: #000000;
+     border: 1px solid #000000;
+     border-radius: 12px;
+     padding: 10px 0;
+     font-size: 1em;
+     font-weight: bold;
+     margin-top: 15px;
+     cursor: pointer;
+     transition: background 0.2s, color 0.2s;
+ }
+ .login-container .continue-btn {
+    margin-top: 20px;
+ }
+ .continue-btn:hover {
+     background: #3b3b3b;
+     color: #fff;
+ }
+ .signup-link, .login-link {
+     margin-top: 25px;
+     font-size: 0.98em;
+     color: #222;
+     text-align: center;
+ }
+ .signup-link a, .login-link a {
+     color: #e53935;
+     text-decoration: none;
+     font-weight: bold;
+ }
+ .signup-link a:hover, .login-link a:hover {
+     text-decoration: underline;
+ }
