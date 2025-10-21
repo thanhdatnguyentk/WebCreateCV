@@ -263,10 +263,11 @@ th, td { padding: .45rem .5rem; border-bottom: 1px solid rgba(15,23,42,0.04); te
 
 /* =========================
   Motion reduction
-  ========================= */
+  ========================= 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+*/
 
 /* =========================
   Small helpers for responsive
