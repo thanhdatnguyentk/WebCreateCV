@@ -308,6 +308,43 @@ export default function HomePage() {
             </div>
         </div>
 
+        <div class="row ">
+                <div class="Referrence-container col-15">
+                    <h2>Learn how to create a stand out portfolio</h2>
+                    <h3>from over 50 newest portfolio samples</h3>
+                    <div class="row ">
+                        <div class="Template-block1 col-4">
+                            <div class="Template-Thumbnail col-4"></div>
+                            <div class="Category-Button">
+                                <h3>Programmer</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="Template-block1 col-4">
+                            <div class="Template-Thumbnail col-4"></div>
+                            <div class="Category-Button">
+                                <h3>Programmer</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="Template-block1 col-4">
+                            <div class="Template-Thumbnail col-4"></div>
+                            <div class="Category-Button">
+                                <h3>Programmer</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="Template-block1 col-4">
+                            <div class="Template-Thumbnail col-4"></div>
+                            <div class="Category-Button">
+                                <h3>Programmer</h3>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+        </div>
+        
         
     </div>
 
