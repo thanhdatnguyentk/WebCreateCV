@@ -113,11 +113,22 @@ padding-right: 12px;
   margin-bottom: 50px;
   padding: 20px;
   border-radius: 29px;
-  background: #F2F2F2;
+  background: #2B2B2B;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  color: #ffffff;
 }
 
-
+.Category-Button {
+  display: inline-flex;
+  background-color: #D4D4D4;
+  border-radius: 100px;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 18px;
+  margin-left: 15%;
+  color: black;
+}
 
 .Template-block1 {
   padding-bottom: 20px;
@@ -129,7 +140,6 @@ padding-right: 12px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   border-color: #4caf50;
 }
-
 /* =========================
   Login & Signup Pages
   ========================= */
