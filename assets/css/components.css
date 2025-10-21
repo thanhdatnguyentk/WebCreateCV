@@ -1,10 +1,73 @@
-.btn {
-  display: inline-block;
-  background: #007bff;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 4px;
+/* =========================
+  Animated Button Component
+  ========================= */
+
+.btn-animated {
+  color: #fff;
+  cursor: pointer;
+  display: block; 
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 45px;
+  max-width: 160px;
+  margin: 0 auto 2em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  -webkit-transition: all .6s ease;
+  transition: all .6s ease;
+  text-align: center;
 }
-.btn:hover {
-  background: #0056b3;
+
+@media (min-width: 400px) {
+  .btn-animated {
+    display: inline-block;
+    margin-right: 2.5em;
+  }
+  .btn-animated:last-of-type {
+    margin-right: 0;
+  }
+}
+@media (min-width: 600px) {
+  .btn-animated:nth-of-type(even) {
+    margin-right: 2.5em;
+  }
+  .btn-animated:nth-of-type(5) {
+    margin-right: 0;
+  }
+}
+
+.btn-animated-1 {
+  background: #024acf;
+  font-weight: 100;
+}
+.btn-animated-1 svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 45px;
+}
+.btn-animated-1 rect {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-dasharray: 422, 0;
+}
+
+.btn-animated-1:hover {
+  background: rgba(225, 51, 45, 0);
+  color: #024acf; /* đổi màu chữ khi hover */
+  letter-spacing: 1px;
+  font-weight: 900;
+  text-decoration: none; 
+}
+.btn-animated-1:hover rect {
+  stroke-width: 5;
+  stroke-dasharray: 15, 310;
+  stroke-dashoffset: 48;
+  stroke: #024acf; /* đổi màu viền khi hover */
+  -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+          transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }

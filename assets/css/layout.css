@@ -148,3 +148,88 @@ nav a {
     gap: 10px;
   }
 }
+/* =========================
+  Footer Styles
+  ========================= */
+.site-footer {
+  background-color: #222;
+  color: #a0aec0; 
+  padding: 48px 0 0 0;
+  font-size: 0.95rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  padding-bottom: 40px;
+}
+
+.footer-column.about-us {
+  grid-column: span 1 / span 2; 
+}
+
+.footer-heading {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-column p {
+  margin: 0;
+  line-height: 1.6;
+  color: #a0aec0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #a0aec0;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-icon {
+  color: #a0aec0;
+  width: 24px;
+  height: 24px;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #374151; 
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #a0aec0;
+}
