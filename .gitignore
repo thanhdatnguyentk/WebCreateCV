@@ -6,6 +6,8 @@
 *.avi
 *.mkv
 *.webm
+*.psd
+*.zip
 #audio
 *.mp3
 *.wav
