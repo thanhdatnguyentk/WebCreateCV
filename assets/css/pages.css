@@ -49,7 +49,7 @@ h1 {
 
 .Template-Card {
   border-radius: 29px;
-  background: #F2F2F2;
+  background: var(--surface);
   transition: 1s;
 
 }
@@ -101,8 +101,8 @@ h1 {
 
 .Category-Card {
 border-radius: 80px;
-background: #273F4F;
-color: #EFEEEA;
+background: var(--text);
+color: var(--white-bg);
 padding-left: 12px;
 padding-right: 12px;
 }
