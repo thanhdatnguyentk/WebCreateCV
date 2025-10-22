@@ -32,8 +32,10 @@ h1 {
 .Category-Selector1 {
   display: inline-flex;
   align-items: center;
-  padding-bottom: 20px  ;
-  padding-top: 20px ;
+  padding-bottom: 1.5em;
+  padding-left: 1.5em;
+  padding-top: 1.5em;
+  gap: 16px;
 }
 
 
