@@ -11,6 +11,7 @@
   --accent-600: #6AA5E0;
   --accent-700: #518AC9;
   --danger: #ef4444; /* giữ nguyên để cảnh báo nổi bật */
+  --blur-shadow: #6A89A7; /*blur color for hover effect */
   --radius: 8px;
   --gutter: 1rem;
   --container-max: 1100px;
