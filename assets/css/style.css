@@ -263,3 +263,247 @@
     font-size: 0.8em;
     font-weight: bold;
 }
+/* ======================================================= */
+/* 2.6. Định kiểu cho Bố cục 2 cột và Sidebar Lọc         */
+/* ======================================================= */
+
+/* Container Chính - Dùng Flexbox để chia 2 cột */
+.portfolio-container {
+    display: flex;
+    gap: 40px; /* Khoảng cách giữa sidebar và nội dung */
+    padding-top: 20px;
+}
+
+/* Sidebar Lọc (Cột trái) */
+.portfolio-sidebar {
+    flex: 0 0 250px; /* Cố định chiều rộng 250px */
+    padding-right: 20px;
+    border-right: 1px solid #eee; /* Đường kẻ phân cách */
+    padding-bottom: 20px;
+    height: fit-content; /* Giúp sidebar không chiếm hết chiều cao */
+}
+
+.sidebar-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Nội dung Portfolio (Cột phải) */
+.portfolio-content {
+    flex: 1; /* Chiếm phần không gian còn lại */
+}
+
+.portfolio-content h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Menu Lọc - Dạng danh sách */
+.filter-menu {
+    display: flex;
+    flex-direction: column; /* Xếp các nút theo cột */
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.filter-btn {
+    /* Thiết lập lại style nút thành dạng danh sách */
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 5px 0; /* Padding dọc nhỏ hơn */
+    color: #555;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    font-weight: 400; /* Bỏ in đậm */
+}
+
+.filter-btn:hover {
+    color: #007bff; /* Thay đổi màu khi hover */
+    background: none;
+}
+
+.filter-btn.active {
+    color: #007bff; /* Màu active là màu xanh */
+    font-weight: 600; /* In đậm khi active */
+    border: none;
+    background: none;
+}
+
+/* Style cho các mục lọc dạng Checkbox (Type) */
+.filter-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+/* ========================================= */
+/* BỐ CỤC CHUNG VÀ GRID TRÊN CÁC KÍCH THƯỚC */
+/* ========================================= */
+
+/* Mặc định trên Desktop (16 cột) đã có */
+
+/* Tablet (max-width: 1024px) - Chuyển sang 8 cột */
+@media (max-width: 1024px) {
+    .row { grid-template-columns: repeat(8, 1fr); }
+    .col { grid-column: span 8; } /* Mặc định .col chiếm toàn bộ (8/8) */
+
+    /* Điều chỉnh các cột quan trọng theo tỷ lệ 8 cột */
+    .col-1 { grid-column: span 1; }
+    .col-4 { grid-column: span 4; } /* Quan trọng: Card sẽ chiếm 4/8 cột = 50% (2 cột/hàng) */
+    .col-15 { grid-column: span 8; } /* Container tham khảo chiếm toàn bộ (8/8) */
+}
+
+/* Mobile (max-width: 600px) - Chuyển sang 4 cột */
+@media (max-width: 600px) {
+    .row { 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 8px; /* Giảm khoảng cách giữa các cột trên mobile */
+    }
+    .col { grid-column: span 4; } /* Mặc định .col chiếm toàn bộ (4/4) */
+    
+    /* Điều chỉnh các cột quan trọng theo tỷ lệ 4 cột */
+    .col-1 { 
+        display: none; /* Ẩn các cột trống (col-1) trên mobile để tiết kiệm không gian */
+    }
+    .col-4 { 
+        grid-column: span 4; /* Quan trọng: Card sẽ chiếm 4/4 cột = 100% (1 cột/hàng) */
+    }
+    .col-15 { grid-column: span 4; } /* Container tham khảo chiếm toàn bộ (4/4) */
+}
+/* ========================================= */
+/* THANH CHỌN DANH MỤC NỀN TRÊN (CATEGORY-SELECTOR1) */
+/* ========================================= */
+
+.Category-Selector1 .row {
+    flex-wrap: nowrap; /* Ngăn các thẻ xuống dòng */
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    padding-bottom: 10px; /* Thêm padding cho thanh cuộn */
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+}
+
+/* Đảm bảo các thẻ danh mục không bị co lại trên mobile */
+.Category-Selector1 .Category-Card1, 
+.Category-Selector1 .Category-Card2, 
+.Category-Selector1 .Category-Card3, 
+.Category-Selector1 .Category-Card4 {
+    /* Đặt chiều rộng tối thiểu và buộc chiếm 4 cột trên hệ thống 16 cột ban đầu */
+    min-width: 120px; 
+    grid-column: span 4; /* Giữ nguyên 4 cột cho mỗi thẻ trên desktop */
+}
+
+/* Trên Tablet/Mobile, chuyển sang flex để cuộn ngang và buộc nó không dùng grid */
+@media (max-width: 1024px) {
+    .Category-Selector1 .row {
+        display: flex; /* Dùng Flexbox để kiểm soát cuộn ngang tốt hơn */
+    }
+    .Category-Selector1 .col-1 { 
+        display: none; /* Ẩn cột trống */
+    }
+    /* Các thẻ danh mục trên mobile/tablet */
+    .Category-Selector1 [class*="Category-Card"] {
+        flex-shrink: 0; /* Quan trọng: Ngăn các thẻ bị bóp nhỏ */
+        width: 100px; /* Chiều rộng cố định cho mỗi thẻ khi cuộn */
+        padding: 10px 15px;
+        text-align: center;
+    }
+}
+/* ========================================= */
+/* VÙNG THAM KHẢO (REFERRENCE-CONTAINER) */
+/* ========================================= */
+
+/* Mặc định trên Desktop: 4 khối (mỗi khối 4/16 cột) đã có */
+
+/* Tablet (dưới 1024px) - Chuyển sang 2 cột */
+.Referrence-container .row {
+    grid-template-columns: repeat(8, 1fr); /* Đã được thiết lập bởi media query chung */
+}
+
+@media (max-width: 1024px) {
+    /* Khối tham khảo chiếm 4/8 cột = 50% (2 khối/hàng) */
+    .Referrence-container .Template-block1 {
+        grid-column: span 4;
+    }
+}
+
+/* Mobile (dưới 600px) - Chuyển sang 1 cột */
+.Referrence-container .row {
+    /* Đã được thiết lập bởi media query chung */
+    grid-template-columns: repeat(4, 1fr); 
+}
+
+@media (max-width: 600px) {
+    /* Khối tham khảo chiếm 4/4 cột = 100% (1 khối/hàng) */
+    .Referrence-container .Template-block1 {
+        grid-column: span 4;
+    }
+    /* Căn chỉnh nội dung tiêu đề */
+    .Referrence-container h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .Referrence-container h3 {
+        font-size: 1em;
+        text-align: center;
+    }
+}
+/* ======================================================= */
+/* 2.7. Responsive cho Trang Giới thiệu (gioithieu.html)   */
+/* ======================================================= */
+
+@media (max-width: 800px) { /* Điểm gãy cho bố cục 2 cột */
+
+    /* 1. Chuyển bố cục flex thành cột (xếp chồng) */
+    .portfolio-container {
+        flex-direction: column; /* Xếp sidebar lên trên nội dung */
+        gap: 20px; /* Giảm khoảng cách khi xếp chồng */
+    }
+
+    /* 2. Sidebar chiếm 100% chiều rộng */
+    .portfolio-sidebar {
+        flex-basis: 100%; /* Cho phép sidebar chiếm 100% */
+        width: 100%;
+        border-right: none; /* Bỏ đường kẻ dọc */
+        border-bottom: 1px solid #eee; /* Thay bằng đường kẻ ngang */
+        padding-right: 0;
+    }
+
+    /* 3. Nội dung cũng chiếm 100% */
+    .portfolio-content {
+        flex-basis: 100%;
+    }
+
+    /* 4. (Tùy chọn) Ẩn tiêu đề h2 trong section trên mobile */
+    .portfolio-section h2 {
+        font-size: 1.5em; /* Có thể giảm kích thước tiêu đề */
+    }
+}
+
+@media (max-width: 600px) {
+    /* 5. Tinh chỉnh trên mobile nhỏ */
+    .gioithieu-page {
+        padding: 10px; /* Giảm padding trang */
+    }
+
+    .hero-slider {
+        height: 200px; /* Giảm chiều cao slider */
+    }
+
+    /* Lưới portfolio trên mobile */
+    .portfolio-grid {
+        /* Đảm bảo auto-fit hoạt động tốt trên màn hình nhỏ */
+        /* Giảm minmax để vừa 1 cột đẹp hơn */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+}
