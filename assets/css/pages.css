@@ -270,15 +270,27 @@ padding-right: 12px;
      text-decoration: underline;
  }
 
- .Contact-Container {
+/* Contact page */
+.Contact-Container {
   margin-top: 60px;
   margin-bottom: 60px;
   text-align: center;
+  font-family: var(--font-sans);
+  color: var(--text);
+}
+
+.Contact-card {
+  background: var(--white-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
 }
 
 .contact-intro {
-  color: #666;
+  color: var(--muted);
   margin-bottom: 40px;
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
 }
 
 .Contact-Form {
@@ -292,30 +304,62 @@ padding-right: 12px;
 .Contact-Form label {
   display: block;
   margin-bottom: 6px;
-  font-weight: 600;
+  font-weight: var(--fw-medium);
+  color: var(--text);
 }
 
 .Contact-Form input,
 .Contact-Form textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
+  border: 1px solid var(--surface);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--white-bg);
+  box-shadow: var(--shadow-sm);
+  outline: none;
+  transition: border var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-
+.Contact-Form input:focus,
+.Contact-Form textarea:focus {
+  border-color: var(--accent-600);
+  box-shadow: var(--shadow-md);
+}
+.Contact-submit-btn {
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+  color: var(--white-bg);
+  background: var(--accent-600);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
 
 .contact-info {
   text-align: left;
   padding-left: 40px;
+  color: var(--text);
+  font-size: 0.95rem;
 }
 
 .social-links img {
   width: 36px;
-  transition: transform 0.2s;
+  transition: transform var(--transition-fast);
 }
 
 .social-links img:hover {
   transform: scale(1.2);
+  filter: drop-shadow(0 2px 6px rgba(56,73,89,0.08));
+}
+
+.contact-map {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  margin-top: 30px;
 }
