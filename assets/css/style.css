@@ -501,9 +501,7 @@
 
     /* Lưới portfolio trên mobile */
     .portfolio-grid {
-        /* Đảm bảo auto-fit hoạt động tốt trên màn hình nhỏ */
-        /* Giảm minmax để vừa 1 cột đẹp hơn */
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 20px;
     }
-}
+} 
