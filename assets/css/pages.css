@@ -302,18 +302,7 @@ padding-right: 12px;
   font-size: 14px;
 }
 
-.btn-primary {
-  background-color: #00C8B3;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-}
 
-.btn-primary:hover {
-  background-color: #009E8E;
-}
 
 .contact-info {
   text-align: left;

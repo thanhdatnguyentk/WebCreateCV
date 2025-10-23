@@ -4,7 +4,12 @@ export default function AboutPage() {
     <section class="hero">
       <h1>Khám phá mẫu Portfolio chuyên nghiệp</h1>
       <p>Các mẫu responsive, dễ dùng và tùy chỉnh cho mọi ngành nghề.</p>
-      <button class="btn-primary">Bắt đầu ngay</button>
+      <button class="btn-primary btn-animated btn-animated-1">
+        <svg>
+          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+        </svg>
+        Bắt đầu ngay
+      </button>
     </section>
 
     <section class="portfolio-section">

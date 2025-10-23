@@ -29,7 +29,7 @@ export default function AboutPage() {
             <label for="message">Nội dung</label>
             <textarea id="message" name="message" rows="6" placeholder="Nhập tin nhắn của bạn..." required></textarea>
           </div>
-
+          
           <button type="submit" class="btn-primary">Gửi tin nhắn</button>
         </form>
       </div>
