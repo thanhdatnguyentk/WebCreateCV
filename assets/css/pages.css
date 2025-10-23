@@ -29,11 +29,14 @@ h1 {
 .Homepage-Container {
   padding: 20px;
 }
+
 .Category-Selector1 {
   display: inline-flex;
   align-items: center;
-  padding-bottom: 20px  ;
-  padding-top: 20px ;
+  padding-bottom: 1.5em;
+  padding-left: 1.5em;
+  padding-top: 1.5em;
+  gap: 16px;
 }
 
 
@@ -46,8 +49,8 @@ h1 {
 
 .Template-Card {
   border-radius: 29px;
-  background: #F2F2F2;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: var(--surface);
+  transition: 1s;
 
 }
 
@@ -85,25 +88,21 @@ h1 {
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.96px;
-
   margin-left: 28px;
-  margin-top: 10px;
 }
 
 .Category-Selector2 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  
-  padding: 4px 10px;
+  padding: 4px 5px;
   margin-left: 19px;
-  margin-top: 10px;
 }
 
-.Category-Card1, .Category-Card2, .Category-Card3, .Category-Card4 {
+.Category-Card {
 border-radius: 80px;
-background: #273F4F;
-color: #EFEEEA;
+background: var(--text);
+color: var(--white-bg);
 padding-left: 12px;
 padding-right: 12px;
 }
@@ -113,17 +112,21 @@ padding-right: 12px;
   margin-bottom: 50px;
   padding: 20px;
   border-radius: 29px;
-  background: #F2F2F2;
+  background: #2B2B2B;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  color: #ffffff;
 }
 
-.Category-Button1 {
-  border-radius: 80px;
-  max-width: 240px;
-
-  background: #ffffff;
-  padding-left: 20px;
-  margin-top: 10px;
+.Category-Button {
+  display: inline-flex;
+  background-color: #D4D4D4;
+  border-radius: 100px;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 18px;
+  margin-left: 15%;
+  color: black;
 }
 
 .Template-block1 {
@@ -132,11 +135,10 @@ padding-right: 12px;
 }
 
 .Template-Card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  transform: translateY(-3px);
   border-color: #4caf50;
+  box-shadow:  0 12px 32px var(--blur-shadow), 0 6px 12px var(--blur-shadow);
 }
-
 /* =========================
   Login & Signup Pages
   ========================= */
