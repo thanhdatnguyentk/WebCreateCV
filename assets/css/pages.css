@@ -113,9 +113,59 @@ padding-right: 12px;
   margin-bottom: 50px;
   padding: 20px;
   border-radius: 29px;
-  background: #2B2B2B;
+  background: var(--text);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   color: #ffffff;
+  max-width: 1200px;
+  position: relative;
+}
+
+.swiper-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 20px;
+}
+
+.swiper-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.swiper-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.swiper-nav:hover {
+  background: #384959;
+  color: white;
+}
+
+.swiper-nav.prev {
+  left: 0;
+}
+
+.swiper-nav.next {
+  right: 0;
+}
+
+.swiper-nav svg {
+  width: 20px;
+  height: 20px;
 }
 
 .Category-Button {
@@ -130,9 +180,20 @@ padding-right: 12px;
   color: black;
 }
 
-.Template-block1 {
+.Template-block {
+  min-width: 280px;
   padding-bottom: 20px;
   border-radius: 29px;
+  flex-shrink: 0;
+  background: #E5F1FB;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(56, 73, 89, 0.15);
+}
+
+.Template-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(56, 73, 89, 0.25), 0 6px 12px rgba(56, 73, 89, 0.15);
 }
 
 .Template-Card:hover {
