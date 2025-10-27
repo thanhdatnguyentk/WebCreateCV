@@ -4,9 +4,9 @@ export default function AboutPage() {
     <main class="gioithieu-page">
       <section class="hero-slider">
         <div class="slider-wrapper">
-          <div class="slide active" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/banner.jpg');"></div>
-          <div class="slide" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');"></div>
-          <div class="slide" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/banner.jpg');"></div>
+          <div class="slide active" style="background-image: url('../assets/images/HoangAnh/banner.jpg');"></div>
+          <div class="slide" style="background-image: url('../assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');"></div>
+          <div class="slide" style="background-image: url('../assets/images/HoangAnh/banner.jpg');"></div>
         </div>
         <button class="slider-nav prev">&lt;</button>
         <button class="slider-nav next">&gt;</button>
@@ -30,9 +30,18 @@ export default function AboutPage() {
 
           <h3 class="sidebar-title" style="margin-top: 20px;">Type</h3>
           <div class="filter-menu">
-            <label class="filter-type"><input type="checkbox" checked disabled>Portfolio</label>
-            <label class="filter-type"><input type="checkbox" disabled>Blog</label>
-            <label class="filter-type"><input type="checkbox" disabled>Scheduling</label>
+            <label class="filter-type ">
+            <span >Portfolio</span>
+              <input type="checkbox" checked disabled>
+                </label>
+            <label filter-type ">
+            <span >Blog</span>
+              <input type="checkbox" disabled>
+            </label>
+            <label filter-type ">
+            <span >Scheduling</span>
+              <input type="checkbox" disabled>
+            </label>
           </div>
         </aside>
 
@@ -67,7 +76,7 @@ function createCard(title, subtitle, image, tag) {
   return `
     <div class="image-wrapper">
       <div class="portfolio-card">
-        <img src="/WebCreateCV/assets/images/${image}" alt="${title}">
+        <img src="../assets/images/${image}" alt="${title}">
         <div class="card-content">
           <h3>${title}</h3>
           <p>${subtitle}</p>
