@@ -166,7 +166,13 @@ padding-right: 12px;
 .swiper-nav svg {
   width: 20px;
   height: 20px;
+  color: var(--text);
 }
+
+.swiper-nav:hover svg {
+  color: var(--white-bg);
+}
+
 
 .Category-Button {
   display: inline-flex;
@@ -424,4 +430,95 @@ padding-right: 12px;
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
   margin-top: 30px;
+}
+
+/* Templates page */
+.Template-container {
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+}
+.Template-header {
+  align-items: center;
+  margin-bottom: 40px;
+}
+.Template-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  color: var(--accent-700);
+  font-size: clamp(1.5rem, 2rem + 1vw, 2.25rem);
+}
+
+.Primary-Button {
+  appearance: none;
+  border: 0;
+  padding: .6rem 1rem;
+  border-radius: calc(var(--radius) * 1.5);
+  background: var(--accent-600);
+  color: var(--text);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.Primary-Button a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.Primary-Button:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+/* Preview area */
+.Template-preview-container {
+  width: 100%;
+  border-radius: calc(var(--radius) * 1.8);
+  border: 1px solid rgba(15,23,42,0.04);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.Template-block {
+  min-width: 280px;
+  padding-bottom: 20px;
+  border-radius: calc(var(--radius) * 3.5);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+.Template-preview-fallback{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+}
+.Template-preview-fallback a {
+  color: var(--text);
+  text-decoration: none;
+}
+.Template-Thumbnail {
+  width: 80%;
+  max-width: 245px;
+  height: 320px;
+  margin: 20px auto 0;
+  flex-shrink: 0;
+  border-radius: calc(var(--radius) * 2) calc(var(--radius) * 2) 0 0;
+  background: url(../img/mau-cv-an-tuong-1.webp) center / cover no-repeat;
+  background-color: var(--white-bg);
+}
+
+.Template-Name {
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  margin-left: 28px;
+}
+
+.Referrence-button {
+  margin-top: 10px;
+  
 }
