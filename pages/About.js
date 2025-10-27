@@ -92,9 +92,18 @@ export default function AboutPage() {
 
           <h3 class="sidebar-title" style="margin-top: 20px;">Type</h3>
           <div class="filter-menu">
-            <label class="filter-type"><input type="checkbox" checked disabled>Portfolio</label>
-            <label class="filter-type"><input type="checkbox" disabled>Blog</label>
-            <label class="filter-type"><input type="checkbox" disabled>Scheduling</label>
+            <label class="filter-type ">
+            <span >Portfolio</span>
+              <input type="checkbox" checked disabled>
+                </label>
+            <label filter-type ">
+            <span >Blog</span>
+              <input type="checkbox" disabled>
+            </label>
+            <label filter-type ">
+            <span >Scheduling</span>
+              <input type="checkbox" disabled>
+            </label>
           </div>
         </aside>
 
