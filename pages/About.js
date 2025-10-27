@@ -1,12 +1,74 @@
 // about.js
+
+// Cấu hình dữ liệu cho từng category
+const portfolioData = {
+  edit: {
+    title: "Edit",
+    folder: "Edit",
+    items: [
+      { title: "Video Editor Portfolio", subtitle: "Professional Video Editing", tag: "" },
+      { title: "Photo Editor Showcase", subtitle: "Creative Photo Editing", tag: "Premium" },
+      { title: "Content Editor CV", subtitle: "Editorial & Content Creation", tag: "Premium" }
+    ]
+  },
+  coder: {
+    title: "Coder",
+    folder: "Coder",
+    items: [
+      { title: "Full Stack Developer", subtitle: "Web Development Expert", tag: "Premium" },
+      { title: "Frontend Developer", subtitle: "UI/UX Implementation", tag: "" },
+      { title: "Backend Developer", subtitle: "Server & Database Specialist", tag: "Premium" }
+    ]
+  },
+  design: {
+    title: "Art & Design",
+    folder: "Artist & Designer",
+    items: [
+      { title: "Graphic Designer", subtitle: "Visual Design Expert", tag: "Premium" },
+      { title: "UI/UX Designer", subtitle: "User Experience Designer", tag: "Premium" },
+      { title: "Digital Artist", subtitle: "Creative Digital Arts", tag: "" },
+      { title: "Photographer", subtitle: "Professional Photography", tag: "" }
+    ]
+  },
+  fashion: {
+    title: "Fashion",
+    folder: "Fashion",
+    items: [
+      { title: "Fashion Designer", subtitle: "Trendy Fashion Design", tag: "Premium" },
+      { title: "Style Consultant", subtitle: "Personal Styling Expert", tag: "Premium" },
+      { title: "Fashion Photographer", subtitle: "Fashion Photography", tag: "Premium" }
+    ]
+  }
+};
+
 export default function AboutPage() {
+  // Tính tổng số templates
+  const totalTemplates = Object.values(portfolioData).reduce((sum, category) => sum + category.items.length, 0);
+  
+  // Tạo HTML cho các sections
+  const sectionsHTML = Object.entries(portfolioData).map(([key, category]) => {
+    const cardsHTML = category.items.map((item, index) => {
+      const imagePath = `/HoangAnh/Portfolio/${category.folder}/img${index + 1}.jpg`;
+      return createCard(item.title, item.subtitle, imagePath, item.tag);
+    }).join('');
+
+    return `
+      <section class="portfolio-section" data-category="${key}">
+        <h2>${category.title}</h2>
+        <div class="portfolio-grid">
+          ${cardsHTML}
+        </div>
+      </section>
+    `;
+  }).join('');
+
   return `
     <main class="gioithieu-page">
       <section class="hero-slider">
         <div class="slider-wrapper">
-          <div class="slide active" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/banner.jpg');"></div>
-          <div class="slide" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');"></div>
-          <div class="slide" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/banner.jpg');"></div>
+          <div class="slide active" style="background-image: url('assets/images/HoangAnh/banner.jpg');"></div>
+          <div class="slide" style="background-image: url('assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');"></div>
+          <div class="slide" style="background-image: url('assets/images/HoangAnh/gradient-portfolio-banner-template_23-2149225563.jpg');"></div>
         </div>
         <button class="slider-nav prev">&lt;</button>
         <button class="slider-nav next">&gt;</button>
@@ -37,37 +99,18 @@ export default function AboutPage() {
         </aside>
 
         <div class="portfolio-content">
-          <h2>Popular Designs Templates (29)</h2>
-
-          <section class="portfolio-section" data-category="edit">
-            <h2>Edit</h2>
-            <div class="portfolio-grid">
-              ${createCard("John Alwin", "Painter Artist", "HoangAnh/img1.jpg", "Premium")}
-              ${createCard("John Alwin", "Painter Artist", "HoangAnh/img2.jpg", "Premium")}
-              ${createCard("John Alwin", "Painter Artist", "HoangAnh/img3.jpg", "Premium")}
-            </div>
-          </section>
-
-          <section class="portfolio-section" data-category="coder">
-            <h2>Coder</h2>
-            <div class="portfolio-grid">
-              ${createCard("John Alwin", "Painter Artist", "HoangAnh/img1.jpg", "Premium")}
-              ${createCard("John Alwin", "Painter Artist", "HoangAnh/img2.jpg", "Premium")}
-              ${createCard("John Alwin", "Painter Artist", "HoangAnh/img3.jpg", "Premium")}
-            </div>
-          </section>
+          <h2>Popular Designs Templates (${totalTemplates})</h2>
+          ${sectionsHTML}
         </div>
       </section>
     </main>
   `;
 }
-
-// Hàm tạo card động
 function createCard(title, subtitle, image, tag) {
   return `
     <div class="image-wrapper">
       <div class="portfolio-card">
-        <img src="/WebCreateCV/assets/images/${image}" alt="${title}">
+        <img src="assets/images/${image}" alt="${title}">
         <div class="card-content">
           <h3>${title}</h3>
           <p>${subtitle}</p>
@@ -77,6 +120,7 @@ function createCard(title, subtitle, image, tag) {
     </div>
   `;
 }
+
 export function initPortfolioPage() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const portfolioSections = document.querySelectorAll('.portfolio-section');
@@ -88,8 +132,11 @@ export function initPortfolioPage() {
 
     portfolioSections.forEach(section => {
       const category = section.getAttribute('data-category');
-      if (filterValue === 'all' || category === filterValue) section.classList.remove('hidden');
-      else section.classList.add('hidden');
+      if (filterValue === 'all' || category === filterValue) {
+        section.classList.remove('hidden');
+      } else {
+        section.classList.add('hidden');
+      }
     });
   }
 
