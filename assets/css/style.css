@@ -344,40 +344,7 @@
     font-size: 0.95em;
     color: #555;
 }
-/* ========================================= */
-/* BỐ CỤC CHUNG VÀ GRID TRÊN CÁC KÍCH THƯỚC */
-/* ========================================= */
 
-/* Mặc định trên Desktop (16 cột) đã có */
-
-/* Tablet (max-width: 1024px) - Chuyển sang 8 cột */
-@media (max-width: 1024px) {
-    .row { grid-template-columns: repeat(8, 1fr); }
-    .col { grid-column: span 8; } /* Mặc định .col chiếm toàn bộ (8/8) */
-
-    /* Điều chỉnh các cột quan trọng theo tỷ lệ 8 cột */
-    .col-1 { grid-column: span 1; }
-    .col-4 { grid-column: span 4; } /* Quan trọng: Card sẽ chiếm 4/8 cột = 50% (2 cột/hàng) */
-    .col-15 { grid-column: span 8; } /* Container tham khảo chiếm toàn bộ (8/8) */
-}
-
-/* Mobile (max-width: 600px) - Chuyển sang 4 cột */
-@media (max-width: 600px) {
-    .row { 
-        grid-template-columns: repeat(4, 1fr); 
-        gap: 8px; /* Giảm khoảng cách giữa các cột trên mobile */
-    }
-    .col { grid-column: span 4; } /* Mặc định .col chiếm toàn bộ (4/4) */
-    
-    /* Điều chỉnh các cột quan trọng theo tỷ lệ 4 cột */
-    .col-1 { 
-        display: none; /* Ẩn các cột trống (col-1) trên mobile để tiết kiệm không gian */
-    }
-    .col-4 { 
-        grid-column: span 4; /* Quan trọng: Card sẽ chiếm 4/4 cột = 100% (1 cột/hàng) */
-    }
-    .col-15 { grid-column: span 4; } /* Container tham khảo chiếm toàn bộ (4/4) */
-}
 
 
 .Category-Selector1 .row {
@@ -388,4 +355,3 @@
     gap: 12px;
 }
 
-/* Đảm bảo các thẻ danh mục không bị co lại trên mobile */

@@ -1,5 +1,5 @@
 import HomePage from "../../pages/Home.js"; 
-import AboutPage from "../../pages/About.js";
+import AboutPage, { initPortfolioPage } from "../../pages/About.js";
 import CreatePage from "../../pages/Create.js";
 
 import ContactPage from "../../pages/Contact.js";
@@ -31,6 +31,11 @@ export function router() {
     ${Footer()}
   `;
   render(layout);
+
+  if (path === "/" || path === "/about") {
+    // gọi init slider + filter sau khi HTML đã render
+    initPortfolioPage();
+  }
 }
 
 window.addEventListener("hashchange", router);
