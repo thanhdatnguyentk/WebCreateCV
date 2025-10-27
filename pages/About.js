@@ -105,8 +105,6 @@ export default function AboutPage() {
     </main>
   `;
 }
-
-// Hàm tạo card động
 function createCard(title, subtitle, image, tag) {
   return `
     <div class="image-wrapper">
