@@ -5,7 +5,8 @@
 .btn-animated {
   color: #fff;
   cursor: pointer;
-  display: block; 
+  display: block;
+  
   font-size: 16px;
   font-weight: 100;
   line-height: 45px;
