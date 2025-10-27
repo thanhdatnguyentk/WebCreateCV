@@ -55,15 +55,22 @@ h1 {
 }
 
 .Template-Thumbnail {
-  width: 80%;
+  height: 100%;
   max-width: 245px;
   height: 320px;
   margin : auto;
   margin-top: 20px;
   flex-shrink: 0;
-
   border-radius: 20px 20px 0 0;
-  background: url(../img/mau-cv-an-tuong-1.webp) lightgray 0px -4.731px / 100% 106.149% no-repeat;
+  background: lightgray 0px -4.731px / 100% 106.149% no-repeat;
+  /* 1. This is the fix for the gap */
+  
+  
+  /* 2. These make the image fill the container */
+  width: 82%;
+  
+  /* 3. This prevents the image from stretching/squashing */
+  
 }
 
 .Template-Color-Selector {
@@ -77,7 +84,7 @@ h1 {
   width: 184px;
   height: 32px;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 1em;
 }
 
 .Template-Name {
@@ -89,6 +96,7 @@ h1 {
   line-height: normal;
   letter-spacing: -0.96px;
   margin-left: 28px;
+  margin-top: 0.4em;
 }
 
 .Category-Selector2 {
@@ -97,6 +105,7 @@ h1 {
   gap: 8px;
   padding: 4px 5px;
   margin-left: 19px;
+  margin-top: 0.3em;
   margin-bottom: 1em;
 }
 
@@ -106,6 +115,10 @@ background: var(--text);
 color: var(--white-bg);
 padding-left: 12px;
 padding-right: 12px;
+}
+
+.Category-Selector1 .Category-Card {
+  text-decoration: none;
 }
 
 .Referrence-container {
@@ -134,33 +147,33 @@ padding-right: 12px;
 }
 
 .swiper-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: 0.3s;
-  z-index: 10;
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    line-height: 1;
+    transition: background-color 0.3s ease;
 }
 
 .swiper-nav:hover {
-  background: #384959;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .swiper-nav.prev {
-  left: 0;
+  left: -20px;
 }
 
 .swiper-nav.next {
-  right: 0;
+  right: -20px; 
 }
 
 .swiper-nav svg {
@@ -178,11 +191,11 @@ padding-right: 12px;
   display: inline-flex;
   background-color: #D4D4D4;
   border-radius: 100px;
-  margin-top: 5%;
+  margin-top: 8%;
   align-items: center;
   justify-content: center;
   padding: 4px 18px;
-  margin-left: 15%;
+  margin-left: 20%;
   color: black;
 }
 
@@ -205,7 +218,8 @@ padding-right: 12px;
 .Template-Card:hover {
   transform: translateY(-3px);
   border-color: #4caf50;
-  box-shadow:  0 12px 32px var(--blur-shadow), 0 6px 12px var(--blur-shadow);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+
 }
 /* =========================
   Login & Signup Pages
