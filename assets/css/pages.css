@@ -162,11 +162,11 @@ padding-right: 12px;
 }
 
 .swiper-nav.prev {
-  left: 15px;
+  left: -20px;
 }
 
 .swiper-nav.next {
-  right: 15px; 
+  right: -20px; 
 }
 
 .swiper-nav svg {
