@@ -55,15 +55,22 @@ h1 {
 }
 
 .Template-Thumbnail {
-  width: 80%;
+  height: 100%;
   max-width: 245px;
   height: 320px;
   margin : auto;
   margin-top: 20px;
   flex-shrink: 0;
-
   border-radius: 20px 20px 0 0;
-  background: url(../img/mau-cv-an-tuong-1.webp) lightgray 0px -4.731px / 100% 106.149% no-repeat;
+  background: lightgray 0px -4.731px / 100% 106.149% no-repeat;
+  /* 1. This is the fix for the gap */
+  
+  
+  /* 2. These make the image fill the container */
+  width: 82%;
+  
+  /* 3. This prevents the image from stretching/squashing */
+  
 }
 
 .Template-Color-Selector {
@@ -178,11 +185,11 @@ padding-right: 12px;
   display: inline-flex;
   background-color: #D4D4D4;
   border-radius: 100px;
-  margin-top: 5%;
+  margin-top: 8%;
   align-items: center;
   justify-content: center;
   padding: 4px 18px;
-  margin-left: 15%;
+  margin-left: 20%;
   color: black;
 }
 
