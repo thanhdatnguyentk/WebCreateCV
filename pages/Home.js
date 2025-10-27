@@ -24,7 +24,7 @@ window.scrollSwiper = scrollSwiper;
 
 export default function HomePage() {
   return `
-   <div class="container Homepage-Container">
+      <div class="container Homepage-Container">
 
         <h1>Explore over 100000 types of portfolio templates
             and edit as your own professional portfolio</h1>
@@ -32,18 +32,20 @@ export default function HomePage() {
         <div class="Category-Selector1">
             <div class="row">
                 <div class="col-1"></div>
-                <div class="Category-Card">Featured</div>
-                <div class="Category-Card">Professional</div>
-                <div class="Category-Card">Minimal</div>
-                <div class="Category-Card">Modern</div>
+                <a href="#" class="Category-Card">Featured</a>
+                <a href="#" class="Category-Card">Professional</a>
+                <a href="#" class="Category-Card">Minimal</a>
+                <a href="#" class="Category-Card">Modern</a>
             </div>
         </div>
-    
+
         <div class="template-grid">
             <div class="row ">
                 <div class="col-1"></div>
-                <a href="#/templatePage" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail"></div>
+                <div class="Template-Card col-4 ">
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -71,10 +73,12 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </a>
+                </div>
                 <div class="col-1"></div>
                 <div class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail"></div>
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -105,7 +109,9 @@ export default function HomePage() {
                 </div>
                 <div class="col-1"></div>
                 <div class="Template-Card col-4">
-                    <div class="Template-Thumbnail"></div>
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -140,7 +146,9 @@ export default function HomePage() {
             <div class="row ">
                 <div class="col-1"></div>
                 <div class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail"></div>
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -171,7 +179,9 @@ export default function HomePage() {
                 </div>
                 <div class="col-1"></div>
                 <div class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail"></div>
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -202,7 +212,9 @@ export default function HomePage() {
                 </div>
                 <div class="col-1"></div>
                 <div class="Template-Card col-4">
-                    <div class="Template-Thumbnail"></div>
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -237,7 +249,9 @@ export default function HomePage() {
             <div class="row ">
                 <div class="col-1"></div>
                 <div class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail"></div>
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -268,7 +282,9 @@ export default function HomePage() {
                 </div>
                 <div class="col-1"></div>
                 <div class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail"></div>
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -299,7 +315,9 @@ export default function HomePage() {
                 </div>
                 <div class="col-1"></div>
                 <div class="Template-Card col-4">
-                    <div class="Template-Thumbnail"></div>
+                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="12" fill="black" />
@@ -346,35 +364,45 @@ export default function HomePage() {
                         <div class="swiper-wrapper" id="swiperWrapper">
                             
                                 <div class="Template-block">
-                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
                                 </div>
                         
                                 <div class="Template-block">
-                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
                                 </div>
                         
                                 <div class="Template-block">
-                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
                                 </div>
                         
                                 <div class="Template-block">
-                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
                                 </div>
 
                                 <div class="Template-block">
-                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Template-Thumbnail">
+                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                    </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
@@ -389,9 +417,20 @@ export default function HomePage() {
                             </svg>
                         </div>
                 </div>
-        
-        
+
+
+            </div>
+
+            <div class="swiper-nav next" onclick="scrollSwiper(1)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </div>
+        </div>
+
+
     </div>
+    
 
   `;
 

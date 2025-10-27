@@ -133,11 +133,11 @@ const btn = document.querySelector('.Primary-Button');
         sessionStorage.getItem('token') ||
         window.__USER__
     );
-    if (!isLoggedIn) {
-        alert('Vui lòng đăng nhập để sử dụng tính năng này.');
-        window.location.href = 'index.html#/login';
-        return;
-    }
+    // if (!isLoggedIn) {
+    //     alert('Vui lòng đăng nhập để sử dụng tính năng này.');
+    //     window.location.href = 'index.html#/login';
+    //     return;
+    // }
     e.preventDefault();
     const iframe = document.querySelector(iframeSelector);
     if(!iframe){
