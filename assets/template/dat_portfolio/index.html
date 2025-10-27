@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rin Nguyen — AI Engineer Portfolio</title>
+  <meta name="description" content="Portfolio của Nguyễn Thành Đạt (RinNguyen) — AI Engineer | Machine Learning & NLP" />
+  <link rel="preconnect" href="https://api.github.com" crossorigin>
+  <style>
+    :root{
+      --bg: #070b14;
+      --bg-2:#0b1222;
+      --glass: rgba(255,255,255,0.06);
+      --primary:#59a4ff;
+      --primary-2:#2e7aff;
+      --text:#e8f0ff;
+      --muted:#9db3d9;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.11);
+      --shadow: 0 10px 30px rgba(14, 77, 255, 0.25);
+      --radius: 20px;
+      --max: 1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Inter, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 100% -20%, rgba(46,122,255,0.10), transparent 60%),
+        radial-gradient(1000px 700px at -10% 10%, rgba(89,164,255,0.12), transparent 55%),
+        linear-gradient(180deg, #081127, #060a17 40%, #050914);
+      background-attachment: fixed;
+      letter-spacing:.2px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(to bottom, rgba(6,10,23,.85), rgba(6,10,23,.35));
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand .dot{width:12px;height:12px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #9cc8ff, #2e7aff 60%, #0a2b7c);
+      box-shadow: 0 0 20px #2e7aff70, inset 0 0 6px #9cc8ff;
+    }
+    .brand span{font-weight:700;letter-spacing:.4px}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{opacity:.9}
+    nav a:hover{opacity:1}
+
+    /* Hero */
+    .hero{padding:76px 0 36px}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;
+      background:linear-gradient(90deg, rgba(46,122,255,.25), rgba(89,164,255,.18));
+      border:1px solid var(--border); font-size:13px;color:var(--muted)}
+    .title{font-size:48px;line-height:1.1;margin:14px 0 10px}
+    .subtitle{color:var(--muted);font-size:18px;max-width:60ch}
+    .cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:var(--glass);
+      display:inline-flex;gap:10px;align-items:center;transition:.2s ease;box-shadow: none}
+    .btn.primary{background:linear-gradient(90deg, var(--primary), var(--primary-2));border-color:#2f5fff;color:white;box-shadow: var(--shadow)}
+    .btn:hover{transform:translateY(-2px)}
+
+    .avatar-wrap{position:relative}
+    .avatar-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px; display:grid; gap:16px; place-items:center;
+      box-shadow: var(--shadow)
+    }
+    .avatar{width:160px;height:160px;border-radius:50%;border:2px solid #2e7aff30}
+
+    /* Sections */
+    section{padding:54px 0}
+    .section-title{font-size:26px;margin:0 0 18px}
+    .grid{display:grid;gap:16px}
+
+    /* Cards */
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+    .card:hover{transform:translateY(-2px);transition:.2s ease}
+
+    /* Skills tags */
+    .tags{display:flex;flex-wrap:wrap;gap:10px}
+    .tag{padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:var(--glass);font-size:13px;color:#cfe0ff}
+
+    /* Projects */
+    .projects{grid-template-columns:repeat(3,1fr)}
+    .project h3{margin:0 0 8px;font-size:18px}
+    .meta{font-size:12px;color:var(--muted)}
+    .project .desc{color:#cfe0ffb8;min-height:42px}
+    .project .links{display:flex;gap:10px;margin-top:10px}
+
+    /* Experience (timeline) */
+    .timeline{position:relative}
+    .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--primary),transparent)}
+    .tl-item{position:relative;padding-left:26px;margin:10px 0}
+    .tl-item::before{content:"";position:absolute;left:4px;top:8px;width:12px;height:12px;border-radius:50%;background: radial-gradient(circle at 35% 35%, #bfe0ff, #2e7aff);box-shadow:0 0 10px #2e7aff80}
+
+    /* Footer */
+    footer{padding:30px 0;color:var(--muted);border-top:1px solid var(--border)}
+
+    /* Responsive */
+    @media (max-width: 950px){
+      .hero-inner{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 640px){
+      .title{font-size:36px}
+      .projects{grid-template-columns:1fr}
+      .nav ul{display:none}
+    }
+
+    /* Simple reveal animation */
+    .reveal{opacity:0;transform:translateY(10px);transition: .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span><span>Rin Nguyen</span></div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <span class="badge">AI Engineer · Machine Learning · NLP</span>
+          <h1 class="title" id="hero-name">Xin chào, mình là Rin Nguyen 👋</h1>
+          <p class="subtitle" id="hero-bio">
+            Mình đam mê xây dựng hệ thống AI end‑to‑end: từ xử lý dữ liệu, huấn luyện mô hình
+            cho đến triển khai ở quy mô sản phẩm.
+          </p>
+          <div class="cta">
+            <a class="btn primary" id="btn-github" href="https://github.com/thanhdatnguyentk" target="_blank" rel="noopener">GitHub Profile</a>
+            <a class="btn" href="#projects">Xem Projects</a>
+            <a class="btn" id="btn-resume" href="#" download>CV (PDF)</a>
+          </div>
+        </div>
+        <div class="avatar-wrap reveal">
+          <div class="avatar-card">
+            <img id="avatar" class="avatar" alt="Avatar" src=""/>
+            <div style="text-align:center">
+              <div style="font-weight:600" id="username">@thanhdatnguyentk</div>
+              <div class="meta"><span id="followers">…</span> followers · <span id="following">…</span> following</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="card reveal" id="about-text">
+          2nd‑year IT student @ VNU-HCM. Tập trung vào Machine Learning, NLP, Computer Vision và LLMs.
+          Yêu thích tối ưu hóa suy luận mô hình và triển khai hệ thống AI thực tế.
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="card reveal">
+          <div class="tags" id="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Hugging Face</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Git</span>
+            <span class="tag">RAG</span>
+            <span class="tag">BERT/Transformer</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid projects" id="project-grid"></div>
+        <div class="meta" style="margin-top:12px">(Tự động lấy các repo public mới cập nhật từ GitHub)</div>
+      </div>
+    </section>
+
+    <!-- Experience / Timeline (tuỳ chỉnh) -->
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience & Highlights</h2>
+        <div class="card reveal timeline" id="timeline">
+          <div class="tl-item">
+            <div style="font-weight:600">VisualBERT Implementation</div>
+            <div class="meta">Vision & Language · UIT-ViIC</div>
+          </div>
+          <div class="tl-item">
+            <div style="font-weight:600">Stock Exchange DB System</div>
+            <div class="meta">PostgreSQL · Database design & deployment</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="card reveal">
+          <form class="grid" style="grid-template-columns:1fr 1fr;gap:12px" onsubmit="return sendMail(event)">
+            <input required name="name" placeholder="Tên của bạn" style="grid-column:span 1;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--bg-2);color:var(--text)">
+            <input required name="email" type="email" placeholder="Email" style="grid-column:span 1;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--bg-2);color:var(--text)">
+            <textarea required name="message" placeholder="Lời nhắn" rows="5" style="grid-column:span 2;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--bg-2);color:var(--text)"></textarea>
+            <button class="btn primary" type="submit" style="grid-column:span 2;justify-content:center">Gửi</button>
+          </form>
+          <div class="meta" style="margin-top:8px">Hoặc email trực tiếp: <a href="mailto:rin.dev.vn@gmail.com">rin.dev.vn@gmail.com</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Rin Nguyen — Made with ❤ and vanilla JS</div>
+  </footer>
+
+  <script>
+    const GITHUB_USERNAME = "thanhdatnguyentk";
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      for(const e of entries){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} }
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal, section .card').forEach(el=> io.observe(el));
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form (mailto)
+    function sendMail(ev){
+      ev.preventDefault();
+      const fd = new FormData(ev.target);
+      const subject = encodeURIComponent("[Portfolio] " + fd.get('name'));
+      const body = encodeURIComponent(`Email: ${fd.get('email')}\n\n${fd.get('message')}`);
+      window.location.href = `mailto:rin.dev.vn@gmail.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+
+    // Helpers
+    function formatDate(iso){
+      try{ return new Date(iso).toLocaleDateString('vi-VN', {year:'numeric', month:'short', day:'numeric'});}catch{ return '' }
+    }
+
+    function projectCardHTML(repo){
+      const topics = (repo.topics||[]).slice(0,4).map(t=>`<span class="tag">${t}</span>`).join('');
+      return `
+        <article class="card project reveal">
+          <h3>${repo.name}</h3>
+          <div class="desc">${repo.description || 'Không có mô tả'}</div>
+          <div class="meta">★ ${repo.stargazers_count} · Cập nhật ${formatDate(repo.pushed_at)}</div>
+          <div class="links">
+            <a class="btn" href="${repo.html_url}" target="_blank" rel="noopener">Repository</a>
+            ${repo.homepage ? `<a class="btn" href="${repo.homepage}" target="_blank" rel="noopener">Live</a>` : ''}
+          </div>
+          <div class="tags" style="margin-top:10px">${topics}</div>
+        </article>`;
+    }
+
+    async function loadGitHub(){
+      try{
+        const [uRes, rRes] = await Promise.all([
+          fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
+          fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`)
+        ]);
+        const user = await uRes.json();
+        const repos = await rRes.json();
+
+        // Fill hero
+        if(user && user.avatar_url){
+          document.getElementById('avatar').src = user.avatar_url;
+          document.getElementById('username').textContent = '@' + user.login;
+          document.getElementById('followers').textContent = user.followers ?? 0;
+          document.getElementById('following').textContent = user.following ?? 0;
+          if(user.name){
+            document.getElementById('hero-name').textContent = `Xin chào, mình là ${user.name} 👋`;
+          }
+          if(user.bio){
+            document.getElementById('hero-bio').textContent = user.bio;
+          }
+        }
+
+        // Projects: filter forks, sort by stars then updated
+        const shortlist = (Array.isArray(repos)?repos:[])
+          .filter(r=>!r.fork)
+          .sort((a,b)=> (b.stargazers_count - a.stargazers_count) || (new Date(b.pushed_at)-new Date(a.pushed_at)))
+          .slice(0,9);
+        const grid = document.getElementById('project-grid');
+        grid.innerHTML = shortlist.map(projectCardHTML).join('');
+        // reveal new cards
+        grid.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+        // Optional: try to find a PDF resume in profile repo description
+        // (You can replace this with a fixed link if you host your CV)
+        const resumeURL = '';
+        if(resumeURL){ document.getElementById('btn-resume').href = resumeURL; }
+      }catch(err){
+        console.error(err);
+        document.getElementById('project-grid').innerHTML = `<div class="card">Không thể tải project từ GitHub. Vui lòng thử lại sau.</div>`;
+      }
+    }
+
+    loadGitHub();
+  </script>
+</body>
+</html>

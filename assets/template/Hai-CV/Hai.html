@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mẫu CV Chuyên Nghiệp - Chỉnh sửa và Tải xuống</title>
+    <link rel="stylesheet" href="Hai.css">
+    <!-- Google Fonts for professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="toolbar">
+        <button id="download-btn" class="download-button">
+            <i class="fas fa-download"></i> Tải CV (PDF)
+        </button>
+    </div>
+
+    <div class="cv-container" id="cv-container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-pic-container">
+                    <label for="profile-pic-upload" class="profile-pic-label">
+                        <img src="./imgs/Hai.png" alt="Ảnh đại diện" class="profile-pic" id="profile-pic-img">
+                    </label>
+                    <input type="file" id="profile-pic-upload" accept="image/*" style="display: none;">
+                </div>
+                <h1 class="name" contenteditable="true">LÊ TRUNG HẢI</h1>
+                <p class="title" contenteditable="true">Lập Trình Viên Full-Stack</p>
+            </div>
+
+            <div class="contact-section">
+                <h3 class="sidebar-title">LIÊN HỆ</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <span contenteditable="true">0123 456 789</span></li>
+                    <li><i class="fas fa-envelope"></i> <span contenteditable="true">email@example.com</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span contenteditable="true">Quận 1, TP. Hồ Chí Minh</span></li>
+                    <li><i class="fab fa-linkedin"></i> <span contenteditable="true">linkedin.com/in/your-profile</span></li>
+                    <li><i class="fab fa-github"></i> <span contenteditable="true">github.com/your-username</span></li>
+                </ul>
+            </div>
+
+            <div class="skills-section">
+                <h3 class="sidebar-title">KỸ NĂNG</h3>
+                <ul contenteditable="true">
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>React, Vue.js</li>
+                    <li>Node.js, Express</li>
+                    <li>SQL, MongoDB</li>
+                    <li>Git, Docker</li>
+                </ul>
+            </div>
+
+            <div class="languages-section">
+                <h3 class="sidebar-title">NGÔN NGỮ</h3>
+                <ul contenteditable="true">
+                    <li>Tiếng Việt (Bản xứ)</li>
+                    <li>Tiếng Anh (Giao tiếp tốt)</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="summary-section">
+                <h2>TÓM TẮT BẢN THÂN</h2>
+                <p contenteditable="true">
+                    Là một lập trình viên có hơn 3 năm kinh nghiệm trong việc phát triển các ứng dụng web hiện đại. Có kinh nghiệm làm việc với cả front-end và back-end, mong muốn được đóng góp vào sự thành công của công ty và phát triển kỹ năng chuyên môn.
+                </p>
+            </section>
+
+            <section class="experience-section">
+                <h2>KINH NGHIỆM LÀM VIỆC</h2>
+                <div class="job" contenteditable="true">
+                    <h3>Lập Trình Viên Front-end - Công ty ABC</h3>
+                    <p class="date">01/2021 - Hiện tại</p>
+                    <ul>
+                        <li>Phát triển giao diện người dùng cho các sản phẩm web bằng React.js.</li>
+                        <li>Tối ưu hóa hiệu suất và trải nghiệm người dùng trên các trình duyệt khác nhau.</li>
+                        <li>Làm việc với đội ngũ thiết kế để chuyển đổi file Figma/Sketch thành code.</li>
+                    </ul>
+                </div>
+                <div class="job" contenteditable="true">
+                    <h3>Thực Tập Sinh Back-end - Công ty XYZ</h3>
+                    <p class="date">06/2020 - 12/2020</p>
+                    <ul>
+                        <li>Xây dựng và bảo trì các API RESTful bằng Node.js và Express.</li>
+                        <li>Thiết kế và quản lý cơ sở dữ liệu MongoDB.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="education-section">
+                <h2>HỌC VẤN</h2>
+                <div class="education-item" contenteditable="true">
+                    <h3>Kỹ sư Công nghệ thông tin - Đại học Bách Khoa</h3>
+                    <p class="date">2016 - 2020</p>
+                    <p>Tốt nghiệp loại Giỏi, GPA: 3.2/4.0</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="Hai.js"></script>
+</body>
+</html>

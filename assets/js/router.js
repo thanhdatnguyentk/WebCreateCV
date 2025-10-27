@@ -5,9 +5,11 @@ import CreatePage from "../../pages/Create.js";
 import ContactPage from "../../pages/Contact.js";
 import LoginPage from "../../pages/LoginPage.js";
 import SignupPage from "../../pages/SignupPage.js";
+import TemplatePage from "../../pages/Templates.js";
 import { render, getHashPath } from "./utils.js";
 import Header from "./components/header.js";  
 import Footer from "./components/footer.js";
+
 
 
 const routes = {
@@ -16,6 +18,7 @@ const routes = {
   "/contact": ContactPage,
   "/login": LoginPage,
   "/signup": SignupPage,
+  "/templatePage": TemplatePage,
   "/": AboutPage,
 };
 

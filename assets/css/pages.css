@@ -97,6 +97,7 @@ h1 {
   gap: 8px;
   padding: 4px 5px;
   margin-left: 19px;
+  margin-bottom: 1em;
 }
 
 .Category-Card {
@@ -112,10 +113,66 @@ padding-right: 12px;
   margin-bottom: 50px;
   padding: 20px;
   border-radius: 29px;
-  background: #2B2B2B;
+  background: var(--text);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   color: #ffffff;
+  max-width: 1200px;
+  position: relative;
 }
+
+.swiper-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 20px;
+}
+
+.swiper-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.swiper-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.swiper-nav:hover {
+  background: #384959;
+  color: white;
+}
+
+.swiper-nav.prev {
+  left: 0;
+}
+
+.swiper-nav.next {
+  right: 0;
+}
+
+.swiper-nav svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text);
+}
+
+.swiper-nav:hover svg {
+  color: var(--white-bg);
+}
+
 
 .Category-Button {
   display: inline-flex;
@@ -129,9 +186,20 @@ padding-right: 12px;
   color: black;
 }
 
-.Template-block1 {
+.Template-block {
+  min-width: 280px;
   padding-bottom: 20px;
   border-radius: 29px;
+  flex-shrink: 0;
+  background: #E5F1FB;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(56, 73, 89, 0.15);
+}
+
+.Template-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(56, 73, 89, 0.25), 0 6px 12px rgba(56, 73, 89, 0.15);
 }
 
 .Template-Card:hover {
@@ -270,15 +338,27 @@ padding-right: 12px;
      text-decoration: underline;
  }
 
- .Contact-Container {
+/* Contact page */
+.Contact-Container {
   margin-top: 60px;
   margin-bottom: 60px;
   text-align: center;
+  font-family: var(--font-sans);
+  color: var(--text);
+}
+
+.Contact-card {
+  background: var(--white-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
 }
 
 .contact-intro {
-  color: #666;
+  color: var(--muted);
   margin-bottom: 40px;
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
 }
 
 .Contact-Form {
@@ -292,41 +372,153 @@ padding-right: 12px;
 .Contact-Form label {
   display: block;
   margin-bottom: 6px;
-  font-weight: 600;
+  font-weight: var(--fw-medium);
+  color: var(--text);
 }
 
 .Contact-Form input,
 .Contact-Form textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
+  border: 1px solid var(--surface);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--white-bg);
+  box-shadow: var(--shadow-sm);
+  outline: none;
+  transition: border var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.btn-primary {
-  background-color: #00C8B3;
-  color: #fff;
+.Contact-Form input:focus,
+.Contact-Form textarea:focus {
+  border-color: var(--accent-600);
+  box-shadow: var(--shadow-md);
+}
+.Contact-submit-btn {
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+  color: var(--white-bg);
+  background: var(--accent-600);
   border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   cursor: pointer;
-}
-
-.btn-primary:hover {
-  background-color: #009E8E;
 }
 
 .contact-info {
   text-align: left;
   padding-left: 40px;
+  color: var(--text);
+  font-size: 0.95rem;
 }
 
 .social-links img {
   width: 36px;
-  transition: transform 0.2s;
+  transition: transform var(--transition-fast);
 }
 
 .social-links img:hover {
   transform: scale(1.2);
+  filter: drop-shadow(0 2px 6px rgba(56,73,89,0.08));
+}
+
+.contact-map {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  margin-top: 30px;
+}
+
+/* Templates page */
+.Template-container {
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+}
+.Template-header {
+  align-items: center;
+  margin-bottom: 40px;
+}
+.Template-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  color: var(--accent-700);
+  font-size: clamp(1.5rem, 2rem + 1vw, 2.25rem);
+}
+
+.Primary-Button {
+  appearance: none;
+  border: 0;
+  padding: .6rem 1rem;
+  border-radius: calc(var(--radius) * 1.5);
+  background: var(--accent-600);
+  color: var(--text);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.Primary-Button a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.Primary-Button:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+/* Preview area */
+.Template-preview-container {
+  width: 100%;
+  border-radius: calc(var(--radius) * 1.8);
+  border: 1px solid rgba(15,23,42,0.04);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.Template-block {
+  min-width: 280px;
+  padding-bottom: 20px;
+  border-radius: calc(var(--radius) * 3.5);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+.Template-preview-fallback{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: var(--fw-medium);
+}
+.Template-preview-fallback a {
+  color: var(--text);
+  text-decoration: none;
+}
+.Template-Thumbnail {
+  width: 80%;
+  max-width: 245px;
+  height: 320px;
+  margin: 20px auto 0;
+  flex-shrink: 0;
+  border-radius: calc(var(--radius) * 2) calc(var(--radius) * 2) 0 0;
+  background: url(../img/mau-cv-an-tuong-1.webp) center / cover no-repeat;
+  background-color: var(--white-bg);
+}
+
+.Template-Name {
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  margin-left: 28px;
+}
+
+.Referrence-button {
+  margin-top: 10px;
+  
 }
