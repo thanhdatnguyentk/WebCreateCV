@@ -7,6 +7,7 @@
     max-width: 1200px; /* Chiều rộng tối đa của nội dung trang */
     margin: 0 auto; /* Căn giữa trang */
     padding: 20px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Đổi font chữ */
 }
 
 /* ======================================================= */
@@ -93,9 +94,7 @@
     padding: 12px 30px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+
 }
 
 .slide-content .btn-primary:hover {
@@ -165,13 +164,35 @@
     padding: 20px 0;
 }
 
+.portfolio-section.hidden {
+    display: none;
+}
+
 .portfolio-section h2 {
-    font-size: 2em;
-    color: #333;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
+    font-size: 1.6em;
+    color: #222;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 12px;
     margin-top: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.portfolio-section h2::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+    transition: width 0.3s ease;
+}
+
+.portfolio-section:hover h2::before {
+    width: 120px;
 }
 
 /* --- Lưới (Grid) cho các Card --- */
@@ -277,19 +298,22 @@
 /* Sidebar Lọc (Cột trái) */
 .portfolio-sidebar {
     flex: 0 0 250px; /* Cố định chiều rộng 250px */
-    padding-right: 20px;
-    border-right: 1px solid #eee; /* Đường kẻ phân cách */
-    padding-bottom: 20px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Thêm màu nền nhẹ */
+    border-radius: 12px; /* Bo góc */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Thêm shadow nhẹ */
     height: fit-content; /* Giúp sidebar không chiếm hết chiều cao */
 }
 
 .sidebar-title {
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 700;
-    color: #333;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ddd;
+    color: #222;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #007bff; /* Đường viền màu xanh */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Nội dung Portfolio (Cột phải) */
@@ -299,42 +323,64 @@
 
 .portfolio-content h2 {
     font-size: 1.5em;
-    color: #333;
+    color: #222;
     margin-bottom: 25px;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+.portfolio-content > h2:first-child {
+    font-size: 1.8em;
+    color: #111;
+    margin-bottom: 30px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.portfolio-content > h2:first-child::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+    border-radius: 2px;
 }
 
 /* Menu Lọc - Dạng danh sách */
 .filter-menu {
     display: flex;
     flex-direction: column; /* Xếp các nút theo cột */
-    gap: 5px;
-    margin-bottom: 15px;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 .filter-btn {
     /* Thiết lập lại style nút thành dạng danh sách */
-    background: none;
+    background: transparent;
     border: none;
     text-align: left;
-    padding: 5px 0; /* Padding dọc nhỏ hơn */
+    padding: 10px 12px; /* Tăng padding cho dễ click hơn */
     color: #555;
     font-size: 0.95em;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: all 0.3s ease;
     font-weight: 400; /* Bỏ in đậm */
+    border-radius: 6px;
 }
 
 .filter-btn:hover {
     color: #007bff; /* Thay đổi màu khi hover */
-    background: none;
+    background: rgba(0, 123, 255, 0.08);
+    transform: translateX(5px);
 }
 
 .filter-btn.active {
-    color: #007bff; /* Màu active là màu xanh */
+    color: #fff; /* Màu chữ trắng khi active */
     font-weight: 600; /* In đậm khi active */
-    border: none;
-    background: none;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
 }
 
 /* Style cho các mục lọc dạng Checkbox (Type) */
@@ -342,44 +388,25 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 5px 0;
+    padding: 10px 12px;
     font-size: 0.95em;
     color: #555;
-}
-/* ========================================= */
-/* BỐ CỤC CHUNG VÀ GRID TRÊN CÁC KÍCH THƯỚC */
-/* ========================================= */
-
-/* Mặc định trên Desktop (16 cột) đã có */
-
-/* Tablet (max-width: 1024px) - Chuyển sang 8 cột */
-@media (max-width: 1024px) {
-    .row { grid-template-columns: repeat(8, 1fr); }
-    .col { grid-column: span 8; } /* Mặc định .col chiếm toàn bộ (8/8) */
-
-    /* Điều chỉnh các cột quan trọng theo tỷ lệ 8 cột */
-    .col-1 { grid-column: span 1; }
-    .col-4 { grid-column: span 4; } /* Quan trọng: Card sẽ chiếm 4/8 cột = 50% (2 cột/hàng) */
-    .col-15 { grid-column: span 8; } /* Container tham khảo chiếm toàn bộ (8/8) */
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-/* Mobile (max-width: 600px) - Chuyển sang 4 cột */
-@media (max-width: 600px) {
-    .row { 
-        grid-template-columns: repeat(4, 1fr); 
-        gap: 8px; /* Giảm khoảng cách giữa các cột trên mobile */
-    }
-    .col { grid-column: span 4; } /* Mặc định .col chiếm toàn bộ (4/4) */
-    
-    /* Điều chỉnh các cột quan trọng theo tỷ lệ 4 cột */
-    .col-1 { 
-        display: none; /* Ẩn các cột trống (col-1) trên mobile để tiết kiệm không gian */
-    }
-    .col-4 { 
-        grid-column: span 4; /* Quan trọng: Card sẽ chiếm 4/4 cột = 100% (1 cột/hàng) */
-    }
-    .col-15 { grid-column: span 4; } /* Container tham khảo chiếm toàn bộ (4/4) */
+.filter-type:hover {
+    background: rgba(0, 0, 0, 0.03);
 }
+
+.filter-type input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #007bff;
+}
+
 
 
 .Category-Selector1 .row {
@@ -390,4 +417,155 @@
     gap: 12px;
 }
 
-/* Đảm bảo các thẻ danh mục không bị co lại trên mobile */
+/* ======================================================= */
+/* RESPONSIVE DESIGN - MEDIA QUERIES                      */
+/* ======================================================= */
+
+/* Tablet và màn hình nhỏ hơn (max-width: 992px) */
+@media (max-width: 992px) {
+    .portfolio-container {
+        flex-direction: column; /* Chuyển sang layout dọc */
+        gap: 30px;
+    }
+
+    .portfolio-sidebar {
+        flex: 1 1 auto; /* Cho sidebar chiếm toàn bộ chiều rộng */
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .portfolio-content {
+        width: 100%;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .hero-slider {
+        height: 200px; /* Giảm chiều cao slider trên tablet */
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    .gioithieu-page {
+        padding: 15px;
+    }
+
+    .hero-slider {
+        height: 180px; /* Giảm chiều cao slider trên mobile */
+        margin-bottom: 30px;
+    }
+
+    .slider-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .slider-nav.prev {
+        left: 10px;
+    }
+
+    .slider-nav.next {
+        right: 10px;
+    }
+
+    .portfolio-container {
+        gap: 20px;
+    }
+
+    .portfolio-sidebar {
+        padding: 15px;
+    }
+
+    .sidebar-title {
+        font-size: 1.05em;
+    }
+
+    .filter-btn {
+        font-size: 0.9em;
+        padding: 8px 0;
+    }
+
+    .portfolio-content h2 {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+    }
+
+    .portfolio-section h2 {
+        font-size: 1.5em;
+        margin-top: 30px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 cột trên mobile */
+        gap: 15px;
+    }
+
+    .image-wrapper {
+        height: 180px; /* Giảm chiều cao ảnh */
+    }
+
+    .card-content h3 {
+        font-size: 1.1em;
+    }
+
+    .card-content p {
+        font-size: 0.85em;
+    }
+}
+
+/* Mobile nhỏ (max-width: 480px) */
+@media (max-width: 480px) {
+    .gioithieu-page {
+        padding: 10px;
+    }
+
+    .hero-slider {
+        height: 150px;
+        border-radius: 8px;
+    }
+
+    .slider-nav {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+
+    .slider-dots {
+        bottom: 10px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .portfolio-sidebar {
+        padding: 12px;
+    }
+
+    .sidebar-title {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    .filter-menu {
+        gap: 3px;
+    }
+
+    .portfolio-content h2 {
+        font-size: 1.2em;
+    }
+
+    .portfolio-section h2 {
+        font-size: 1.3em;
+        margin-top: 25px;
+    }
+}
+

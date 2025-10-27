@@ -3,9 +3,10 @@
   ========================= */
 :root{
   --white-bg: #FFFFFF;
-  --bg: #BDDDFC;
+  --bg: #FFFFFF;
   --surface: #E5F1FB;
   --text: #384959;
+  --highlight-text: #024ACF;
   --muted: #6A89A7;
   --accent: #88BDF2;
   --accent-600: #6AA5E0;

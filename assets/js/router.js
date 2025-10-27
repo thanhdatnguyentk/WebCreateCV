@@ -1,13 +1,15 @@
 import HomePage from "../../pages/Home.js"; 
-import AboutPage from "../../pages/About.js";
+import AboutPage, { initPortfolioPage } from "../../pages/About.js";
 import CreatePage from "../../pages/Create.js";
 
 import ContactPage from "../../pages/Contact.js";
 import LoginPage from "../../pages/LoginPage.js";
 import SignupPage from "../../pages/SignupPage.js";
+import TemplatePage from "../../pages/Templates.js";
 import { render, getHashPath } from "./utils.js";
 import Header from "./components/header.js";  
 import Footer from "./components/footer.js";
+
 
 
 const routes = {
@@ -16,6 +18,7 @@ const routes = {
   "/contact": ContactPage,
   "/login": LoginPage,
   "/signup": SignupPage,
+  "/templatePage": TemplatePage,
   "/": AboutPage,
 };
 
@@ -28,6 +31,11 @@ export function router() {
     ${Footer()}
   `;
   render(layout);
+
+  if (path === "/" || path === "/about") {
+    // gọi init slider + filter sau khi HTML đã render
+    initPortfolioPage();
+  }
 }
 
 window.addEventListener("hashchange", router);

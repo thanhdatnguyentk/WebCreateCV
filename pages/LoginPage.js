@@ -22,10 +22,7 @@ export default function LoginPage() {
     <main class="login-bg">
       <div class="login-container">
           <h2>Log in</h2>
-          <button class=" btn-animated btn-animated-1">
-                <svg>
-                <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-              </svg>
+          <button class="google-btn">
               <img src="./assets/images/google.svg" alt="Google logo" class="google-logo">
               Continue with google
           </button>

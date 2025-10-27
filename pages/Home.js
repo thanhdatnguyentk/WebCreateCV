@@ -42,7 +42,7 @@ export default function HomePage() {
         <div class="template-grid">
             <div class="row ">
                 <div class="col-1"></div>
-                <div class="Template-Card col-4 ">
+                <a href="#/templatePage" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail"></div>
                     <div class="Template-Color-Selector">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -71,7 +71,7 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
                 <div class="Template-Card col-4 ">
                     <div class="Template-Thumbnail"></div>
