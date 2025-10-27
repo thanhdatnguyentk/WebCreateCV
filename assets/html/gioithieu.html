@@ -4,89 +4,258 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Giới thiệu Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
 </head>
 <body>
   <main class="gioithieu-page">
-    <section class="hero">
-      <h1>Khám phá mẫu Portfolio chuyên nghiệp</h1>
-      <p>Các mẫu responsive, dễ dùng và tùy chỉnh cho mọi ngành nghề.</p>
-      <button class="btn-primary">Bắt đầu ngay</button>
+    
+    <section class="hero-slider">
+        <div class="slider-wrapper">
+          
+          <div class="slide active" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/gradient-portfolio-banner-template_23-2149225563.jpg');">
+          
+          </div>
+      
+          <div class="slide" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');">
+           
+          </div>
+      
+          <div class="slide" style="background-image: url('/WebCreateCV/assets/images/HoangAnh/banner.jpg');">
+           
+          </div>
+      
+        </div>
+        
+        <button class="slider-nav prev">&lt;</button>
+        <button class="slider-nav next">&gt;</button>
+      
+        <div class="slider-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
     </section>
 
-    <section class="portfolio-section">
-      <h2>Edit</h2>
-      <div class="portfolio-grid">
-        <div class="image-wrapper">
-            <div class="portfolio-card">
-                <img src="../assets/images/HoangAnh/img1.jpg" alt="John Alwin">
-                <div class="card-content">
-                    <h3>John Alwin</h3>
-                    <p>Painter Artist</p>
-                    <span class="tag">Premium</span>
-                </div>
+    <section class="portfolio-container">
+        <aside class="portfolio-sidebar">
+            <h3 class="sidebar-title">Topic</h3>
+            <div class="filter-menu">
+                <button class="filter-btn active" data-filter="all">All Templates</button>
+                <button class="filter-btn" data-filter="edit">Edit</button>
+                <button class="filter-btn" data-filter="coder">Coder</button>
+                <button class="filter-btn" data-filter="design">Art & Design</button>
+                <button class="filter-btn" data-filter="fashion">Fashion</button>
             </div>
-        </div>
 
-        <div class="image-wrapper">
-            <div class="portfolio-card">
-                <img src="../assets/images/HoangAnh/img2.jpg" alt="John Alwin">
-                <div class="card-content">
-                    <h3>John Alwin</h3>
-                    <p>Painter Artist</p>
-                    <span class="tag">Premium</span>
-                </div>
+            <h3 class="sidebar-title" style="margin-top: 20px;">Type</h3>
+            <div class="filter-menu">
+                <label class="filter-type">
+                    <input type="checkbox" checked disabled>
+                    Portfolio
+                </label>
+                <label class="filter-type">
+                    <input type="checkbox" disabled>
+                    Blog
+                </label>
+                <label class="filter-type">
+                    <input type="checkbox" disabled>
+                    Scheduling
+                </label>
             </div>
-        </div>
+        </aside>
 
-        <div class="image-wrapper">
-            <div class="portfolio-card">
-                <img src="../assets/images/HoangAnh/img3.jpg" alt="John Alwin">
-                <div class="card-content">
-                    <h3>John Alwin</h3>
-                    <p>Painter Artist</p>
-                    <span class="tag">Premium</span>
-                </div>
-            </div>
-        </div>  
-      </div>
+        <div class="portfolio-content">
+            <h2>Popular Designs Templates (29)</h2>
 
-      <h2>Coder</h2>
-      <div class="portfolio-grid">
-        <div class="image-wrapper">
-            <div class="portfolio-card">
-                <img src="../assets/images/HoangAnh/img1.jpg" alt="John Alwin">
-                <div class="card-content">
-                    <h3>John Alwin</h3>
-                    <p>Painter Artist</p>
-                    <span class="tag">Premium</span>
-                </div>
-            </div>
-        </div>
+            <section class="portfolio-section" data-category="edit">
+                <h2>Edit</h2>
+                <div class="portfolio-grid">
+                    <div class="image-wrapper">
+                        <div class="portfolio-card">
+                            <img src="/WebCreateCV/assets/images/HoangAnh/img1.jpg" alt="John Alwin">
+                            <div class="card-content">
+                                <h3>John Alwin</h3>
+                                <p>Painter Artist</p>
+                                <span class="tag">Premium</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="image-wrapper">
-            <div class="portfolio-card">
-                <img src="../assets/images/HoangAnh/img3.jpg" alt="John Alwin">
-                <div class="card-content">
-                    <h3>John Alwin</h3>
-                    <p>Painter Artist</p>
-                    <span class="tag">Premium</span>
-                </div>
-            </div>
-        </div>
+                    <div class="image-wrapper">
+                        <div class="portfolio-card">
+                            <img src="/WebCreateCV/assets/images/HoangAnh/img2.jpg" alt="John Alwin">
+                            <div class="card-content">
+                                <h3>John Alwin</h3>
+                                <p>Painter Artist</p>
+                                <span class="tag">Premium</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="image-wrapper">
-            <div class="portfolio-card">
-                <img src="../assets/images/HoangAnh/img2.jpg" alt="John Alwin">
-                <div class="card-content">
-                    <h3>John Alwin</h3>
-                    <p>Painter Artist</p>
-                    <span class="tag">Premium</span>
+                    <div class="image-wrapper">
+                        <div class="portfolio-card">
+                            <img src="/WebCreateCV/assets/images/HoangAnh/img3.jpg" alt="John Alwin">
+                            <div class="card-content">
+                                <h3>John Alwin</h3>
+                                <p>Painter Artist</p>
+                                <span class="tag">Premium</span>
+                            </div>
+                        </div>
+                    </div>  
                 </div>
-            </div>
+            </section>
+            
+            <section class="portfolio-section" data-category="coder">
+                <h2>Coder</h2>
+                <div class="portfolio-grid">
+                    <div class="image-wrapper">
+                        <div class="portfolio-card">
+                            <img src="/WebCreateCV/assets/images/HoangAnh/img1.jpg" alt="John Alwin">
+                            <div class="card-content">
+                                <h3>John Alwin</h3>
+                                <p>Painter Artist</p>
+                                <span class="tag">Premium</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="image-wrapper">
+                        <div class="portfolio-card">
+                            <img src="/WebCreateCV/assets/images/HoangAnh/img2.jpg" alt="John Alwin">
+                            <div class="card-content">
+                                <h3>John Alwin</h3>
+                                <p>Painter Artist</p>
+                                <span class="tag">Premium</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="image-wrapper">
+                        <div class="portfolio-card">
+                            <img src="/WebCreateCV/assets/images/HoangAnh/img3.jpg" alt="John Alwin">
+                            <div class="card-content">
+                                <h3>John Alwin
+                                <p>Painter Artist</p>
+                                <span class="tag">Premium</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
     </section>
-  </main>
+    </main>
+  <script>
+    // =======================================================
+    // LỌC PORTFOLIO (FILTER) - CODE MỚI
+    // =======================================================
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioSections = document.querySelectorAll('.portfolio-section');
+
+    function filterPortfolio(filterValue) {
+        // 1. Cập nhật trạng thái 'active' cho nút bấm
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Đảm bảo nút được chọn có class 'active'
+        const activeBtn = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        }
+
+        // 2. Ẩn/Hiện các section
+        portfolioSections.forEach(section => {
+            const category = section.getAttribute('data-category');
+
+            if (filterValue === 'all' || category === filterValue) {
+                // Hiện section: Xóa class 'hidden'
+                section.classList.remove('hidden');
+            } else {
+                // Ẩn section: Thêm class 'hidden'
+                section.classList.add('hidden');
+            }
+        });
+    }
+
+    // 3. Thêm sự kiện click cho tất cả các nút filter
+    filterButtons.forEach(button => {
+        // Chỉ thêm sự kiện cho các nút có data-filter
+        if (button.getAttribute('data-filter')) { 
+            button.addEventListener('click', (e) => {
+                const filter = e.target.getAttribute('data-filter');
+                filterPortfolio(filter);
+            });
+        }
+    });
+
+    // Chạy lọc ngay khi tải trang (Mặc định chọn "all")
+    filterPortfolio('all'); 
+
+
+    // =======================================================
+    // SLIDER GALLERY - CODE GỐC
+    // =======================================================
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const numSlides = slides.length;
+  
+    // Hàm chính để hiển thị slide
+    function showSlide(slideIndex) {
+      // Xử lý vòng lặp (nếu qua slide cuối thì về 0, nếu lùi từ 0 thì về slide cuối)
+      if (slideIndex >= numSlides) {
+        currentSlide = 0;
+      } else if (slideIndex < 0) {
+        currentSlide = numSlides - 1;
+      } else {
+        currentSlide = slideIndex;
+      }
+  
+      // Ẩn tất cả slide và bỏ active tất cả dot
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+  
+      // Hiển thị slide và dot mong muốn
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+  
+    // --- CÁC BỘ ĐIỀU KHIỂN ---
+  
+    // 1. Điều khiển bằng nút Prev/Next
+    document.querySelector('.slider-nav.prev').addEventListener('click', () => {
+      showSlide(currentSlide - 1);
+      resetAutoPlay(); // Reset bộ đếm tự động
+    });
+  
+    document.querySelector('.slider-nav.next').addEventListener('click', () => {
+      showSlide(currentSlide + 1);
+      resetAutoPlay(); // Reset bộ đếm tự động
+    });
+  
+    // 2. Điều khiển bằng Dots
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const slideIndex = parseInt(e.target.dataset.slide);
+        showSlide(slideIndex);
+        resetAutoPlay(); // Reset bộ đếm tự động
+      });
+    });
+  
+    // 3. Tự động chuyển slide (gọi là "autoplay")
+    let autoPlayInterval = setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 5000); // Chuyển slide mỗi 5 giây (5000ms)
+  
+    // Hàm reset autoplay (để khi user tự bấm, nó không bị chuyển ngay lập tức)
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval); // Xóa bộ đếm cũ
+      // Tạo lại bộ đếm mới
+      autoPlayInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5000);
+    }
+  
+    // Hiển thị slide đầu tiên (slide 0) khi tải trang
+    showSlide(0);
+  </script>
 </body>
 </html>

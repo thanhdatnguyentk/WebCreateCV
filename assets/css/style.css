@@ -9,44 +9,155 @@
     padding: 20px;
 }
 
-/* --- Phần HERO (Tiêu đề lớn) --- */
-/* --- Phần HERO (Tiêu đề lớn) --- */
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    /* THAY THẾ background-color BẰNG background-image SAU: */
-    /* background-color: #f4f4f9; */ /* Màu nền nhẹ */
-    
-    /* Thêm gradient nhẹ (từ trên xuống, từ màu trắng/rất nhạt sang màu trắng ngà) */
-    background-image: linear-gradient(180deg, #000000 0%, #f7f7fc 100%);
-    
+/* ======================================================= */
+/* 2.5. Định kiểu cho HERO SLIDER (MỚI)                   */
+/* ======================================================= */
+
+/* --- Container chính của Slider --- */
+.hero-slider {
+    position: relative; /* Quan trọng để chứa các nút và slide */
+    width: 100%;
+    height: 250px; /* Đặt chiều cao cố định cho slider, bạn có thể thay đổi */
     border-radius: 10px;
+    overflow: hidden; /* Ẩn các slide không active */
     margin-bottom: 40px;
+    background-color: #f4f4f9; /* Màu nền lót khi ảnh đang tải */
 }
 
-.hero h1 {
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* --- Từng Slide --- */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Styling cho ảnh nền */
+    background-size: cover;
+    background-position: center;
+
+    /* Hiệu ứng Fade */
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    
+    /* Căn giữa nội dung bên trong slide */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Slide đang được chọn */
+.slide.active {
+    opacity: 1; 
+    z-index: 2; /* Nằm trên các slide khác */
+}
+
+/* --- Nội dung (Text, Button) trên Slide --- */
+.slide-content {
+    text-align: center;
+    padding: 30px;
+    /* Thêm 1 lớp nền mờ để chữ dễ đọc trên mọi ảnh */
+    background-color: rgba(0, 0, 0, 0.4); 
+    border-radius: 8px;
+    color: white; /* Đổi màu chữ sang trắng */
+    max-width: 90%;
+}
+
+/* Định kiểu lại h1, p cho nền tối */
+.slide-content h1 {
     font-size: 2.8rem;
     font-weight: 800;
-    color: #222; /* Đậm hơn */
+    color: #FFFFFF; /* Màu trắng */
     margin-bottom: 15px;
-  }
-  
-  .hero p {
+}
+
+.slide-content p {
     font-size: 1.2rem;
     font-weight: 500;
-    color: #444; /* Tối hơn một chút */
+    color: #f0f0f0; /* Màu trắng ngà */
     max-width: 600px;
     margin: 0 auto 25px;
     line-height: 1.6;
-  }
+}
 
-/* Định kiểu cho nút Bắt đầu ngay */
-.hero .btn-primary {
+/* Giữ style nút cũ, không cần thêm */
+.slide-content .btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 30px;
+    border: none;
     border-radius: 5px;
 
 }
 
+.slide-content .btn-primary:hover {
+    background-color: #0056b3;
+}
 
+
+/* --- Nút điều khiển (Prev/Next) --- */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+}
+
+.slider-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider-nav.prev { 
+    left: 15px; 
+}
+
+.slider-nav.next { 
+    right: 15px; 
+}
+
+/* --- Dấu chấm (Dots) --- */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5); /* Màu mờ */
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #FFFFFF; /* Màu active */
+    border-color: #FFFFFF;
+}
 /* --- Phần Portfolio/Danh mục --- */
 .portfolio-section {
     padding: 20px 0;
@@ -150,3 +261,131 @@
     font-size: 0.8em;
     font-weight: bold;
 }
+/* ======================================================= */
+/* 2.6. Định kiểu cho Bố cục 2 cột và Sidebar Lọc         */
+/* ======================================================= */
+
+/* Container Chính - Dùng Flexbox để chia 2 cột */
+.portfolio-container {
+    display: flex;
+    gap: 40px; /* Khoảng cách giữa sidebar và nội dung */
+    padding-top: 20px;
+}
+
+/* Sidebar Lọc (Cột trái) */
+.portfolio-sidebar {
+    flex: 0 0 250px; /* Cố định chiều rộng 250px */
+    padding-right: 20px;
+    border-right: 1px solid #eee; /* Đường kẻ phân cách */
+    padding-bottom: 20px;
+    height: fit-content; /* Giúp sidebar không chiếm hết chiều cao */
+}
+
+.sidebar-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Nội dung Portfolio (Cột phải) */
+.portfolio-content {
+    flex: 1; /* Chiếm phần không gian còn lại */
+}
+
+.portfolio-content h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Menu Lọc - Dạng danh sách */
+.filter-menu {
+    display: flex;
+    flex-direction: column; /* Xếp các nút theo cột */
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.filter-btn {
+    /* Thiết lập lại style nút thành dạng danh sách */
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 5px 0; /* Padding dọc nhỏ hơn */
+    color: #555;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    font-weight: 400; /* Bỏ in đậm */
+}
+
+.filter-btn:hover {
+    color: #007bff; /* Thay đổi màu khi hover */
+    background: none;
+}
+
+.filter-btn.active {
+    color: #007bff; /* Màu active là màu xanh */
+    font-weight: 600; /* In đậm khi active */
+    border: none;
+    background: none;
+}
+
+/* Style cho các mục lọc dạng Checkbox (Type) */
+.filter-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+/* ========================================= */
+/* BỐ CỤC CHUNG VÀ GRID TRÊN CÁC KÍCH THƯỚC */
+/* ========================================= */
+
+/* Mặc định trên Desktop (16 cột) đã có */
+
+/* Tablet (max-width: 1024px) - Chuyển sang 8 cột */
+@media (max-width: 1024px) {
+    .row { grid-template-columns: repeat(8, 1fr); }
+    .col { grid-column: span 8; } /* Mặc định .col chiếm toàn bộ (8/8) */
+
+    /* Điều chỉnh các cột quan trọng theo tỷ lệ 8 cột */
+    .col-1 { grid-column: span 1; }
+    .col-4 { grid-column: span 4; } /* Quan trọng: Card sẽ chiếm 4/8 cột = 50% (2 cột/hàng) */
+    .col-15 { grid-column: span 8; } /* Container tham khảo chiếm toàn bộ (8/8) */
+}
+
+/* Mobile (max-width: 600px) - Chuyển sang 4 cột */
+@media (max-width: 600px) {
+    .row { 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 8px; /* Giảm khoảng cách giữa các cột trên mobile */
+    }
+    .col { grid-column: span 4; } /* Mặc định .col chiếm toàn bộ (4/4) */
+    
+    /* Điều chỉnh các cột quan trọng theo tỷ lệ 4 cột */
+    .col-1 { 
+        display: none; /* Ẩn các cột trống (col-1) trên mobile để tiết kiệm không gian */
+    }
+    .col-4 { 
+        grid-column: span 4; /* Quan trọng: Card sẽ chiếm 4/4 cột = 100% (1 cột/hàng) */
+    }
+    .col-15 { grid-column: span 4; } /* Container tham khảo chiếm toàn bộ (4/4) */
+}
+
+
+.Category-Selector1 .row {
+    flex-wrap: nowrap; /* Ngăn các thẻ xuống dòng */
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    padding-bottom: 10px; /* Thêm padding cho thanh cuộn */
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+}
+
+/* Đảm bảo các thẻ danh mục không bị co lại trên mobile */
