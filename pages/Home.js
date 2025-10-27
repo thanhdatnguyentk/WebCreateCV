@@ -1,3 +1,27 @@
+export function scrollSwiper(direction) {
+    const wrapper = document.getElementById('swiperWrapper');
+    
+    if (!wrapper) {
+        console.error('Swiper wrapper not found!');
+        return;
+    }
+    
+    // Get the first card's width + gap
+    const firstCard = wrapper.querySelector('.Template-block');
+    if (!firstCard) return;
+    
+    const cardWidth = firstCard.offsetWidth;
+    const gap = 20; // Your CSS gap
+    const scrollAmount = cardWidth + gap;
+    
+    wrapper.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+}
+
+window.scrollSwiper = scrollSwiper;
+
 export default function HomePage() {
   return `
    <div class="container Homepage-Container">
@@ -5,21 +29,16 @@ export default function HomePage() {
         <h1>Explore over 100000 types of portfolio templates
             and edit as your own professional portfolio</h1>
 
-        <div class="Category-Selector1 container">
+        <div class="Category-Selector1">
             <div class="row">
                 <div class="col-1"></div>
-                <div class="Category-Card1 col-2 btn-animated btn-animated-1">
-                    <svg>
-                        <rect x="0" y="0"  fill="none" width="100%" height="100%"/>
-                    </svg>
-                            Featured
-                </div>
-                <div class="Category-Card2 col-2">Professional</div>
-                <div class="Category-Card3 col-2">Minimal</div>
-                <div class="Category-Card4 col-2">Modern</div>
+                <div class="Category-Card">Featured</div>
+                <div class="Category-Card">Professional</div>
+                <div class="Category-Card">Minimal</div>
+                <div class="Category-Card">Modern</div>
             </div>
         </div>
-        
+    
         <div class="template-grid">
             <div class="row ">
                 <div class="col-1"></div>
@@ -49,8 +68,8 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -80,8 +99,8 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -111,8 +130,8 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -146,8 +165,8 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -177,8 +196,8 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -208,8 +227,8 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -243,8 +262,8 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -274,8 +293,8 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -305,50 +324,71 @@ export default function HomePage() {
 
                     <div class="Template-Name"> PORTFOLIO #1</div>
                     <div class="Category-Selector2">
-                        <div class="Category-Card1">Featured</div>
-                        <div class="Category-Card3">Minimal</div>
+                        <div class="Category-Card">Featured</div>
+                        <div class="Category-Card">Minimal</div>
                     </div>
                 </div>
                 <div class="col-1"></div>
             </div>
         </div>
 
-        <div class="row ">
-                <div class="Referrence-container col-15">
+        
+                <div class="Referrence-container">
                     <h2>Learn how to create a stand out portfolio</h2>
                     <h3>from over 50 newest portfolio samples</h3>
-                    <div class="row ">
-                        <div class="Template-block1 col-4">
-                            <div class="Template-Thumbnail col-4"></div>
-                            <div class="Category-Button">
-                                <h3>Programmer</h3>
-                            </div>
+                    
+                        <div class="swiper-nav prev" onclick="scrollSwiper(-1)">
+                            <svg viewBox="0 0 24 24 " fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </div>
+
+                        <div class="swiper-wrapper" id="swiperWrapper">
+                            
+                                <div class="Template-block">
+                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Category-Button">
+                                        <h3>Programmer</h3>
+                                    </div>
+                                </div>
+                        
+                                <div class="Template-block">
+                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Category-Button">
+                                        <h3>Programmer</h3>
+                                    </div>
+                                </div>
+                        
+                                <div class="Template-block">
+                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Category-Button">
+                                        <h3>Programmer</h3>
+                                    </div>
+                                </div>
+                        
+                                <div class="Template-block">
+                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Category-Button">
+                                        <h3>Programmer</h3>
+                                    </div>
+                                </div>
+
+                                <div class="Template-block">
+                                    <div class="Template-Thumbnail"></div>
+                                    <div class="Category-Button">
+                                        <h3>Programmer</h3>
+                                    </div>
+                                </div>
+                        
+                            
                         </div>
                         
-                        <div class="Template-block1 col-4">
-                            <div class="Template-Thumbnail col-4"></div>
-                            <div class="Category-Button">
-                                <h3>Programmer</h3>
-                            </div>
+                        <div class="swiper-nav next" onclick="scrollSwiper(1)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
                         </div>
-                        
-                        <div class="Template-block1 col-4">
-                            <div class="Template-Thumbnail col-4"></div>
-                            <div class="Category-Button">
-                                <h3>Programmer</h3>
-                            </div>
-                        </div>
-                        
-                        <div class="Template-block1 col-4">
-                            <div class="Template-Thumbnail col-4"></div>
-                            <div class="Category-Button">
-                                <h3>Programmer</h3>
-                            </div>
-                        </div>
-                        
-                    </div>
                 </div>
-        </div>
         
         
     </div>
