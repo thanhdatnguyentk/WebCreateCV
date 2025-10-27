@@ -6,7 +6,7 @@ const portfolioData = {
     title: "Edit",
     folder: "Edit",
     items: [
-      { title: "Video Editor Portfolio", subtitle: "Professional Video Editing", tag: "Premium" },
+      { title: "Video Editor Portfolio", subtitle: "Professional Video Editing", tag: "" },
       { title: "Photo Editor Showcase", subtitle: "Creative Photo Editing", tag: "Premium" },
       { title: "Content Editor CV", subtitle: "Editorial & Content Creation", tag: "Premium" }
     ]
@@ -16,7 +16,7 @@ const portfolioData = {
     folder: "Coder",
     items: [
       { title: "Full Stack Developer", subtitle: "Web Development Expert", tag: "Premium" },
-      { title: "Frontend Developer", subtitle: "UI/UX Implementation", tag: "Premium" },
+      { title: "Frontend Developer", subtitle: "UI/UX Implementation", tag: "" },
       { title: "Backend Developer", subtitle: "Server & Database Specialist", tag: "Premium" }
     ]
   },
@@ -26,7 +26,8 @@ const portfolioData = {
     items: [
       { title: "Graphic Designer", subtitle: "Visual Design Expert", tag: "Premium" },
       { title: "UI/UX Designer", subtitle: "User Experience Designer", tag: "Premium" },
-      { title: "Digital Artist", subtitle: "Creative Digital Arts", tag: "Premium" }
+      { title: "Digital Artist", subtitle: "Creative Digital Arts", tag: "" },
+      { title: "Photographer", subtitle: "Professional Photography", tag: "" }
     ]
   },
   fashion: {
