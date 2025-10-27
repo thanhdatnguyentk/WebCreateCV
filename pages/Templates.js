@@ -201,8 +201,8 @@ export default function templatePage(selectedTemplate) {
   <div class="Template-container">
     <div class="row Template-header">
       <div class="col-1"></div>
-      <div class="Template-title col-4">${titleText}</div>
-      <div class="col-6"></div>
+      <div class="Template-title col-8">${titleText}</div>
+      <div class="col-2"></div>
       <button class="Primary-Button col-3" data-template="${selectedTemplate && selectedTemplate.path ? selectedTemplate.path : ''}">Use this template</button>
       <button class="Primary-Button col-1 download-btn" data-template="${selectedTemplate && selectedTemplate.path ? selectedTemplate.path : ''}">Download</button>
     </div>
