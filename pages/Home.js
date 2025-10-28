@@ -73,7 +73,7 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </a>
+                </div>
                 <div class="col-1"></div>
                  <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
@@ -430,6 +430,7 @@ export default function HomePage() {
 
 
     </div>
+    
 
   `;
 
