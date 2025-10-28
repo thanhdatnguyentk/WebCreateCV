@@ -11,19 +11,42 @@
 
 /* Home Page Styles */
 
+.dm-serif-text-regular {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-serif-text-regular-italic {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
 h1 {
   width: 963px;
-
   color: #000;
-  font-family: Inter;
-  font-size: 64px;
+  font-family: "DM Serif Text";
+  font-size: 40px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -2.56px;
-
-  margin-top: 80px;
+  letter-spacing: -1;
   margin-left: 85px;
+  margin-bottom: 0.3%;
+}
+
+h3 {
+  width: 963px;
+  color: #000;
+  font-family: "DM Serif Text";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  margin-left: 85px;
+  margin-bottom: 0.2%;
 }
 
 .Homepage-Container {
@@ -83,21 +106,24 @@ h1 {
 }
 
 .Category-Selector2 {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
+  /* gap: 8px; */
   padding: 4px 5px;
   margin-left: 19px;
   margin-top: 0.3em;
   margin-bottom: 1em;
 }
 
-.Category-Card {
-border-radius: 80px;
-background: var(--text);
-color: var(--white-bg);
-padding-left: 12px;
-padding-right: 12px;
+.Category-Card{
+  border-radius: 80px;
+  background: var(--text);
+  color: var(--white-bg);
+  padding-left: 12px;
+  padding-right: 12px;
+  display: inline-block;
+  margin-right: 8px;
 }
 
 .Category-Selector1 .Category-Card {
