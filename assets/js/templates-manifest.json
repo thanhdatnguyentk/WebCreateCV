@@ -1,0 +1,20 @@
+[
+  {
+    "id": "dat_portfolio",
+    "name": "AI Engineer Portfolio",
+    "path": "/assets/template/dat_portfolio/index.html",
+    "preview": "/assets/template/dat_portfolio/thumbnail.png",
+    "folder": "dat_portfolio",
+    "category": "Portfolio",
+    "tags": ["AI", "Engineer", "Portfolio"]
+  },
+  {
+    "id": "Hai-CV",
+    "name": "Web Developer CV",
+    "path": "/assets/template/Hai-CV/index.html",
+    "preview": "/assets/img/mau-cv-an-tuong-1.webp",
+    "folder": "Hai-CV",
+    "category": "Professional",
+    "tags": ["Professional", "Simple", "Clean"]
+  }
+]
