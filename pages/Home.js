@@ -24,7 +24,7 @@ window.scrollSwiper = scrollSwiper;
 
 export default function HomePage() {
   return `
-      <div class="container Homepage-Container">
+    <div class="container Homepage-Container">
 
         <h1>Explore over 100000 types of portfolio templates
             and edit as your own professional portfolio</h1>
@@ -42,7 +42,7 @@ export default function HomePage() {
         <div class="template-grid">
             <div class="row ">
                 <div class="col-1"></div>
-                <div class="Template-Card col-4 ">
+                <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -75,7 +75,7 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div class="col-1"></div>
-                <div class="Template-Card col-4 ">
+                 <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -106,9 +106,9 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
-                <div class="Template-Card col-4">
+               <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -139,13 +139,13 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
             </div>
 
             <div class="row ">
                 <div class="col-1"></div>
-                <div class="Template-Card col-4 ">
+                 <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -176,9 +176,9 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
-                <div class="Template-Card col-4 ">
+                 <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -209,9 +209,9 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
-                <div class="Template-Card col-4">
+               <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -242,13 +242,13 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
             </div>
 
             <div class="row ">
                 <div class="col-1"></div>
-                <div class="Template-Card col-4 ">
+                 <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -279,9 +279,9 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
-                <div class="Template-Card col-4 ">
+                 <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -312,9 +312,9 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
-                <div class="Template-Card col-4">
+               <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -345,7 +345,7 @@ export default function HomePage() {
                         <div class="Category-Card">Featured</div>
                         <div class="Category-Card">Minimal</div>
                     </div>
-                </div>
+                </a>
                 <div class="col-1"></div>
             </div>
         </div>
@@ -363,49 +363,49 @@ export default function HomePage() {
 
                         <div class="swiper-wrapper" id="swiperWrapper">
                             
-                                <div class="Template-block">
+                                <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
-                                </div>
+                                </a>
                         
-                                <div class="Template-block">
+                                <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
-                                </div>
+                                </a>
                         
-                                <div class="Template-block">
+                                <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
-                                </div>
+                                </a>
                         
-                                <div class="Template-block">
+                               <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
                                     <div class="Category-Button">
                                         <h3>Programmer</h3>
                                     </div>
-                                </div>
+                                </a>
 
                                 <div class="Template-block">
                                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
-                                    <div class="Category-Button">
+                                    <a href="#" class="Category-Button">
                                         <h3>Programmer</h3>
-                                    </div>
+                                    </a>
                                 </div>
                         
                             

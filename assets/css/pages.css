@@ -54,24 +54,7 @@ h1 {
 
 }
 
-.Template-Thumbnail {
-  height: 100%;
-  max-width: 245px;
-  height: 320px;
-  margin : auto;
-  margin-top: 20px;
-  flex-shrink: 0;
-  border-radius: 20px 20px 0 0;
-  background: lightgray 0px -4.731px / 100% 106.149% no-repeat;
-  /* 1. This is the fix for the gap */
-  
-  
-  /* 2. These make the image fill the container */
-  width: 82%;
-  
-  /* 3. This prevents the image from stretching/squashing */
-  
-}
+
 
 .Template-Color-Selector {
   display: inline-flex;
@@ -219,8 +202,12 @@ padding-right: 12px;
   transform: translateY(-3px);
   border-color: #4caf50;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-
 }
+
+img:not([src]):not([srcset]) {
+  display: none; /* Hides the alt text if the image source is missing */
+}
+
 /* =========================
   Login & Signup Pages
   ========================= */
@@ -520,7 +507,10 @@ padding-right: 12px;
   margin: 20px auto 0;
   flex-shrink: 0;
   border-radius: calc(var(--radius) * 2) calc(var(--radius) * 2) 0 0;
+  background: center / cover no-repeat;
   background-color: var(--white-bg);
+  overflow: hidden;
+  object-fit: cover; /* make the image aint breaking resolution */
 }
 
 .Template-Name {
