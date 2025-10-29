@@ -53,7 +53,7 @@ ol { list-style: decimal; }
 
 /* Links */
 a { color: var(--accent); text-decoration: none; background-color: transparent; }
-a:hover, a:focus { text-decoration: underline; outline: none; }
+a:hover, a:focus { text-decoration: none; outline: none; }
 
 /* Images and media */
 img, svg, video { max-width: 100%; height: auto; display: block; }

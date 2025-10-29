@@ -72,3 +72,64 @@
   -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
           transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
+/* =========================
+   Shared Swiper Component
+   ========================= */
+.swiper-wrapper {
+  display: flex;
+  gap: 1.25rem; /* fallback, will be replaced by var-based spacing in container */
+  overflow-x: auto;
+  padding: calc(var(--gutter, 16px) / 2) 0;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* hide IE scrollbar */
+  scrollbar-width: none; /* hide Firefox scrollbar */
+}
+.swiper-wrapper::-webkit-scrollbar { display: none; }
+
+.Template-block {
+  min-width: 260px;
+  max-width: 320px;
+  background: var(--surface, #fff);
+  border-radius: calc(var(--radius, 12px) * 1.2);
+  padding-bottom: 12px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast, 180ms), box-shadow var(--transition-fast, 180ms);
+  box-shadow: var(--shadow-sm, 0 6px 18px rgba(15,23,42,0.08));
+  overflow: hidden;
+  border: 1px solid rgba(15,23,42,0.04);
+}
+.Template-block:hover { transform: translateY(-6px); box-shadow: var(--shadow-md, 0 12px 32px rgba(15,23,42,0.12)); }
+
+.Template-Info{ padding: .85rem 1rem; color: var(--text, #0f172a); }
+.Template-Info h3{ margin:0; font-size:1rem; font-weight:var(--fw-medium,600); }
+
+.swiper-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white-bg, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm, 0 6px 18px rgba(15,23,42,0.08));
+  z-index: 10;
+  transition: background var(--transition-fast, 180ms), transform var(--transition-fast, 180ms);
+}
+.swiper-nav:hover{ background: var(--accent-600, #0ea5a4); transform: translateY(-50%) scale(1.03); color: var(--white-bg, #fff); }
+.swiper-nav.prev{ left: 8px; }
+.swiper-nav.next{ right: 8px; }
+.swiper-nav svg{ width:18px; height:18px; color: var(--text, #0f172a); }
+.swiper-nav:hover svg{ color: var(--white-bg, #fff); }
+
+.Template-Tags{ padding: 0 1rem 0.5rem; display:flex; flex-wrap:wrap; }
+.Template-Tag{ display:inline-block; background: var(--muted, #f3f4f6); color:var(--text, #0f172a); padding:4px 8px; border-radius:999px; margin-right:6px; font-size:12px; }
+
+@media (max-width: 900px){
+  .Template-block{ min-width:220px; max-width:260px; }
+}
+
