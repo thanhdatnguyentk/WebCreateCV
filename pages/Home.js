@@ -26,8 +26,10 @@ export default function HomePage() {
   return `
     <div class="container Homepage-Container">
 
-        <h1>Explore over 100000 types of portfolio templates
-            and edit as your own professional portfolio</h1>
+        <h1>Standard CV templates in Vietnamese, English, Japanese, and Chinese (2025)</h1>
+
+        <h3>Explore over 100000 types of portfolio templates
+            and edit as your own professional portfolio</h3>
 
         <div class="Category-Selector1">
             <div class="row">
@@ -41,39 +43,43 @@ export default function HomePage() {
 
         <div class="template-grid">
             <div class="row ">
-                <div class="col-1"></div>
-                <a href="#" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                <!-- <div class="col-1"></div> -->
+                <a href="#" class="Template-Card">
+                    <div class="col-4" style="display: flex; flex-direction: column; justify-content: center; background: var(--surface); border-radius: 29px;">
+                        <div class="Template-Thumbnail">
+                            <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                        </div>
+                        <div class="Template-Color-Selector">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="12" fill="black" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="12" fill="#F75D77" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="12" fill="#27C840" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="12" fill="#00C8B3" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="12" fill="white" />
+                            </svg>
+                        </div>
+
+                        <div class="Template-Name"> PORTFOLIO #1</div>
+                        
+                        <div class="Category-Selector2">
+                            <div class="Category-Card"><a href="" style="text-decoration: none; color: #fff;"> Featured</a></div>
+                            <div class="Category-Card"><a href="" style="text-decoration: none; color: #fff;"> Minimal</a></div>
+                        </div>
                     </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </div>
+                   
+                </a>
                 <div class="col-1"></div>
                  <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
@@ -365,49 +371,70 @@ export default function HomePage() {
                             
                                 <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                                    <div class="Category-Button">
-                                        <h3>Programmer</h3>
+                                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                                    </div>
+                                    <div class="Category-Button-Container">
+                                        <div class="Category-Button">
+                                            Programmer
+                                        </div>
                                     </div>
                                 </a>
-                        
+                                
                                 <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                                    <div class="Category-Button">
-                                        <h3>Programmer</h3>
+                                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                                    </div>
+                                    <div class="Category-Button-Container">
+                                        <div class="Category-Button">
+                                            Programmer
+                                        </div>
                                     </div>
                                 </a>
-                        
+                                
                                 <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                                    <div class="Category-Button">
-                                        <h3>Programmer</h3>
+                                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                                    </div>
+                                    <div class="Category-Button-Container">
+                                        <div class="Category-Button">
+                                            Programmer
+                                        </div>
                                     </div>
                                 </a>
-                        
-                               <a href="#" class="Template-block">
+                                
+                                <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                                    <div class="Category-Button">
-                                        <h3>Programmer</h3>
+                                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                                    </div>
+                                    <div class="Category-Button-Container">
+                                        <div class="Category-Button">
+                                            Programmer
+                                        </div>
                                     </div>
                                 </a>
-
-                                <div class="Template-block">
+                                
+                                <a href="#" class="Template-block">
                                     <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                                    <a href="#" class="Category-Button">
-                                        <h3>Programmer</h3>
-                                    </a>
-                                </div>
-                        
+                                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                                    </div>
+                                    <div class="Category-Button-Container">
+                                        <div class="Category-Button">
+                                            Programmer
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                                <a href="#" class="Template-block">
+                                    <div class="Template-Thumbnail">
+                                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
+                                    </div>
+                                    <div class="Category-Button-Container">
+                                        <div class="Category-Button">
+                                            Programmer
+                                        </div>
+                                    </div>
+                                </a>
+                                
                             
                         </div>
                         
@@ -430,6 +457,8 @@ export default function HomePage() {
 
 
     </div>
+
+
     
 
   `;
