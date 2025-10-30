@@ -214,12 +214,11 @@ img:not([src]):not([srcset]) {
 
  .login-bg, .signup-bg {
      background: #ffffff;
-     /* Dùng min-height để đảm bảo nội dung không bị cắt nếu cửa sổ quá nhỏ */
-     min-height: calc(100vh - 180px); /* Chiều cao màn hình trừ đi khoảng trống cho header/footer */
+     min-height: calc(100vh - 180px); 
      display: flex;
      align-items: center;
      justify-content: center;
-     /* Thêm padding ngang để container không dính vào cạnh màn hình */
+     
      padding: 2rem 1rem; 
  }
  .login-container, .signup-container {
@@ -524,4 +523,276 @@ img:not([src]):not([srcset]) {
 .Referrence-button {
   margin-top: 10px;
   
+}
+
+/* ====================
+     PROFILE PAGE                                        
+ ====================== */
+.profile-page-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 20px; 
+}
+
+/* Avatar Section  */
+.profile-avatar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.avatar-upload-label {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.profile-avatar-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: filter 0.3s ease;
+}
+
+.avatar-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.avatar-upload-label:hover .avatar-hover-overlay {
+    opacity: 1;
+}
+
+.avatar-upload-label:hover .profile-avatar-preview {
+    filter: brightness(0.7);
+}
+
+.profile-forms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.profile-form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.profile-form-container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.profile-form .form-group {
+    margin-bottom: 0; 
+}
+
+.profile-form input,
+.profile-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.profile-form .select-wrapper {
+    position: relative;
+}
+
+.profile-form .select-wrapper .select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    pointer-events: none; 
+    transition: transform 0.3s ease; 
+}
+
+.profile-form .select-wrapper select:focus + .select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.profile-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.profile-form input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.profile-form button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+/* Áp dụng style chung cho các nút trên trang Profile */
+.profile-form .btn-slide {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    border-width: 2px;
+    border-style: solid;
+}
+
+
+@media (max-width: 860px) {
+    .profile-forms-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.profile-page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.profile-page-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.profile-page-container p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.profile-form .form-group {
+    margin-bottom: 20px;
+}
+
+.profile-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="tel"],
+.profile-form input[type="url"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.profile-form input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.avatar-upload-label {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.avatar-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.avatar-upload-label:hover .avatar-hover-overlay {
+    opacity: 1;
+}
+
+.avatar-upload-label:hover .profile-avatar-preview {
+    filter: brightness(0.7);
+}
+
+.profile-forms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.profile-form-container {
+    background-color: var(--white-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.profile-form-container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.profile-form button {
+    width: 100%;
+    margin-top: 10px;
 }

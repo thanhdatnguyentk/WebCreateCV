@@ -1,3 +1,5 @@
+import { showAlert } from "../assets/js/components/alert.js";
+
 export function setupTemplatePage() {
   const btn = document.querySelector('.Primary-Button');
   const iframeSelector = '.Template-preview-iframe';
@@ -97,20 +99,17 @@ export function setupTemplatePage() {
 
   btn.addEventListener('click', function(e){
     const isLoggedIn = !!(
-        localStorage.getItem('token') ||
-        localStorage.getItem('authToken') ||
-        sessionStorage.getItem('token') ||
-        window.__USER__
+        sessionStorage.getItem('authToken')
     );
-    // if (!isLoggedIn) {
-    //     alert('Vui lòng đăng nhập để sử dụng tính năng này.');
-    //     window.location.href = 'index.html#/login';
-    //     return;
-    // }
+    if (!isLoggedIn) {
+        showAlert('Vui lòng đăng nhập để sử dụng tính năng này.', 'warning');
+        window.location.hash = '/login';
+        return;
+    }
     e.preventDefault();
     const iframe = document.querySelector(iframeSelector);
     if(!iframe){
-      alert('Preview iframe not found.');
+      showAlert('Preview iframe not found.', 'error');
       return;
     }
 
