@@ -44,6 +44,7 @@ export default function HomePage() {
         <div class="template-grid">
             <div class="row ">
                 <div class="col-1"></div>
+
                 <a href="#/template/dat_portfolio" class="Template-Card col-4">
                     <div class="Template-Thumbnail">    
                         <img src="/assets/template/dat_portfolio/thumbnail.jpg" alt="Dat Portfolio Template">
@@ -77,8 +78,10 @@ export default function HomePage() {
                             <div class="Category-Card"><a href="" style="text-decoration: none; color: #fff;"> Minimal</a></div>
                         </div>
                     </div>
-                </div>
+                </a>
+
                 <div class="col-1"></div>
+
                 <a href="#/template/rin_portfolio" class="Template-Card col-4">
                     <div class="Template-Thumbnail">
                         <img src="/assets/template/rin_portfolio/thumbnail.jpg" alt="Rin Portfolio Template">
@@ -111,8 +114,10 @@ export default function HomePage() {
                         <div class="Category-Card">Minimal</div>
                     </div>
                 </a>
+
                 <div class="col-1"></div>
-               <a href="#" class="Template-Card col-4 ">
+
+                <a href="#" class="Template-Card col-4 ">
                     <div class="Template-Thumbnail">
                         <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
                     </div>
@@ -144,9 +149,11 @@ export default function HomePage() {
                         <div class="Category-Card">Minimal</div>
                     </div>
                 </a>
-                <div class="col-1"></div>
+                
+                
             </div>
 
+            <div class="col-1"></div>
             <div class="row ">
                 <div class="col-1"></div>
                  <a href="#" class="Template-Card col-4 ">
