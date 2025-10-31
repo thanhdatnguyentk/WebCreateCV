@@ -5,9 +5,8 @@ import ContactPage from "../../pages/Contact.js";
 import LoginPage from "../../pages/LoginPage.js";
 import SignupPage from "../../pages/SignupPage.js";
 import TemplatePage, { setupTemplatePage } from "../../pages/Templates.js";
-import ProfilePage, { setupProfilePage } from "../../pages/ProfilePage.js";
 import { render, getHashPath } from "./utils.js";
-import Header, { setupHeader } from "./components/header.js";
+import Header from "./components/header.js";  
 import Footer from "./components/footer.js";
 
 // Hàm để load template manifest
@@ -30,8 +29,7 @@ const routes = {
   "/contact": ContactPage,
   "/login": LoginPage,
   "/signup": SignupPage,
-  "/templatePage": TemplatePage, 
-  "/profile": ProfilePage,
+  "/templatePage": TemplatePage,
   "/": AboutPage,
 };
 
@@ -92,11 +90,6 @@ export async function router() {
   if (path.startsWith("/template/") || path === "/templatePage") {
     setupTemplatePage();
   }
-  if (path === "/profile") {
-    setupProfilePage();
-  }
-  // Gọi setupHeader sau khi toàn bộ DOM đã được render để gắn các sự kiện
-  setupHeader();
 }
 
 // Cập nhật event listeners để xử lý async

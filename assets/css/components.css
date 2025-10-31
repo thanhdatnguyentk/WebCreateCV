@@ -101,7 +101,7 @@
 }
 .Template-block:hover { transform: translateY(-6px); box-shadow: var(--shadow-md, 0 12px 32px rgba(15,23,42,0.12)); }
 
-.Template-Info{ padding: .85rem 1rem; color: var(--text, #0f172a); }
+.Template-Info{ padding: .85rem 1rem; color: var(--text, #0f172a) !important; }
 .Template-Info h3{ margin:0; font-size:1rem; font-weight:var(--fw-medium,600); }
 
 .swiper-nav{
