@@ -11,19 +11,48 @@
 
 /* Home Page Styles */
 
+.dm-serif-text-regular {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-serif-text-regular-italic {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
 h1 {
   width: 963px;
-
   color: #000;
-  font-family: Inter;
-  font-size: 64px;
+  font-family: "DM Serif Text";
+  font-size: 40px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -2.56px;
-
-  margin-top: 80px;
+  letter-spacing: -1;
   margin-left: 85px;
+  margin-bottom: 0.3%;
+}
+
+h3 {
+  width: 963px;
+  color: #000;
+  font-family: "DM Serif Text";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  margin-left: 85px;
+  margin-bottom: 0.2%;
+}
+
+.Referrence-container h3 {
+  margin-left: 0;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .Homepage-Container {
@@ -54,6 +83,11 @@ h1 {
 
 }
 
+/* ------------------- */
+
+/* ------------------- */
+
+
 
 
 .Template-Color-Selector {
@@ -83,21 +117,24 @@ h1 {
 }
 
 .Category-Selector2 {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
+  /* gap: 8px; */
   padding: 4px 5px;
   margin-left: 19px;
   margin-top: 0.3em;
   margin-bottom: 1em;
 }
 
-.Category-Card {
-border-radius: 80px;
-background: var(--text);
-color: var(--white-bg);
-padding-left: 12px;
-padding-right: 12px;
+.Category-Card{
+  border-radius: 80px;
+  background: var(--text);
+  color: var(--white-bg);
+  padding-left: 12px;
+  padding-right: 12px;
+  display: inline-block;
+  margin-right: 8px;
 }
 
 .Category-Selector1 .Category-Card {
@@ -118,7 +155,9 @@ padding-right: 12px;
 
 .swiper-wrapper {
   display: flex;
-  overflow-x: auto;
+  flex-direction: row;
+  overflow-y: visible;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -169,21 +208,28 @@ padding-right: 12px;
   color: var(--white-bg);
 }
 
+.Category-Button-Container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 .Category-Button {
+  /* width: 80%; */
   display: inline-flex;
-  background-color: #D4D4D4;
+  background-color: rgba(150, 199, 240, 0.7);
+  color: #1459c0;
   border-radius: 100px;
   margin-top: 8%;
-  align-items: center;
   justify-content: center;
-  padding: 4px 18px;
-  margin-left: 20%;
-  color: black;
+  padding: 8px 16px;
+  /* color: black; */
 }
 
 .Template-block {
   min-width: 280px;
+  max-width: 280px;
   padding-bottom: 20px;
   border-radius: 29px;
   flex-shrink: 0;
@@ -191,16 +237,21 @@ padding-right: 12px;
   overflow: hidden;
   transition: 0.3s ease;
   box-shadow: 0 4px 8px rgba(56, 73, 89, 0.15);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: flex-start; */
 }
 
 .Template-block:hover {
+  text-decoration: none;
   transform: translateY(-8px);
   box-shadow: 0 12px 32px rgba(56, 73, 89, 0.25), 0 6px 12px rgba(56, 73, 89, 0.15);
 }
 
 .Template-Card:hover {
+  
   transform: translateY(-3px);
-  border-color: #4caf50;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
