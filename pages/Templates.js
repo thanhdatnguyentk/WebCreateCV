@@ -144,33 +144,37 @@ async function loadTemplatesManifest() {
   }
 }
 
-function renderTemplateBlocks(manifest) {
+export async function renderTemplateBlocks(manifest) {
+  try{
+  const res = await fetch('/assets/js/templates-manifest.json', {cache: 'no-store'});
+  if(!res.ok) throw new Error('manifest not found');
+  const manifest = await res.json();
   const wrapper = document.getElementById('swiperWrapper');
   if(!wrapper) return;
   wrapper.innerHTML = '';
-  manifest.forEach(item => {
-    const block = document.createElement('div');
-    block.className = 'Template-block';
-    block.innerHTML = `
-      <div class="Template-Thumbnail">
-        <img src="${item.preview}" alt="${item.name}">
-      </div>
-      <div class="Template-Info">
-        <h3>${item.name}</h3>
-      </div>
-      <div class="Template-Tags">
-        ${item.tags ? item.tags.map(tag => `<span class="Template-Tag">${tag}</span>`).join('') : ''}
-      </div>
-    `;
-    block.addEventListener('click', () => {
+  manifest.forEach(item=>{
+      const a = document.createElement('a');
+      a.href = `#/template/${item.id}`;
+      a.className = 'Template-block';
+      a.innerHTML = `
+          <div class="Template-Thumbnail"><img src="${item.preview}" alt="${item.name}"></div>
+          <div class="Template-Info"><h3>${item.name}</h3></div>
+          <div class="Template-Tags">
+              ${item.tags ? item.tags.map(tag => `<span class="Template-Tag">${tag}</span>`).join('') : ''}
+          </div>
+      `;
+    a.addEventListener('click', () => {
       const iframe = document.querySelector('.Template-preview-iframe');
       if (iframe) iframe.src = item.path;
       // update "Use this template" button dataset for later actions
       const useBtn = document.querySelector('.Primary-Button');
       if (useBtn) useBtn.dataset.template = item.path;
     });
-    wrapper.appendChild(block);
+    wrapper.appendChild(a);
   });
+  }catch(err){
+        console.warn('setup Templatepage   error', err);
+    }
 }
 
 export default function templatePage(selectedTemplate) {
@@ -192,22 +196,30 @@ export default function templatePage(selectedTemplate) {
       }
       const downloadBtn = document.querySelector('.Primary-Button.download-btn');
   if (downloadBtn) {
-    downloadBtn.addEventListener('click', async (e) => {
+    downloadBtn.addEventListener("click", async (e) => {
+      const isLoggedIn = !!sessionStorage.getItem("authToken");
+      if (!isLoggedIn) {
+        showAlert("Vui lòng đăng nhập để sử dụng tính năng này.", "warning");
+        window.location.hash = "/login";
+        return;
+      }
       e.preventDefault();
       const templatePath = downloadBtn.dataset.template;
       if (!templatePath) {
-        alert('No template selected.');
+        alert("No template selected.");
         return;
       }
       try {
         // nạp module download-template.js động
-        const { downloadTemplate } = await import('/assets/js/download-template.js');
+        const { downloadTemplate } = await import(
+          "/assets/js/download-template.js"
+        );
         // Lấy thư mục cha (bỏ "index.html" nếu có)
-        const folderUrl = templatePath.replace(/index\.html$/i, '');
+        const folderUrl = templatePath.replace(/index\.html$/i, "");
         await downloadTemplate(folderUrl);
       } catch (err) {
-        console.error('Download failed:', err);
-        alert('Failed to download template.');
+        console.error("Download failed:", err);
+        alert("Failed to download template.");
       }
     });
   }
