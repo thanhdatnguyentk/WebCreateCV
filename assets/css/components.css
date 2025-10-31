@@ -127,7 +127,7 @@
 .swiper-nav:hover svg{ color: var(--white-bg, #fff); }
 
 .Template-Tags{ padding: 0 1rem 0.5rem; display:flex; flex-wrap:wrap; }
-.Template-Tag{ display:inline-block; background: var(--muted, #f3f4f6); color:var(--text, #0f172a); padding:4px 8px; border-radius:999px; margin-right:6px; font-size:12px; }
+.Template-Tag{ display:inline-block; background: var(--muted, #f3f4f6);    padding:4px 8px; border-radius:999px; margin-right:6px; font-size:12px; }
 
 @media (max-width: 900px){
   .Template-block{ min-width:220px; max-width:260px; }

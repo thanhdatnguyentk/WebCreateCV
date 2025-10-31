@@ -191,6 +191,27 @@ export default function templatePage(selectedTemplate) {
         const downloadBtn = document.querySelector('.Primary-Button.download-btn');
         if (downloadBtn) downloadBtn.dataset.template = initial.path;
       }
+      const downloadBtn = document.querySelector('.Primary-Button.download-btn');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const templatePath = downloadBtn.dataset.template;
+      if (!templatePath) {
+        alert('No template selected.');
+        return;
+      }
+      try {
+        // nạp module download-template.js động
+        const { downloadTemplate } = await import('/assets/js/download-template.js');
+        // Lấy thư mục cha (bỏ "index.html" nếu có)
+        const folderUrl = templatePath.replace(/index\.html$/i, '');
+        await downloadTemplate(folderUrl);
+      } catch (err) {
+        console.error('Download failed:', err);
+        alert('Failed to download template.');
+      }
+    });
+  }
     }, 0);
 
   const titleText = (selectedTemplate && selectedTemplate.name) ? selectedTemplate.name : 'Templates';
