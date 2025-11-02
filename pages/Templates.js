@@ -1,5 +1,7 @@
+import { showAlert } from "../assets/js/components/alert.js";
+
 export function setupTemplatePage() {
-const btn = document.querySelector('.Primary-Button');
+  const btn = document.querySelector('.Primary-Button');
   const iframeSelector = '.Template-preview-iframe';
   if(!btn) return;
 
@@ -10,20 +12,17 @@ const btn = document.querySelector('.Primary-Button');
     const selector = 'h1,h2,h3,h4,h5,h6,p,span,li,td,th,figcaption,blockquote,div';
     const nodes = doc.querySelectorAll(selector);
     nodes.forEach(el=>{
-      // skip elements that are clearly interactive or structural
       if(['INPUT','TEXTAREA','SELECT','BUTTON','IMG','SVG','CANVAS'].includes(el.tagName)) return;
       el.setAttribute('contenteditable','true');
       el.classList.add('editable-in-iframe');
     });
 
-    // prevent navigation while editing
     clickBlocker = ev => {
       const t = ev.target;
       if(t.closest && t.closest('a')) ev.preventDefault();
     };
     doc.addEventListener('click', clickBlocker, true);
 
-    // inject visual styles
     if(!doc.getElementById('editable-style-by-parent')){
       const s = doc.createElement('style');
       s.id = 'editable-style-by-parent';
@@ -34,29 +33,24 @@ const btn = document.querySelector('.Primary-Button');
       (doc.head||doc.documentElement).appendChild(s);
     }
 
-    // Add image upload functionality
+    // image upload wrappers (same as before)
     const imgElements = doc.querySelectorAll('img');
     imgElements.forEach(img => {
         const wrapper = doc.createElement('div');
         wrapper.className = 'img-upload-wrapper';
-        
         const uploadBtn = doc.createElement('input');
         uploadBtn.type = 'file';
         uploadBtn.accept = 'image/*';
         uploadBtn.className = 'img-upload-input';
         uploadBtn.style.display = 'none';
-
         const overlay = doc.createElement('div');
         overlay.className = 'img-upload-overlay';
         overlay.innerHTML = '<span>Click to change image</span>';
-        
         img.parentNode.insertBefore(wrapper, img);
         wrapper.appendChild(img);
         wrapper.appendChild(overlay);
         wrapper.appendChild(uploadBtn);
-
         overlay.addEventListener('click', () => uploadBtn.click());
-        
         uploadBtn.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
@@ -69,31 +63,11 @@ const btn = document.querySelector('.Primary-Button');
         });
     });
 
-    // Add styles for image upload
     const imageStyles = `
-        .img-upload-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-        .img-upload-overlay {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            color: white;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .img-upload-wrapper:hover .img-upload-overlay {
-            display: flex;
-        }
+        .img-upload-wrapper { position: relative; display: inline-block; }
+        .img-upload-overlay { display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); color: white; justify-content: center; align-items: center; cursor: pointer; border-radius: 4px; }
+        .img-upload-wrapper:hover .img-upload-overlay { display: flex; }
     `;
-
     const styleEl = doc.createElement('style');
     styleEl.id = 'image-upload-styles';
     styleEl.textContent = imageStyles;
@@ -110,7 +84,6 @@ const btn = document.querySelector('.Primary-Button');
     if(s) s.remove();
     if(clickBlocker) { doc.removeEventListener('click', clickBlocker, true); clickBlocker = null; }
 
-    // Remove image upload functionality
     const wrappers = doc.querySelectorAll('.img-upload-wrapper');
     wrappers.forEach(wrapper => {
         const img = wrapper.querySelector('img');
@@ -120,28 +93,23 @@ const btn = document.querySelector('.Primary-Button');
         wrapper.remove();
     });
 
-    // Remove image upload styles
     const imageStyles = doc.getElementById('image-upload-styles');
     if (imageStyles) imageStyles.remove();
   }
 
   btn.addEventListener('click', function(e){
-    // kiểm tra đã đăng nhập (thử nhiều nơi phổ biến): localStorage/sessionStorage hoặc biến toàn cục
     const isLoggedIn = !!(
-        localStorage.getItem('token') ||
-        localStorage.getItem('authToken') ||
-        sessionStorage.getItem('token') ||
-        window.__USER__
+        sessionStorage.getItem('authToken')
     );
-    // if (!isLoggedIn) {
-    //     alert('Vui lòng đăng nhập để sử dụng tính năng này.');
-    //     window.location.href = 'index.html#/login';
-    //     return;
-    // }
+    if (!isLoggedIn) {
+        showAlert('Vui lòng đăng nhập để sử dụng tính năng này.', 'warning');
+        window.location.hash = '/login';
+        return;
+    }
     e.preventDefault();
     const iframe = document.querySelector(iframeSelector);
     if(!iframe){
-      alert('Preview iframe not found.');
+      showAlert('Preview iframe not found.', 'error');
       return;
     }
 
@@ -158,110 +126,163 @@ const btn = document.querySelector('.Primary-Button');
         btn.textContent = 'Use this template';
       }
     }catch(err){
-      // cross-origin or other access issue -> open template in new tab as fallback
       console.warn('Could not access iframe document (cross-origin?). Opening in new tab.', err);
       window.open(iframe.src, '_blank');
     }
   });
 }
 
-export default function templatePage() {
-    setTimeout(setupTemplatePage, 0);
+// --- Dynamic manifest loading and UI binding ---
+async function loadTemplatesManifest() {
+  try {
+    const res = await fetch('/assets/js/templates-manifest.json', {cache: 'no-store'});
+    if (!res.ok) throw new Error('manifest not found');
+    return await res.json();
+  } catch (e) {
+    console.warn('Could not load templates manifest:', e);
+    return [];
+  }
+}
+
+export async function renderTemplateBlocks(manifest) {
+  try{
+  const res = await fetch('/assets/js/templates-manifest.json', {cache: 'no-store'});
+  if(!res.ok) throw new Error('manifest not found');
+  const manifest = await res.json();
+  const wrapper = document.getElementById('swiperWrapper');
+  if(!wrapper) return;
+  wrapper.innerHTML = '';
+  manifest.forEach(item=>{
+      const a = document.createElement('a');
+      a.href = `#/template/${item.id}`;
+      a.className = 'Template-block';
+      a.innerHTML = `
+          <div class="Template-Thumbnail"><img src="${item.preview}" alt="${item.name}"></div>
+          <div class="Template-Info"><h3>${item.name}</h3></div>
+          <div class="Template-Tags">
+              ${item.tags ? item.tags.map(tag => `<span class="Template-Tag">${tag}</span>`).join('') : ''}
+          </div>
+      `;
+    a.addEventListener('click', () => {
+      const iframe = document.querySelector('.Template-preview-iframe');
+      if (iframe) iframe.src = item.path;
+      // update "Use this template" button dataset for later actions
+      const useBtn = document.querySelector('.Primary-Button');
+      if (useBtn) useBtn.dataset.template = item.path;
+    });
+    wrapper.appendChild(a);
+  });
+  }catch(err){
+        console.warn('setup Templatepage   error', err);
+    }
+}
+
+export default function templatePage(selectedTemplate) {
+    setTimeout(async () => {
+      // ensure setup runs after DOM insertion
+      setTimeout(setupTemplatePage, 0);
+      const manifest = await loadTemplatesManifest();
+      renderTemplateBlocks(manifest);
+      // initial preview: prefer selectedTemplate (from router), otherwise manifest[0]
+      const initial = selectedTemplate || manifest[0];
+      if (initial) {
+        const iframe = document.querySelector('.Template-preview-iframe');
+        if (iframe) iframe.src = initial.path;
+        const useBtn = document.querySelector('.Primary-Button');
+        if (useBtn) useBtn.dataset.template = initial.path;
+        // set download link on Download button if present
+        const downloadBtn = document.querySelector('.Primary-Button.download-btn');
+        if (downloadBtn) downloadBtn.dataset.template = initial.path;
+      }
+      const downloadBtn = document.querySelector('.Primary-Button.download-btn');
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", async (e) => {
+      const isLoggedIn = !!sessionStorage.getItem("authToken");
+      if (!isLoggedIn) {
+        showAlert("Vui lòng đăng nhập để sử dụng tính năng này.", "warning");
+        window.location.hash = "/login";
+        return;
+      }
+      e.preventDefault();
+      const templatePath = downloadBtn.dataset.template;
+      if (!templatePath) {
+        alert("No template selected.");
+        return;
+      }
+      try {
+        // nạp module download-template.js động
+        const { downloadTemplate } = await import(
+          "/assets/js/download-template.js"
+        );
+        // Lấy thư mục cha (bỏ "index.html" nếu có)
+        const folderUrl = templatePath.replace(/index\.html$/i, "");
+        await downloadTemplate(folderUrl);
+      } catch (err) {
+        console.error("Download failed:", err);
+        alert("Failed to download template.");
+      }
+    });
+  }
+    }, 0);
+
+  const titleText = (selectedTemplate && selectedTemplate.name) ? selectedTemplate.name : 'Templates';
+  const iframeSrc = (selectedTemplate && selectedTemplate.path) ? selectedTemplate.path : '/assets/template/dat_portfolio/index.html';
+
   return `
 <div class="container">
-        <div class="Template-container">
-            <div class="row Template-header">
-                <div class="col-1"></div>
-                <div class="Template-title col-4">Dat Portfolio</div>
-                <div class="col-6"></div>
-                <button class="Primary-Button col-3">Use this template</button>
-                <button class="Primary-Button col-1">Download</button>
-            </div>
-            <div class="row">
-
-                <div class="Template-preview-container col-16" aria-label="Template preview">
-                    <iframe src="../assets/template/dat_portfolio/index.html" title="Dat Portfolio Template"
-                    class="Template-preview-iframe" loading="lazy"
-                    sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
-                    style="width:100%;height:720px;border:0;min-height:480px;">
-                </iframe>
-                <div class="Template-preview-fallback">
-                    <p>Unable to display preview. 
-                        <button class="Primary-Button">
-
-                            <a href="../assets/template/dat_portfolio/index.html" target="_blank"
-                            rel="noopener noreferrer">Open template in new tab</a>
-                        </button>
-                    </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="Referrence-container">
-            <h2>Learn how to create a stand out portfolio</h2>
-            <h3>from over 50 newest portfolio samples</h3>
-            
-            <div class="swiper-nav prev" onclick="scrollSwiper(-1)">
-                <svg viewBox="0 0 24 24 " fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M15 18l-6-6 6-6" />
-                </svg>
-            </div>
-            
-            <div class="swiper-wrapper" id="swiperWrapper">
-                
-                <div class="Template-block">
-                    <div class="Template-Thumbnail"></div>
-                    <div class="Category-Button">
-                        <h3>Programmer</h3>
-                    </div>
-                </div>
-                
-                <div class="Template-block">
-                    <div class="Template-Thumbnail"></div>
-                    <div class="Category-Button">
-                        <h3>Programmer</h3>
-                    </div>
-                </div>
-                
-                <div class="Template-block">
-                    <div class="Template-Thumbnail"></div>
-                    <div class="Category-Button">
-                        <h3>Programmer</h3>
-                    </div>
-                </div>
-                
-                <div class="Template-block">
-                    <div class="Template-Thumbnail"></div>
-                    <div class="Category-Button">
-                        <h3>Programmer</h3>
-                    </div>
-                </div>
-                
-                <div class="Template-block">
-                    <div class="Template-Thumbnail"></div>
-                    <div class="Category-Button">
-                        <h3>Programmer</h3>
-                    </div>
-                </div>
-                
-                
-            </div>
-            
-            <div class="swiper-nav next" onclick="scrollSwiper(1)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 18l6-6-6-6" />
-                </svg>
-        </div>
-        <div class="Referrence-button container">
-            <div class="row">
-                <div class="col-12"></div>
-                <button class="Primary-Button col-4
-                ">
-                    <a href="/homePage">See All Templates</a>
-                </button>
-            </div>
-        </div>
+  <div class="Template-container">
+    <div class="row Template-header">
+      <div class="col-1"></div>
+      <div class="Template-title col-8">${titleText}</div>
+      <div class="col-2"></div>
+      <button class="Primary-Button col-3" data-template="${selectedTemplate && selectedTemplate.path ? selectedTemplate.path : ''}">Use this template</button>
+      <button class="Primary-Button col-1 download-btn" data-template="${selectedTemplate && selectedTemplate.path ? selectedTemplate.path : ''}">Download</button>
     </div>
+
+    <div class="row">
+      <div class="Template-preview-container col-16" aria-label="Template preview">
+        <iframe src="${iframeSrc}" title="${titleText} Template"
+          class="Template-preview-iframe" loading="lazy"
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+          style="width:100%;height:720px;border:0;min-height:480px;"></iframe>
+        <div class="Template-preview-fallback">
+          <p>Unable to display preview. 
+            <button class="Primary-Button">
+              <a href="${iframeSrc}" target="_blank" rel="noopener noreferrer">Open template in new tab</a>
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="Referrence-container">
+    <h2>Learn how to create a stand out portfolio</h2>
+    <h3>from over 50 newest portfolio samples</h3>
+
+    <div class="swiper-nav prev" onclick="window.scrollSwiper && window.scrollSwiper(-1)">
+      <svg viewBox="0 0 24 24 " fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </div>
+
+    <div class="swiper-wrapper" id="swiperWrapper"></div>
+
+    <div class="swiper-nav next" onclick="window.scrollSwiper && window.scrollSwiper(1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6" />
+      </svg>
+    </div>
+
+    <div class="Referrence-button container">
+      <div class="row">
+        <div class="col-12"></div>
+        <button class="Primary-Button col-4">
+          <a href="#/homePage">See All Templates</a>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 }

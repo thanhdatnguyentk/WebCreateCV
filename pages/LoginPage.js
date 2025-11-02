@@ -1,3 +1,5 @@
+import { showAlert } from "../assets/js/components/alert.js";
+
 // Hàm này để gắn sự kiện sau khi HTML được render
 export function setupLoginPage() {
   const form = document.getElementById("login-form");
@@ -5,11 +7,29 @@ export function setupLoginPage() {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       // Xử lý logic đăng nhập ở đây
-      const data = Object.fromEntries(new FormData(form));
-      console.log("Login data:", data);
-      alert("Đăng nhập thành công (xem console log)!");
-      // Chuyển hướng về trang chủ sau khi đăng nhập
-      window.location.hash = "/homePage";
+      const formData = Object.fromEntries(new FormData(form));
+
+      // Giả lập API: Lấy danh sách người dùng từ localStorage
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      // Tìm người dùng bằng username/email và kiểm tra mật khẩu
+      const foundUser = users.find(
+        (user) =>
+          (user.username === formData.username || user.email === formData.username) &&
+          user.password === formData.password
+      );
+
+      if (foundUser) {
+        // Đăng nhập thành công, lưu token vào sessionStorage
+        // (sessionStorage sẽ tự xóa khi đóng tab)
+        sessionStorage.setItem("authToken", foundUser.email); // Dùng email làm "token" giả
+        showAlert("Đăng nhập thành công!", 'success');
+        // Chuyển hướng về trang chủ sau khi đăng nhập
+        window.location.hash = "/homePage";
+      } else {
+        // Đăng nhập thất bại
+        showAlert("Tên đăng nhập hoặc mật khẩu không chính xác.", 'error');
+      }
     });
   }
 }

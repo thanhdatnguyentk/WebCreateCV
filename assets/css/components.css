@@ -72,3 +72,247 @@
   -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
           transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
+/* =========================
+   Shared Swiper Component
+   ========================= */
+.swiper-wrapper {
+  display: flex;
+  gap: 1.25rem; /* fallback, will be replaced by var-based spacing in container */
+  overflow-x: auto;
+  padding: calc(var(--gutter, 16px) / 2) 0;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* hide IE scrollbar */
+  scrollbar-width: none; /* hide Firefox scrollbar */
+}
+.swiper-wrapper::-webkit-scrollbar { display: none; }
+
+.Template-block {
+  min-width: 260px;
+  max-width: 320px;
+  background: var(--surface, #fff);
+  border-radius: calc(var(--radius, 12px) * 1.2);
+  padding-bottom: 12px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast, 180ms), box-shadow var(--transition-fast, 180ms);
+  box-shadow: var(--shadow-sm, 0 6px 18px rgba(15,23,42,0.08));
+  overflow: hidden;
+  border: 1px solid rgba(15,23,42,0.04);
+}
+.Template-block:hover { transform: translateY(-6px); box-shadow: var(--shadow-md, 0 12px 32px rgba(15,23,42,0.12)); }
+
+.Template-Info{ padding: .85rem 1rem; color: var(--text, #0f172a) !important; }
+.Template-Info h3{ margin:0; font-size:1rem; font-weight:var(--fw-medium,600); }
+
+.swiper-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white-bg, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm, 0 6px 18px rgba(15,23,42,0.08));
+  z-index: 10;
+  transition: background var(--transition-fast, 180ms), transform var(--transition-fast, 180ms);
+}
+.swiper-nav:hover{ background: var(--accent-600, #0ea5a4); transform: translateY(-50%) scale(1.03); color: var(--white-bg, #fff); }
+.swiper-nav.prev{ left: 8px; }
+.swiper-nav.next{ right: 8px; }
+.swiper-nav svg{ width:18px; height:18px; color: var(--text, #0f172a); }
+.swiper-nav:hover svg{ color: var(--white-bg, #fff); }
+
+.Template-Tags{ padding: 0 1rem 0.5rem; display:flex; flex-wrap:wrap; }
+.Template-Tag{ display:inline-block; background: var(--muted, #f3f4f6);    padding:4px 8px; border-radius:999px; margin-right:6px; font-size:12px; }
+
+@media (max-width: 900px){
+  .Template-block{ min-width:220px; max-width:260px; }
+}
+
+/* ==================== 
+   ALERT NOTIFICATIONS                                  
+ ====================== */
+#alert-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.custom-alert {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    min-width: 300px;
+    max-width: 350px;
+    color: #fff;
+    opacity: 0;
+    transform: translateX(110%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.custom-alert.alert--visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Các loại Alert --- */
+.alert--success {
+    background-color: #28a745;
+}
+.alert--error {
+    background-color: #dc3545;
+}
+.alert--warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+.alert--info {
+    background-color: #0fa3b9;
+}
+
+.alert__icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.alert__body {
+    flex-grow: 1;
+}
+
+.alert__msg {
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.alert__close {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.8;
+    padding: 0 5px;
+    transition: opacity 0.2s;
+}
+
+.alert__close:hover {
+    opacity: 1;
+}
+
+/* =======================
+  Slide-in Effect Button 
+  ======================== */
+
+/* Lớp Animation  */
+.btn-slide {
+    position: relative;
+    overflow: hidden;
+    z-index: 1; 
+    transition: color .35s ease;
+    background: transparent !important;
+}
+
+.btn-slide:before,
+.btn-slide:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    z-index: -1; 
+    transition: all .35s ease;
+}
+
+.btn-slide:before {
+    opacity: .5;
+}
+
+.btn-slide:after {
+    transition-delay: .2s;
+}
+
+/* Trạng thái Hover */
+.btn-slide:hover {
+    color: var(--white-bg) !important; 
+}
+
+.btn-slide:hover:before,
+.btn-slide:hover:after {
+  top: 0;
+}
+
+
+/* Base class */
+.btn-base {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-style: solid;
+    font-weight: 600;
+    border-width: 2px;
+    border-radius: 8px;
+}
+
+/* Size variants */
+.btn--md {
+    padding: 12px 24px;
+    font-size: 1rem;
+}
+.btn--lg {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+}
+.btn--sm {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+}
+/*  (Blue) */
+.btn-slide--bl {
+    color: var(--highlight-text);
+    border-color: var(--highlight-text);
+}
+.btn-slide--bl:before,
+.btn-slide--bl:after {
+    background: var(--highlight-text);
+}
+
+/*  (Gray) */
+.btn-slide--gry {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+.btn-slide--gry:before,
+.btn-slide--gry:after {
+    background: #6c757d;
+}
+
+/*  (Green) */
+.btn-slide--gr {
+    color: #28a745;
+    border-color: #28a745;
+}
+.btn-slide--gr:before,
+.btn-slide--gr:after {
+    background: #28a745;
+}
+
+/*  (Red) */
+.btn-slide--rd {
+    color: var(--danger);
+    border-color: var(--danger);
+}
+.btn-slide--rd:before,
+.btn-slide--rd:after {
+    background: var(--danger);
+}

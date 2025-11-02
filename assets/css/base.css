@@ -4,7 +4,7 @@
 :root{
   --white-bg: #FFFFFF;
   --bg: #FFFFFF;
-  --surface: #E5F1FB;
+  --surface: #e5f1fb;
   --text: #384959;
   --highlight-text: #024ACF;
   --muted: #6A89A7;
@@ -53,7 +53,7 @@ ol { list-style: decimal; }
 
 /* Links */
 a { color: var(--accent); text-decoration: none; background-color: transparent; }
-a:hover, a:focus { text-decoration: underline; outline: none; }
+a:hover, a:focus { text-decoration: none; outline: none; }
 
 /* Images and media */
 img, svg, video { max-width: 100%; height: auto; display: block; }
