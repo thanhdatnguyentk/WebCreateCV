@@ -67,7 +67,7 @@ export default function AboutPage() {
       <section class="hero-slider">
         <div class="slider-wrapper">
           <div class="slide active" style="background-image: url('assets/images/HoangAnh/banner.jpg');"></div>
-          <div class="slide" style="background-image: url('assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');"></div>
+          <div class="slide" style="background-image: url('../assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');"></div>
           <div class="slide" style="background-image: url('assets/images/HoangAnh/gradient-portfolio-banner-template_23-2149225563.jpg');"></div>
         </div>
         <button class="slider-nav prev">&lt;</button>
