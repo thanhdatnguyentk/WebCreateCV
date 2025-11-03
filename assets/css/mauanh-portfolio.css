@@ -47,7 +47,7 @@ body {
     font-style: italic;
 }
 
-.portfolio-container .idk-lol,  h3 {
+.portfolio-container  .idk-lol  h2 {
     color: var(--yellow-header);
 }
 
@@ -66,7 +66,6 @@ body {
     color: var(--yellow-header);
     font-weight: 600;
     margin-bottom: 12px;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
@@ -106,10 +105,25 @@ body {
 
 .hobby div {
   position: relative;
-} 
-
-.hobby div::before {
-  content: "⚽";
-  position: absolute;
-  left: 0;
 }
+
+.job-container  h3 {
+  color: var(--yellow-header);
+}
+
+.job-experience h3:nth-child(2),
+.job-experience h3:nth-child(3),
+.job-experience h3:nth-child(4),
+.job-experience h3:nth-child(5)
+{
+    color: var(--text);
+}
+
+.job-goal, 
+.job-experience, 
+.academic, 
+.activity {
+  border-top: 1px solid rgba(236, 143, 0, 0.3);
+}
+
+
