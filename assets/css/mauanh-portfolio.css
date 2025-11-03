@@ -1,0 +1,115 @@
+/* =========================
+  CSS Variables (theming)
+  ========================= */
+:root{
+  --white-bg: #FFFFFF;
+  --surface: #e5f1fb;
+  --text: #222222;
+  --white-text: #F4F4F4;
+  --yellow-header: #EC8F00;
+  --black-bg: #353A3D;
+  --font-sans: Roboto, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+}
+
+.portfolio-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.self-related-container {
+    background-color: #353A3D;
+    width: 30%;
+    padding: 30px 25px;
+}
+
+.idk-lol img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--yellow-header);
+}
+
+.idk-lol h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.idk-lol > div {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.portfolio-container .idk-lol,  h3 {
+    color: var(--yellow-header);
+}
+
+.personal-information,
+.skill-information,
+.refferer,
+.awards-prizes,
+.certificate,
+.hobby {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(236, 143, 0, 0.3);
+}
+
+.self-related-container h3 {
+    color: var(--yellow-header);
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.self-related-container > div > div {
+    color: var(--white-text);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.personal-information div:nth-child(3)::before {
+    content: "📞 ";
+}
+
+.personal-information div:nth-child(4)::before {
+  content: "✉ ";
+}
+
+.personal-information div:nth-child(5)::before {
+  content: "🌐 ";
+}
+
+.personal-information div:nth-child(6)::before {
+  content: "📍 ";
+}
+
+.skill-information div {
+  padding-left: 15px;
+  position: relative;
+}
+
+.skill-information div::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--yellow-header);
+}
+
+.hobby div {
+  position: relative;
+} 
+
+.hobby div::before {
+  content: "⚽";
+  position: absolute;
+  left: 0;
+}
