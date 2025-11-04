@@ -59,7 +59,6 @@ body {
 .hobby {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid rgba(236, 143, 0, 0.3);
 }
 
 .self-related-container h3 {
@@ -107,6 +106,8 @@ body {
   position: relative;
 }
 
+/* job container */
+
 .job-container  h3 {
   color: var(--yellow-header);
 }
@@ -119,11 +120,17 @@ body {
     color: var(--text);
 }
 
-.job-goal, 
-.job-experience, 
-.academic, 
-.activity {
-  border-top: 1px solid rgba(236, 143, 0, 0.3);
+.section-header {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+
 }
+
+.section-line {
+  background-color: var(--yellow-header);
+  height: 2px;
+  flex: 1;
+}  
 
 
