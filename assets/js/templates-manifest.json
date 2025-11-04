@@ -17,5 +17,15 @@
     "folder": "Hai-CV",
     "category": "Professional",
     "tags": ["Professional", "Simple", "Clean"]
+  },
+
+  {
+    "id": "MauAnh-Portfolio",
+    "name": "Finance Manager portfolio",
+    "path": "assets/template/Mau_Anh_portfolio/index.html",
+    "preview": "assets/img/Mau-Anh-Le-TopCV.vn-021125.211047_page-0001.jpg",
+    "folder": "Mau_Anh_portfolio",
+    "category": "Portfolio",
+    "tags": ["Professional", "Simple", "Clean"]
   }
 ]
