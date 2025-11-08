@@ -73,7 +73,7 @@ nav a {
   NAVBAR STYLES
   ========================= */
 .navbar-container {
-    max-width: 100%;
+    max-width: 99%;
     margin: 0 auto;
 }
 .navbar {
@@ -82,6 +82,8 @@ nav a {
     align-items: center;
     background: #ffffff;
     padding: 20px 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius);
 }
 .navbar-logo {
     display: flex; 
