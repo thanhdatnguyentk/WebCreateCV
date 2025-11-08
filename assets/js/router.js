@@ -5,8 +5,9 @@ import ContactPage from "../../pages/Contact.js";
 import LoginPage from "../../pages/LoginPage.js";
 import SignupPage from "../../pages/SignupPage.js";
 import TemplatePage, { setupTemplatePage } from "../../pages/Templates.js";
-import { render, getHashPath } from "./utils.js";
-import Header from "./components/header.js";  
+import ProfilePage, { setupProfilePage } from "../../pages/ProfilePage.js";
+import { render, getHashPath } from "./utils.js"; 
+import Header, { setupHeader } from "./components/header.js";
 import Footer from "./components/footer.js";
 
 // Hàm để load template manifest
@@ -30,6 +31,7 @@ const routes = {
   "/login": LoginPage,
   "/signup": SignupPage,
   "/templatePage": TemplatePage,
+  "/profile": ProfilePage,
   "/": AboutPage,
 };
 
@@ -79,6 +81,9 @@ export async function router() {
   
   render(layout);
 
+  // Luôn chạy setup cho header sau mỗi lần render
+  setupHeader();
+
   // Init các functions sau khi render
   if (path === "/" || path === "/about") {
     initPortfolioPage();
@@ -89,6 +94,9 @@ export async function router() {
   }
   if (path.startsWith("/template/") || path === "/templatePage") {
     setupTemplatePage();
+  }
+  if (path === "/profile") {
+    setupProfilePage();
   }
 }
 
