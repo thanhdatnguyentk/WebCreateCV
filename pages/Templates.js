@@ -217,9 +217,10 @@ export default function templatePage(selectedTemplate) {
         // Lấy thư mục cha (bỏ "index.html" nếu có)
         const folderUrl = templatePath.replace(/index\.html$/i, "");
         await downloadTemplate(folderUrl);
+        showAlert("Đã tải xuống mẫu thành công.", "success");
       } catch (err) {
         console.error("Download failed:", err);
-        alert("Failed to download template.");
+        showAlert("Tải xuống mẫu không thành công.", "error");
       }
     });
   }

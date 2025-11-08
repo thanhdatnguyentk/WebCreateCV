@@ -262,7 +262,6 @@ img:not([src]):not([srcset]) {
   ========================= */
 
  .login-bg, .signup-bg {
-     background: #ffffff;
      min-height: calc(100vh - 180px); 
      display: flex;
      align-items: center;

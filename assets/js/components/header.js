@@ -58,7 +58,7 @@ export default function Header() {
             <div class="navbar-links">
                 <a href="#/homePage" class="${currentHash === '#/homePage' ? 'active' : ''}">Library</a>
                 <a href="#/contact" class="${currentHash === '#/contact' ? 'active' : ''}">Contact</a>
-                <a href="#/" class="${currentHash === '#/' ? 'active' : ''}">About</a>
+
             </div>
             <div class="navbar-actions">
             ${isLoggedIn
