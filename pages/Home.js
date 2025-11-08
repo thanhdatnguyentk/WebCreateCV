@@ -28,323 +28,13 @@ export default function HomePage() {
         <h1>Explore over 100000 types of portfolio templates
             and edit as your own professional portfolio</h1>
 
-        <div class="Category-Selector1">
-            <div class="row">
-                <div class="col-1"></div>
-                <a href="#/category/featured" class="Category-Card">Featured</a>
-                <a href="#/category/professional" class="Category-Card">Professional</a>
-                <a href="#/category/minimal" class="Category-Card">Minimal</a>
-                <a href="#/category/modern" class="Category-Card">Modern</a>
-            </div>
+        <div class="Category-Selector1" id="categorySelector1">
         </div>
 
         <div class="template-grid">
-            <div class="row ">
+            <div class="row">
                 <div class="col-1"></div>
-                <a href="#/template/dat_portfolio" class="Template-Card col-4">
-                    <div class="Template-Thumbnail">    
-                        <img src="/assets/template/dat_portfolio/thumbnail.jpg" alt="Dat Portfolio Template">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
-                <div class="col-1"></div>
-                <a href="#/template/rin_portfolio" class="Template-Card col-4">
-                    <div class="Template-Thumbnail">
-                        <img src="/assets/template/rin_portfolio/thumbnail.jpg" alt="Rin Portfolio Template">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
-                <div class="col-1"></div>
-               <a href="#" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
-                <div class="col-1"></div>
-            </div>
-
-            <div class="row ">
-                <div class="col-1"></div>
-                 <a href="#" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
-                <div class="col-1"></div>
-                 <a href="#" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
-                <div class="col-1"></div>
-               <a href="#" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
-                <div class="col-1"></div>
-            </div>
-
-            <div class="row ">
-                <div class="col-1"></div>
-                 <a href="#" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
-                <div class="col-1"></div>
-                 <a href="#" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
-                <div class="col-1"></div>
-               <a href="#" class="Template-Card col-4 ">
-                    <div class="Template-Thumbnail">
-                        <img src="../assets/img/mau-cv-an-tuong-1.webp" alt="#1 unique portfolio sample">
-                    </div>
-                    <div class="Template-Color-Selector">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="black" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#F75D77" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#27C840" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="#00C8B3" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="12" fill="white" />
-                        </svg>
-                    </div>
-
-                    <div class="Template-Name"> PORTFOLIO #1</div>
-                    <div class="Category-Selector2">
-                        <div class="Category-Card">Featured</div>
-                        <div class="Category-Card">Minimal</div>
-                    </div>
-                </a>
+                <!-- Dynamic template cards will be rendered here -->
                 <div class="col-1"></div>
             </div>
         </div>
@@ -373,6 +63,7 @@ export default function HomePage() {
   `;
 }
 
+
 // Initialization: load manifest and render dynamic blocks for Home page.
 export async function setupHomePage(){
     try{
@@ -380,11 +71,11 @@ export async function setupHomePage(){
         if(!res.ok) throw new Error('manifest not found');
         const manifest = await res.json();
 
-        // Render top template-grid: show first 3 templates (or fallbacks)
-        const grid = document.querySelector('.template-grid .row');
-        if(grid){
-            // build three columns with templates
-            const items = manifest.slice(0,3);
+        // helper: render top template-grid: show first 3 templates (or provided list)
+        function renderGrid(list){
+            const grid = document.querySelector('.template-grid .row');
+            if(!grid) return;
+            const items = (list && list.length) ? list.slice(0,3) : [];
             let html = '<div class="col-1"></div>';
             items.forEach(item=>{
                 html += `
@@ -392,34 +83,29 @@ export async function setupHomePage(){
                         <div class="Template-Thumbnail">
                             <img src="${item.preview}" alt="${item.name}">
                         </div>
-                        <div class="Template-Color-Selector">
-                            <svg width="24" height="24"><circle cx="12" cy="12" r="12" fill="black" /></svg>
-                            <svg width="24" height="24"><circle cx="12" cy="12" r="12" fill="#F75D77" /></svg>
-                            <svg width="24" height="24"><circle cx="12" cy="12" r="12" fill="#27C840" /></svg>
-                            <svg width="24" height="24"><circle cx="12" cy="12" r="12" fill="#00C8B3" /></svg>
-                            <svg width="24" height="24"><circle cx="12" cy="12" r="12" fill="white" /></svg>
-                        </div>
                         <div class="Template-Name">${item.name}</div>
                         <div class="Category-Selector2">
-                            <div class="Category-Card">${item.category || 'Featured'}</div>
+                            ${item.tags ? item.tags.map(tag => `<span class="Template-Tag">${tag}</span>`).join('') : ''}
                         </div>
                     </a>
                     <div class="col-1"></div>`;
             });
+            if(items.length === 0) html += '<div class="col-12">No templates found.</div>';
             grid.innerHTML = html;
         }
 
-        // Render swiper blocks
-        const wrapper = document.getElementById('swiperWrapper');
-        if(wrapper){
+        // helper: render swiper blocks (uses existing DOM wrapper)
+        function renderSwiper(list){
+            const wrapper = document.getElementById('swiperWrapper');
+            if(!wrapper) return;
             wrapper.innerHTML = '';
-            manifest.forEach(item=>{
+            (list && list.length ? list : manifest).forEach(item=>{
                 const a = document.createElement('a');
                 a.href = `#/template/${item.id}`;
                 a.className = 'Template-block';
                 a.innerHTML = `
                     <div class="Template-Thumbnail"><img src="${item.preview}" alt="${item.name}"></div>
-                    <div class="Template-Info"><h3>${item.name}</h3></div>
+                    <div class="Template-Name">${item.name}</div>
                     <div class="Template-Tags">
                         ${item.tags ? item.tags.map(tag => `<span class="Template-Tag">${tag}</span>`).join('') : ''}
                     </div>
@@ -427,6 +113,49 @@ export async function setupHomePage(){
                 wrapper.appendChild(a);
             });
         }
+
+        // build unique tag list from manifest
+        const tagMap = new Map();
+        manifest.forEach(item => {
+            if (Array.isArray(item.tags)) {
+                item.tags.forEach(t => {
+                    const norm = String(t).trim().toLowerCase();
+                    if (!tagMap.has(norm)) tagMap.set(norm, t);
+                });
+            }
+        });
+        const tags = Array.from(tagMap.entries()).map(([norm, display]) => ({ norm, display }));
+
+        // render tag buttons into container
+        const tagContainer = document.getElementById('categorySelector1');
+        if(tagContainer){
+            tagContainer.innerHTML = '';
+            const allBtn = document.createElement('button');
+            allBtn.type = 'button'; allBtn.className = 'Category-Card tag-button active';
+            allBtn.dataset.tag = ''; allBtn.textContent = 'All';
+            tagContainer.appendChild(allBtn);
+            tags.forEach(t => {
+                const btn = document.createElement('button');
+                btn.type = 'button'; btn.className = 'Category-Card tag-button';
+                btn.dataset.tag = t.norm; btn.textContent = t.display;
+                tagContainer.appendChild(btn);
+            });
+
+            tagContainer.addEventListener('click', (e) => {
+                const btn = e.target.closest('.tag-button');
+                if(!btn) return;
+                const sel = btn.dataset.tag || '';
+                tagContainer.querySelectorAll('.tag-button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filtered = sel ? manifest.filter(it => Array.isArray(it.tags) && it.tags.some(tt => String(tt).trim().toLowerCase() === sel)) : manifest;
+                renderGrid(filtered);
+                renderSwiper(filtered);
+            });
+        }
+
+        // initial render
+        renderGrid(manifest);
+        renderSwiper(manifest);
 
     }catch(err){
         console.warn('setupHomePage error', err);
