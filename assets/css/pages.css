@@ -25,7 +25,6 @@
 
 
 h1 {
-  width: 963px;
   color: #000;
   font-family: "DM Serif Text";
   font-size: 40px;
@@ -38,7 +37,6 @@ h1 {
 }
 
 h3 {
-  width: 963px;
   color: #000;
   font-family: "DM Serif Text";
   font-size: 20px;
@@ -656,8 +654,9 @@ img:not([src]):not([srcset]) {
     color: #333;
     margin-top: 0;
     margin-bottom: 25px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid #d3d3d3;
     padding-bottom: 15px;
+    margin-left: 0;
 }
 
 .profile-form .form-group {
@@ -783,67 +782,4 @@ img:not([src]):not([srcset]) {
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
-}
-
-.avatar-upload-label {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 50%;
-}
-
-.avatar-hover-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    font-size: 0.9rem;
-    text-align: center;
-    font-weight: 600;
-}
-
-.avatar-upload-label:hover .avatar-hover-overlay {
-    opacity: 1;
-}
-
-.avatar-upload-label:hover .profile-avatar-preview {
-    filter: brightness(0.7);
-}
-
-.profile-forms-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.profile-form-container {
-    background-color: var(--white-bg);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.profile-form-container h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 25px;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 15px;
-}
-
-.profile-form button {
-    width: 100%;
-    margin-top: 10px;
 }

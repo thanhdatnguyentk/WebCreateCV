@@ -24,7 +24,7 @@ export function setupProfilePage() {
     // --- Xử lý Avatar ---
     if (avatarUploadInput) {
         // Hiển thị avatar đã lưu
-        avatarPreview.src = userProfile.avatarUpload || './assets/images/icons/profile.svg';
+        avatarPreview.src = userProfile.avatarUrl || './assets/images/icons/profile.svg';
 
         // Cập nhật preview khi người dùng chọn ảnh mới
         avatarUploadInput.addEventListener('change', (e) => {
@@ -59,12 +59,16 @@ export function setupProfilePage() {
         profileForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const formData = Object.fromEntries(new FormData(profileForm));
-            
+
+            // Chỉ lưu avatar nếu nó là một data URL (ảnh mới tải lên)
+            const newAvatarSrc = avatarPreview.src.startsWith('data:image') 
+                ? avatarPreview.src 
+                : userProfile.avatarUrl; // Giữ lại ảnh cũ nếu không thay đổi
+
             // Cập nhật profile cho user hiện tại
             allProfiles[userEmail] = {
-                ...userProfile, // Giữ lại các giá trị cũ
-                ...formData, // Ghi đè bằng giá trị mới từ form
-                avatarUpload: avatarPreview.src // Lưu avatar dưới dạng data URL
+                ...userProfile, ...formData,
+                avatarUrl: newAvatarSrc
             };
 
             // Lưu lại vào localStorage
