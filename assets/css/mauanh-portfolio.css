@@ -1,0 +1,134 @@
+/* =========================
+  CSS Variables (theming)
+  ========================= */
+:root{
+  --white-bg: #FFFFFF;
+  --surface: #e5f1fb;
+  --text: #222222;
+  --white-text: #F4F4F4;
+  --yellow-header: #EC8F00;
+  --black-bg: #353A3D;
+  --font-sans: Roboto, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: #f4f4f4;
+}
+
+.portfolio-container {
+    display: flex;
+    min-height: 100vh;
+    width: 44%;
+    margin-left: 24%;
+    border: 2px solid var(--text);
+    background-color: var(--white-bg);
+}
+
+.self-related-container {
+    background-color: #353A3D;
+    width: 30%;
+    padding: 30px 25px;
+}
+
+.idk-lol img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid var(--yellow-header);
+}
+
+.idk-lol h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.self-related-container  .idk-lol  div {
+    font-size: 20px;
+    color: var(--yellow-header);
+}
+
+.portfolio-container  .idk-lol  h2 {
+    color: var(--yellow-header);
+}
+
+.personal-information,
+.skill-information,
+.refferer,
+.awards-prizes,
+.certificate,
+.hobby {
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+.self-related-container h3 {
+    color: var(--yellow-header);
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.self-related-container > div > div {
+    color: var(--white-text);
+    margin-bottom: 8px;
+}
+
+.personal-information div:nth-child(3)::before {
+    content: "📞 ";
+}
+
+.personal-information div:nth-child(4)::before {
+  content: "✉ ";
+}
+
+.personal-information div:nth-child(5)::before {
+  content: "🌐 ";
+}
+
+.personal-information div:nth-child(6)::before {
+  content: "📍 ";
+}
+
+.skill-information div:nth-child(2),
+.skill-information div:nth-child(3),
+.skill-information div:nth-child(4) {
+  position: relative;
+}
+
+.hobby div {
+  position: relative;
+}
+
+/* job container */
+
+  h3 {
+  color: var(--yellow-header);
+}
+
+.job-experience > h3
+{
+    color: var(--text);
+}
+
+.section-header {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+
+}
+
+.section-line{
+  background-color: var(--yellow-header);
+  height: 2px;
+  flex: 1;
+}  
+
+.with-year {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
