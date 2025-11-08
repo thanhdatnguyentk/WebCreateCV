@@ -46,7 +46,7 @@ export default function ContactPage() {
         <p><strong>Hotline:</strong> (+84) 909 123 456</p>
 
         <div class="social-links">
-          <h3>Kết nối với chúng tôi</h3>
+          <p><strong>Kết nối với chúng tôi:</strong></p>
           <div class="row">
             <div class="col-3"><a href="#"><img src="assets/images/icons/facebook.svg" alt="Facebook"></a></div>
             <div class="col-3"><a href="#"><img src="assets/images/icons/twitter-bird-svgrepo-com.svg" alt="Twitter"></a></div>
