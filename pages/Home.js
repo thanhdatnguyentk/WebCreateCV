@@ -33,9 +33,6 @@ export default function HomePage() {
 
         <div class="template-grid">
             <div class="row">
-                <div class="col-1"></div>
-                <!-- Dynamic template cards will be rendered here -->
-                <div class="col-1"></div>
             </div>
         </div>
 
@@ -75,8 +72,9 @@ export async function setupHomePage(){
         function renderGrid(list){
             const grid = document.querySelector('.template-grid .row');
             if(!grid) return;
-            const items = (list && list.length) ? list.slice(0,3) : [];
-            let html = '<div class="col-1"></div>';
+            // If a filtered list is provided, use it; otherwise render all templates from manifest
+            const items = (list && list.length) ? list : manifest;
+            let html = '';
             items.forEach(item=>{
                 html += `
                     <a href="#/template/${item.id}" class="Template-Card col-4">
@@ -88,7 +86,7 @@ export async function setupHomePage(){
                             ${item.tags ? item.tags.map(tag => `<span class="Template-Tag">${tag}</span>`).join('') : ''}
                         </div>
                     </a>
-                    <div class="col-1"></div>`;
+                    `;
             });
             if(items.length === 0) html += '<div class="col-12">No templates found.</div>';
             grid.innerHTML = html;
@@ -126,30 +124,73 @@ export async function setupHomePage(){
         });
         const tags = Array.from(tagMap.entries()).map(([norm, display]) => ({ norm, display }));
 
-        // render tag buttons into container
+        // render tag buttons into container using layout grid (.row / .col-4 from layout.css)
+        // visible tags are limited; extra tags are hidden inside .tag-hidden (applies to the .col wrapper)
         const tagContainer = document.getElementById('categorySelector1');
         if(tagContainer){
+            const VISIBLE_TAGS = 6; // default visible count; adjust as needed
             tagContainer.innerHTML = '';
+
+            // Build a row that uses layout.css grid
+            const row = document.createElement('div');
+            row.className = 'row tag-row';
+            tagContainer.appendChild(row);
+
+            // Helper to create a col wrapper with the button inside
+            function makeTagCol(btnElement, hidden=false){
+                const col = document.createElement('div');
+                // use a 16-col system: col-4 gives 4 items per row on desktop
+                col.className = 'col-1 tag-col';
+                if(hidden) col.classList.add('tag-hidden');
+                col.appendChild(btnElement);
+                return col;
+            }
+
+            // All button (always visible)
             const allBtn = document.createElement('button');
             allBtn.type = 'button'; allBtn.className = 'Category-Card tag-button active';
             allBtn.dataset.tag = ''; allBtn.textContent = 'All';
-            tagContainer.appendChild(allBtn);
-            tags.forEach(t => {
+            row.appendChild(makeTagCol(allBtn, false));
+
+            // Create tag buttons; hide extra ones by adding class tag-hidden on the col wrapper
+            tags.forEach((t, idx) => {
                 const btn = document.createElement('button');
                 btn.type = 'button'; btn.className = 'Category-Card tag-button';
                 btn.dataset.tag = t.norm; btn.textContent = t.display;
-                tagContainer.appendChild(btn);
+                const hidden = idx >= VISIBLE_TAGS;
+                row.appendChild(makeTagCol(btn, hidden));
             });
 
+            // If there are hidden tags, add a More/Less toggle as a column at the end
+            const hiddenCount = Math.max(0, tags.length - VISIBLE_TAGS);
+            if(hiddenCount > 0){
+                const moreBtn = document.createElement('button');
+                moreBtn.type = 'button'; moreBtn.className = 'Category-Card tag-more';
+                moreBtn.dataset.expanded = 'false';
+                moreBtn.textContent = `More (${hiddenCount})`;
+                row.appendChild(makeTagCol(moreBtn, false));
+
+                moreBtn.addEventListener('click', () => {
+                    const expanded = moreBtn.dataset.expanded === 'true';
+                    moreBtn.dataset.expanded = expanded ? 'false' : 'true';
+                    moreBtn.textContent = expanded ? `More (${hiddenCount})` : 'Less';
+                    tagContainer.classList.toggle('tags-expanded', !expanded);
+                });
+            }
+
+            // Delegate click for filtering
             tagContainer.addEventListener('click', (e) => {
                 const btn = e.target.closest('.tag-button');
                 if(!btn) return;
                 const sel = btn.dataset.tag || '';
+                // remove active from all tag buttons and set on clicked
                 tagContainer.querySelectorAll('.tag-button').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 const filtered = sel ? manifest.filter(it => Array.isArray(it.tags) && it.tags.some(tt => String(tt).trim().toLowerCase() === sel)) : manifest;
+                // Update grid according to selected tag
                 renderGrid(filtered);
-                renderSwiper(filtered);
+                // Do NOT update swiper on tag selection — keep swiper showing full manifest
+                renderSwiper(manifest);
             });
         }
 

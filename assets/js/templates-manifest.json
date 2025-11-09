@@ -28,9 +28,6 @@
     "category": "Portfolio",
     "tags": ["Professional", "Simple", "Clean"]
   },
-
- 
-
   {
     "id": "anh_gamedesigner_portfolio",
     "name": "Game Engineer Portfolio",
@@ -39,5 +36,14 @@
     "folder": "anh",
     "category": "Portfolio",
     "tags": ["Game Engineer", "Simple", "Clean"]
+  },
+  {
+    "id": "HoangAnh-Portfolio",
+    "name": "Game designer Portfolio",
+    "path": "/assets/template/HoangAnh_Portfolio/index.html",
+    "preview": "/assets/template/HoangAnh_Portfolio/thumbnail.png",
+    "folder": "HoangAnh_Portfolio",
+    "category": "Portfolio",
+    "tags": ["Creative", "Modern", "Professional"]
   }
 ]
