@@ -1,5 +1,9 @@
 import { showAlert } from "../assets/js/components/alert.js";
 
+// --- MỚI: Dùng để lưu các event listener của lá cờ ---
+let flagListeners = [];
+// ----------------------------------------------------
+
 export function setupTemplatePage() {
   const btn = document.querySelector('.Primary-Button');
   const iframeSelector = '.Template-preview-iframe';
@@ -13,14 +17,40 @@ export function setupTemplatePage() {
     const nodes = doc.querySelectorAll(selector);
     nodes.forEach(el=>{
       if(['INPUT','TEXTAREA','SELECT','BUTTON','IMG','SVG','CANVAS'].includes(el.tagName)) return;
+      
+      // --- SỬA 1: Bỏ qua các <li> có class 'no-edit' (dùng cho lá cờ) ---
+      if(el.classList.contains('no-edit')) return; 
+      // --------------------------------------------------------------------
+
       el.setAttribute('contenteditable','true');
       el.classList.add('editable-in-iframe');
     });
 
+    // --- SỬA 2: Cập nhật clickBlocker để bỏ qua overlay, cờ, và icon sửa link ---
     clickBlocker = ev => {
       const t = ev.target;
-      if(t.closest && t.closest('a')) ev.preventDefault();
+
+      // 1. Bỏ qua click vào overlay tải ảnh
+      if (t.closest('.img-upload-wrapper')) {
+        return; 
+      }
+      
+      // 2. Bỏ qua click vào icon sửa link
+      if (t.classList.contains('editable-link-icon')) {
+        return;
+      }
+      
+      // 3. Bỏ qua click vào icon sửa cờ
+      if (t.classList.contains('editable-flag-in-iframe')) {
+        return;
+      }
+
+      // Nếu không phải 3 trường hợp trên, thì mới chặn link
+      if(t.closest && t.closest('a')) {
+        ev.preventDefault();
+      }
     };
+    // -------------------------------------------------------------------------
     doc.addEventListener('click', clickBlocker, true);
 
     if(!doc.getElementById('editable-style-by-parent')){
@@ -29,12 +59,45 @@ export function setupTemplatePage() {
       s.textContent = `
 .editable-in-iframe{outline:2px dashed rgba(59,130,246,0.85);padding:2px;border-radius:4px;}
 .editable-in-iframe:focus{outline:2px solid rgba(37,99,235,0.9);box-shadow:0 6px 18px rgba(37,99,235,0.12);}
+
+/* --- MỚI: STYLE CHO LÁ CỜ --- */
+.editable-flag-in-iframe{
+  outline:2px dashed rgba(16,185,129,0.85); /* Viền xanh lá */
+  padding:2px;
+  border-radius:4px;
+  cursor:pointer;
+  transition:all 0.2s;
+}
+.editable-flag-in-iframe:hover{
+  outline:2px solid rgba(5,150,105,0.9);
+  box-shadow:0 6px 18px rgba(5,150,105,0.12);
+}
+/* -------------------------- */
+
+/* --- MỚI: STYLE CHO EDIT LINK --- */
+.editable-link-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 100;
+  background: #007bff;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.editable-link-icon:hover {
+  background: #0056b3;
+}
+/* ------------------------------ */
 `;
       (doc.head||doc.documentElement).appendChild(s);
     }
 
-    // image upload wrappers (same as before)
-    const imgElements = doc.querySelectorAll('img');
+    // image upload wrappers (SỬA 3: Bỏ qua .flag)
+    const imgElements = doc.querySelectorAll('img:not(.flag)');
     imgElements.forEach(img => {
         const wrapper = doc.createElement('div');
         wrapper.className = 'img-upload-wrapper';
@@ -72,6 +135,76 @@ export function setupTemplatePage() {
     styleEl.id = 'image-upload-styles';
     styleEl.textContent = imageStyles;
     (doc.head || doc.documentElement).appendChild(styleEl);
+
+    // --- MỚI: LOGIC CHO LÁ CỜ ---
+    flagListeners = []; // Xóa các listener cũ
+    const flagElements = doc.querySelectorAll('img.flag');
+    
+    flagElements.forEach(flagImg => {
+      flagImg.classList.add('editable-flag-in-iframe');
+
+      const flagClickListener = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        let currentCode = 'vn';
+        try {
+          const urlParts = flagImg.src.split('/');
+          currentCode = urlParts[urlParts.length - 1].split('.')[0];
+        } catch (err) { /* Bỏ qua lỗi */ }
+
+        const newCode = prompt('Nhập mã quốc gia (vd: us, vn, jp, fr...):', currentCode);
+
+        if (!newCode || newCode.trim() === '' || newCode.toLowerCase() === currentCode.toLowerCase()) {
+          return;
+        }
+
+        const newSrc = `https://flagcdn.com/w40/${newCode.toLowerCase()}.png`;
+
+        fetch(newSrc)
+          .then(res => {
+            if (res.ok) {
+              flagImg.src = newSrc;
+            } else {
+              alert('Không tìm thấy cờ cho mã này!');
+            }
+          })
+          .catch(() => alert('Lỗi khi tải ảnh cờ!'));
+      };
+
+      flagImg.addEventListener('click', flagClickListener);
+      flagListeners.push({ el: flagImg, listener: flagClickListener });
+    });
+    // --- KẾT THÚC LOGIC CỜ ---
+
+    // --- MỚI: LOGIC CHO EDITABLE LINKS ---
+    // Chọn các link trong .project và #contact MÀ CÓ target="_blank"
+    const editableLinks = doc.querySelectorAll('.project a[target="_blank"], #contact a[target="_blank"]');
+    
+    editableLinks.forEach(linkEl => {
+      // Thẻ cha (<a>) cần có position relative để icon định vị
+      linkEl.style.position = 'relative'; 
+
+      const editIcon = doc.createElement('span');
+      editIcon.className = 'editable-link-icon';
+      editIcon.innerHTML = '✏️'; // Emoji bút chì
+      editIcon.title = 'Edit link';
+
+      editIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation(); 
+
+        const currentUrl = linkEl.getAttribute('href');
+        const newUrl = prompt('Nhập đường dẫn (URL) mới:', currentUrl);
+
+        if (newUrl && newUrl.trim() !== '') {
+          linkEl.setAttribute('href', newUrl);
+        }
+      });
+
+      linkEl.appendChild(editIcon);
+    });
+    // --- KẾT THÚC LOGIC EDITABLE LINKS ---
   }
 
   function disableEditable(doc){
@@ -95,6 +228,25 @@ export function setupTemplatePage() {
 
     const imageStyles = doc.getElementById('image-upload-styles');
     if (imageStyles) imageStyles.remove();
+
+    // --- MỚI: GỠ BỎ LISTENER VÀ STYLE CỦA LÁ CỜ ---
+    flagListeners.forEach(pair => {
+      pair.el.removeEventListener('click', pair.listener);
+      pair.el.classList.remove('editable-flag-in-iframe');
+    });
+    flagListeners = []; // Dọn dẹp mảng
+    // ----------------------------------------
+
+    // --- MỚI: GỠ BỎ EDIT LINK ICONS ---
+    doc.querySelectorAll('.editable-link-icon').forEach(icon => {
+      icon.remove();
+    });
+    
+    // Reset style position của thẻ <a>
+    doc.querySelectorAll('.project a[target="_blank"], #contact a[target="_blank"]').forEach(linkEl => {
+      linkEl.style.position = '';
+    });
+    // --- KẾT THÚC DỌN DẸP ---
   }
 
   btn.addEventListener('click', function(e){
@@ -133,6 +285,7 @@ export function setupTemplatePage() {
 }
 
 // --- Dynamic manifest loading and UI binding ---
+// (Phần này giữ nguyên, không thay đổi)
 async function loadTemplatesManifest() {
   try {
     const res = await fetch('/assets/js/templates-manifest.json', {cache: 'no-store'});

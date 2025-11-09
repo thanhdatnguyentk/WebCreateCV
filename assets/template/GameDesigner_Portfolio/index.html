@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Linh Nguyen — Game Designer Portfolio</title>
+  <meta name="description" content="Linh Nguyen -- Portfolio for Game Design, Concept, Mechanics and Level Design" />
+  <style>
+    :root {
+      --primary: #6644fa;
+      --secondary: #f8f7fc;
+      --accent: #25a4ff;
+      --bg: #f9faff;
+      --card: #fff;
+      --radius: 18px;
+      --muted: #6a6884;
+      --border: #d8dceb;
+      --shadow: 0 5px 24px #b3cbff18;
+    }
+    html,body{margin:0;padding:0;min-height:100vh;background:var(--bg);color:#222; font-family:Inter,Arial,sans-serif;}
+    .container{max-width:1100px;margin:0 auto;padding:26px}
+    header{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;}
+    .brand{display:flex;align-items:center;gap:16px;}
+    .avatar{width:54px;height:54px;border-radius:16px;box-shadow:0 2px 6px #cadcff36;object-fit:cover}
+    nav ul{display:flex;gap:20px;list-style:none;padding:0;margin:0;}
+    nav a{color:var(--muted);font-weight:600;font-size:15px;padding:6px 14px;border-radius:8px;transition:background .18s}
+    nav a:hover{background:var(--secondary);color:var(--primary);}
+    /* HERO section */
+    .hero{display:flex;align-items:center;gap:32px;background:linear-gradient(90deg,var(--secondary) 70%,var(--bg));border-radius:var(--radius);padding:36px 32px 32px;margin-bottom:32px;box-shadow:var(--shadow)}
+    .hero-titles{flex:1}
+    .hero-title{font-size:38px;font-weight:800;margin:4px 0 14px;color:var(--primary)}
+    .hero-desc{color:#444;font-size:18px;max-width:50ch}
+    .badges{display:flex;gap:10px;margin-bottom:18px}
+    .badge{padding:4px 13px;border-radius:12px;background:#edefff;color:var(--primary);font-weight:600;font-size:13px}
+    /* Section */
+    section{margin-bottom:44px}
+    .section-title{font-size:22px;font-weight:700;color:var(--primary);margin:0 0 16px}
+    .card{background:var(--card);border-radius:var(--radius);padding:22px 18px;box-shadow:var(--shadow);margin-bottom:10px;border:1px solid var(--border)}
+    /* Tags grid */
+    .tags{display:flex;flex-wrap:wrap;gap:9px;}
+    .tag{background:#f1f3fd;padding:6px 13px;color:#42518d;border-radius:999px;font-size:15px;border:1.1px solid #e0eafd;cursor:pointer;transition:.17s}
+    .tag[contenteditable="true"]:focus{background:#e7ebfa;border-color:var(--primary);outline:2px solid #b2c2ff;}
+    /* Projects grid */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:850px){.projects-grid{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width:620px){.hero{flex-direction:column;gap:18px;padding:18px}.projects-grid{grid-template-columns:1fr}}
+    .project-card{border-radius:var(--radius);background:#fcfeff;border:1px solid #e7ebf4;box-shadow:0 3px 20px #b4cef810;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+    .project-thumb{width:100%;aspect-ratio:16/9;background:#f0f3fa url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=620&q=60') center/cover;}
+    .project-img{width:100%;height:100%;object-fit:cover;display:block}
+    .project-body{padding:13px 13px 15px 13px;flex:1;display:flex;flex-direction:column}
+    .project-title[contenteditable],.project-desc[contenteditable]{outline:2px solid #ceddff;outline-offset:2px}
+    .project-title{font-size:17px;font-weight:700;margin:6px 0 7px;line-height:1.13}
+    .project-desc{margin:0 0 11px;color:#586177;font-size:15px}
+    .project-tools{font-size:13px;color:var(--muted);margin-bottom:4px}
+    .project-links{display:flex;gap:8px}
+    .project-links a{font-weight:500;font-size:14px;text-decoration:none;color:var(--primary);background:#eaf4ff;padding:3px 10px;border-radius:8px  }
+    /* Contact */
+    .contact-links{display:flex;flex-direction:column;gap:12px;padding:6px 0}
+    .contact-item{padding:10px 20px;background:#f7f8fd;border-radius:12px;font-size:16px;color:#314d7b;display:inline-flex;align-items:center;gap:10px;text-decoration:none;border:1.1px solid #e4eafd;font-weight:600;transition:.17s}
+    .contact-item:hover{background:#f2f6ff;border-color:#9987e3;color:#491dcf}
+    footer{text-align:center;margin-top:36px;color:var(--muted);font-size:14px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img class="avatar" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=128&q=80" alt="Avatar Linh Nguyen" />
+        <div>
+          <div style="font-size:19px;font-weight:700;">Linh Nguyen</div>
+          <div style="font-size:13px;color:#968cf0;margin-top:1px">Game Designer</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-titles">
+        <div class="badges">
+          <span class="badge">Game Designer</span>
+          <span class="badge">Level Design</span>
+          <span class="badge">Mechanics & UX</span>
+        </div>
+        <div class="hero-title">Hi! I’m <span contenteditable="true">Linh Nguyen</span></div>
+        <div class="hero-desc" contenteditable="true">I love to design fun and memorable gameplay experiences. Focus on game mechanics, level design, UI/UX, and player engagement for indie and mid-size games.</div>
+      </div>
+      <img class="avatar" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=128&q=80" alt="Linh Nguyen" style="border-radius:16px;width:138px;height:138px;object-fit:cover;box-shadow:0 4px 22px #aeafff38">
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-title">Skills</div>
+      <div class="card">
+        <div class="tags">
+          <span class="tag" contenteditable="true">Game Design</span>
+          <span class="tag" contenteditable="true">Level Design</span>
+          <span class="tag" contenteditable="true">Narrative Design</span>
+          <span class="tag" contenteditable="true">Mechanics System</span>
+          <span class="tag" contenteditable="true">Puzzle Flow</span>
+          <span class="tag" contenteditable="true">Combat Design</span>
+          <span class="tag" contenteditable="true">UI/UX</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section id="tools">
+      <div class="section-title">Game Engines & Tools</div>
+      <div class="card">
+        <div class="tags">
+          <span class="tag" contenteditable="true">Unity</span>
+          <span class="tag" contenteditable="true">Unreal Engine</span>
+          <span class="tag" contenteditable="true">Figma</span>
+          <span class="tag" contenteditable="true">Photoshop</span>
+          <span class="tag" contenteditable="true">Tiled</span>
+          <span class="tag" contenteditable="true">Twine</span>
+          <span class="tag" contenteditable="true">Aseprite</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title">Featured Projects</div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-thumb"><img class="project-img" src="/assets/images/HoangAnh/Portfolio/Artist & Designer/img1.jpg" alt="Platform Puzzle Game"/></div>
+          <div class="project-body">
+            <div class="project-title" contenteditable="true">Light and Shadow — Platform Puzzle</div>
+            <div class="project-desc" contenteditable="true">A 2D puzzle platformer with unique light-based mechanics, custom level editor, 40+ levels. (Level + gameplay design)</div>
+            <div class="project-tools">Unity · C# · Custom Tooling</div>
+            <div class="project-links">
+              <a href="#" target="_blank">Demo</a>
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb"><img class="project-img" src="/assets/images/HoangAnh/Portfolio/Artist & Designer/img4.jpg" alt="Narrative Mobile Game"/></div>
+          <div class="project-body">
+            <div class="project-title" contenteditable="true">Dream Lines — Interactive Story</div>
+            <div class="project-desc" contenteditable="true">Mobile interactive fiction game with branching storyline, multiple endings. Design: narrative, structure, UX flow.</div>
+            <div class="project-tools">Twine · Figma · Photoshop</div>
+            <div class="project-links">
+              <a href="#" target="_blank">Play</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb"><img class="project-img" src="/assets/images/HoangAnh/Portfolio/Fashion/img3.jpg" alt="Strategy Game"/></div>
+          <div class="project-body">
+            <div class="project-title" contenteditable="true">Mini Tactics Arena</div>
+            <div class="project-desc" contenteditable="true">Turn-based tactics game, maps and enemy AI design, core rules prototyping, UI/UX. Released in university showcase.</div>
+            <div class="project-tools">Unity · GDScript · Photoshop</div>
+            <div class="project-links">
+              <a href="#" target="_blank">Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">Contact</div>
+      <div class="card">
+        <div class="contact-links">
+          <a href="mailto:linh.gamedesigner@gmail.com" class="contact-item">📧 linh.gamedesigner@gmail.com</a>
+          <a href="https://linkedin.com/in/linh-designer" target="_blank" class="contact-item">🔗 LinkedIn: @linh-designer</a>
+          <div class="contact-item" contenteditable="true">💬 Discord: linhsdesigner</div>
+          <a href="tel:+84123456789" class="contact-item">📱 +84 123 456 789</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Linh Nguyen — Game Designer</footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
