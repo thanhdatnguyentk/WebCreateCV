@@ -27,5 +27,25 @@
     "folder": "Mau_Anh_portfolio",
     "category": "Portfolio",
     "tags": ["Professional", "Simple", "Clean"]
+  },
+
+  {
+    "id": "HoangAnh_Portfolio",
+    "name": "Game Engineer Portfolio",
+    "path": "/assets/template/HoangAnh_Portfolio/index.html",
+    "preview": "/assets/images/HoangAnh/banner.jpg",
+    "folder": "HoangAnh_Portfolio",
+    "category": "Portfolio",
+    "tags": ["Game", "Engineer", "Portfolio"]
+  },
+
+  {
+    "id": "anh_gamedesigner_portfolio",
+    "name": "Game Engineer Portfolio",
+    "path": "/assets/template/anh/index.html",
+    "preview": "/assets/images/HoangAnh/Portfolio/Artist & Designer/img1.jpg",
+    "folder": "anh",
+    "category": "Portfolio",
+    "tags": ["Game Engineer", "Simple", "Clean"]
   }
 ]

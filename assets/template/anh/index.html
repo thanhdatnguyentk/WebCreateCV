@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoàng Anh — Game Engineer Portfolio</title>
+<meta name="description" content="Portfolio của Hoàng Anh — Game Engineer | Gameplay, Level Design, Game Systems">
+<style>
+  :root{
+    --bg:#0c0c1a;
+    --accent:#ff3c38;
+    --accent2:#ffb23c;
+    --text:#f5f5f5;
+    --muted:#999;
+    --card-bg:rgba(255,255,255,0.05);
+    --radius:15px;
+    --shadow:0 8px 25px rgba(255,60,56,0.3);
+    --max-width:1200px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.5;}
+  a{text-decoration:none;color:inherit;}
+  .container{max-width:var(--max-width);margin:0 auto;padding:0 20px;}
+
+  header{padding:20px 0;position:sticky;top:0;background:rgba(12,12,26,0.85);backdrop-filter:blur(6px);z-index:50;}
+  .nav{display:flex;justify-content:space-between;align-items:center;}
+  .brand{font-size:1.5rem;font-weight:bold;color:var(--accent);}
+  nav ul{display:flex;gap:20px;list-style:none;}
+  nav li:hover a{color:var(--accent2);transition:.3s;}
+  nav a{transition:.3s;opacity:.9;}
+  
+  /* Hero */
+  .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px;background:linear-gradient(180deg,#0c0c1a 0%,#121227 100%);}
+  .hero h1{font-size:3rem;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero p{color:var(--muted);margin:15px 0;max-width:600px;}
+  .hero .buttons{margin-top:20px;display:flex;gap:15px;flex-wrap:wrap;}
+  .btn{padding:12px 20px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600;transition:.2s;}
+  .btn:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .btn.secondary{background:var(--accent2);}
+  
+  /* Sections */
+  section{padding:60px 0;}
+  h2{font-size:2rem;margin-bottom:20px;color:var(--accent);}
+  .grid{display:grid;gap:20px;}
+
+  /* Cards */
+  .card{background:var(--card-bg);border-radius:var(--radius);padding:20px;transition:.3s;position:relative;overflow:hidden;}
+  .card::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg, rgba(255,60,56,0.2), rgba(255,178,60,0.2));opacity:0;transition:.5s;}
+  .card:hover::before{opacity:1;}
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+
+  /* Projects */
+  .projects{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+
+  /* Timeline */
+  .timeline{position:relative;margin-left:10px;}
+  .timeline::before{content:"";position:absolute;left:15px;top:0;bottom:0;width:3px;background:var(--accent);}
+  .tl-item{position:relative;padding-left:40px;margin-bottom:25px;}
+  .tl-item::before{content:"";position:absolute;left:6px;top:0;width:20px;height:20px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent2);}
+  .tl-item div{margin-top:2px;}
+
+  /* Contact */
+  form{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+  input,textarea{padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.05);color:#fff;}
+  input::placeholder,textarea::placeholder{color:var(--muted);}
+  textarea{grid-column:span 2;resize:none;}
+  button{grid-column:span 2;}
+
+  /* Footer */
+  footer{text-align:center;padding:30px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.1);}
+
+  /* Responsive */
+  @media(max-width:768px){nav ul{display:none;} .hero h1{font-size:2.5rem;} .grid{grid-template-columns:1fr;} form{grid-template-columns:1fr;}}
+  .project img.thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* ép hình vuông */
+  object-fit: cover; /* cắt cho vừa mà không méo */
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+  transition: transform .3s, box-shadow .3s;
+  display: block;
+}
+
+.project:hover img.thumb {
+  transform: scale(1.03);
+  box-shadow: var(--shadow);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">Hoàng Anh</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#languages">Languages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Hoàng Anh — Game Engineer</h1>
+  <p>Thiết kế gameplay, level, hệ thống game và UX/UI để tạo trải nghiệm chơi tuyệt vời.</p>
+  <div class="buttons">
+    <a class="btn primary" href="#projects">Xem Projects</a>
+    <a class="btn secondary" href="#" download>Download CV</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <div class="card">
+      Mình là Game Engineer với 1 năm kinh nghiệm, chuyên về Gameplay, Level Design, UX/UI. Thích tạo cảm giác flow và thử nghiệm các cơ chế game mới mẻ.
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="card grid" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr));">
+      <div class="tag">Level Design</div>
+      <div class="tag">Systems Design</div>
+      <div class="tag">UX/UI for Games</div>
+      <div class="tag">Prototyping</div>
+      <div class="tag">Unity</div>
+      <div class="tag">Game Balance</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="grid projects">
+
+      <div class="card project">
+        <a href="https://play.google.com/store/apps/details?id=com.fruit.drop.melon.merge.master" target="_blank" rel="noopener">
+          <img src="../anh/FruitMerge.jpg" alt="Hyper Casual Mobile Game" class="thumb">
+        </a>
+        <h3>Fruit Meme Merge</h3>
+        <p>Thiết kế gameplay, level progression và monetization.</p>
+      </div>
+
+      <div class="card project">
+        <a href="https://hoanganh217.itch.io/spaceshooter" target="_blank" rel="noopener">
+          <img src="../anh/SpaceShooter.png" alt="Puzzle Adventure" class="thumb">
+        </a>
+        <h3>Space Shooter</h3>
+        <p>Level design, puzzle mechanics và UI flow.</p>
+      </div>
+
+      <div class="card project">
+        <a href="https://hoanganh217.itch.io/my-color" target="_blank" rel="noopener">
+          <img src="../anh/TheColorOfLife.jpg" alt="System Design Project" class="thumb">
+        </a>
+        <h3>The Color Of Life</h3>
+        <p>Thiết kế hệ thống gameplay module hóa.</p>
+      </div>
+
+      <div class="card project">
+        <a href="https://hoanganh217.itch.io/towerdefense" target="_blank" rel="noopener">
+          <img src="../anh/TowerDefense.jpg" alt="UX/UI Design" class="thumb">
+        </a>
+        <h3>Turret Defense</h3>
+        <p>Tối ưu UI flow, tạo trải nghiệm người chơi trực quan.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div style="font-weight:600">KingCat Studio Intern</div>
+        <div class="meta">7/2025 - 12/Now</div>
+      </div>
+      <div class="tl-item">
+        <div style="font-weight:600">Athena Bootcamp</div>
+        <div class="meta">3/2025 - 6/2025</div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<section id="languages">
+  <div class="container">
+    <h2>Languages</h2>
+    <ul class="languages-list">
+      <li class="no-edit"> <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag" class="flag">
+        <strong>Vietnamese:</strong> Native
+      </li>
+      <li class="no-edit"> <img src="https://flagcdn.com/w40/us.png" alt="UK Flag" class="flag">
+        <strong>English:</strong> Advanced (TOEIC 700+)
+      </li>
+      <li class="no-edit"> <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag" class="flag">
+        <strong>Japanese:</strong> Basic (JLPT N3)
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+.languages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.languages-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  background: var(--card-bg);
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  transition: background 0.3s;
+}
+
+.languages-list li:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.languages-list .flag {
+  width: 28px;
+  height: 20px;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+.languages-list .flag {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.languages-list .flag:hover {
+  transform: scale(1.1);
+}
+
+</style>
+
+
+<section id="contact">
+    <div class="container">
+      <h2>Contact / Profiles</h2>
+      <div class="card grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;">
+        <a class="card project" href="https://github.com/HoangAnh217" target="_blank" rel="noopener">GitHub</a>
+        <a class="card project" href="https://www.linkedin.com/in/v%C3%B5-b%C3%A1-ho%C3%A0ng-anh-561a70337/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="card project" href="https://mail.google.com/mail/u/0/?hl=vi#inbox" target="_blank" rel="noopener">Gmail</a>
+        <a class="card project" href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </section>
+  
+
+<footer>
+  © <span id="year"></span> Hoàng Anh — Portfolio
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function sendMail(ev){
+    ev.preventDefault();
+    const fd = new FormData(ev.target);
+    const subject = encodeURIComponent("[Portfolio] " + fd.get('name'));
+    const body = encodeURIComponent(`Email: ${fd.get('email')}\n\n${fd.get('message')}`);
+    window.location.href = `mailto:hoanganh.dev@gmail.com?subject=${subject}&body=${body}`;
+    return false;
+  }
+  document.querySelectorAll('.languages-list li').forEach(li => {
+  const img = li.querySelector('.flag');
+  
+  // Khi click vào ảnh cờ -> prompt nhập mã
+  img.addEventListener('click', () => {
+    const current = img.src.split('/').pop().split('.')[0];
+    const code = prompt('Nhập mã quốc gia (vd: us, vn, jp, kr, fr...):', current);
+    if (!code) return;
+
+    // load hình mới từ flagcdn
+    const newSrc = `https://flagcdn.com/w40/${code.toLowerCase()}.png`;
+    
+    // test trước khi đổi để tránh link sai
+    fetch(newSrc)
+      .then(res => {
+        if (res.ok) {
+          img.src = newSrc;
+        } else {
+          alert('Không tìm thấy cờ cho mã này!');
+        }
+      })
+      .catch(() => alert('Lỗi khi tải ảnh cờ!'));
+  });
+});
+</script>
+</body>
+</html>

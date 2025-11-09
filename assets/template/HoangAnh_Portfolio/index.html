@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hoàng Anh — Game Engineer</title>
+  <meta name="description" content="Portfolio của Hoàng Anh — Game Development, Graphics & Engine Programming" />
+  <style>
+    /* ========== Variables ========== */
+    :root{
+      --bg-900: #f7f8fa;
+      --panel: #fff;
+      --neon-1: #1890ff;
+      --neon-2: #33c9b4;
+      --muted: #9ca3af;
+      --glass: rgba(34,197,246,0.025);
+      --card: #fff;
+      --radius: 14px;
+      --max: 1200px;
+      --transition: 220ms cubic-bezier(.2,.9,.3,1);
+      --mono: "Roboto Mono", "Courier New", monospace;
+      --ui: 14px;
+    }
+
+    /* ========== Reset ========== */
+    *{box-sizing:border-box}
+    html,body{height:100%;background:linear-gradient(180deg,#fff 0%, #f7f8fa 100%);margin:0;color:#2b2d33;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+
+    /* ========== Layout ========== */
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px;background:var(--bg-900);box-shadow:0 10px 40px #3dc9d114;min-height:100vh}
+    header{background:white;box-shadow:0 2px 20px #c0e0e310;border-radius:var(--radius);}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{
+      width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#fff,#ddefff);box-shadow:0 4px 18px #daf1fa33;display:inline-grid;place-items:center;font-weight:700;color:#4094e4;font-family:var(--mono)
+    }
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{font-size:14px;color:#697888;padding:6px 10px;border-radius:8px;transition:var(--transition)}
+    nav a:hover{color:var(--neon-1);background:#e6f3ff;box-shadow:0 4px 10px #3dc9d10a inset}
+
+    /* ========== HERO ========== */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:28px 0;background:linear-gradient(180deg,rgba(255,255,255,0.8), #f7fafd 90%);border-radius:24px;box-shadow:0 2px 28px #cee5f224;
+    }
+    .hero-left{padding-right:6px}
+    .kicker{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border-radius:999px;background: #e5effa;color: #2b6cb0;font-size:13px}
+    .title{
+      margin:18px 0 6px;font-size:42px;line-height:1.02;font-weight:800;letter-spacing:-1px;background:none;-webkit-background-clip:unset;background-clip:unset;color:#1f364d;
+      text-shadow:none;
+      position:relative;
+    }
+    /* neon flicker bar */
+    .title::after{
+      content:"";position:absolute;left:0;bottom:-8px;width:60px;height:6px;border-radius:6px;background:linear-gradient(90deg,#4fbaf7,#33c9b4);filter:blur(12px);opacity:.22;transform-origin:left;animation:flicker 4s linear infinite;
+    }
+    @keyframes flicker{
+      0%, 8%, 10%{transform:scaleX(1);opacity:1}
+      9%{transform:scaleX(.2);opacity:.35}
+      30%{transform:scaleX(.8);opacity:0.9}
+      60%{transform:scaleX(1);opacity:1}
+      100%{transform:scaleX(1);opacity:1}
+    }
+    .subtitle{color:#485163;font-size:16px;max-width:62ch;margin-bottom:16px}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);font-weight:600;font-size:14px;cursor:pointer;transition:var(--transition)
+    }
+    .btn-ghost{border:1px solid rgba(255,255,255,0.05);backdrop-filter:blur(6px)}
+    .btn.neon{
+      background:linear-gradient(90deg,#46b7fa,#d7eeff);
+      color:#333;box-shadow:0 10px 40px rgba(0,240,255,0.10);border:none;
+    }
+    .btn:hover{transform:translateY(-4px)}
+    .meta-small{margin-top:10px;color:var(--muted);font-size:13px}
+
+    /* avatar card */
+    .hero-right{display:flex;justify-content:center}
+    .card-avatar{
+      width:380px;max-width:100%;border-radius:16px;padding:18px;background:linear-gradient(180deg,#fff, #eef6fb 60%);
+      border:1px solid #e6fafe;box-shadow:0 6px 36px #d3f2fb15;
+      position:relative;overflow:visible
+    }
+    .avatar-wrap{position:relative;display:grid;place-items:center}
+    .avatar{
+      width:180px;height:180px;border-radius:50%;border:4px solid #e8f4fc;box-shadow:0 3px 22px #b8f4ff27;object-fit:cover;background:#011521
+    }
+    /* neon outline (pseudo) */
+    .avatar:before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:220px;height:220px;border-radius:50%;pointer-events:none;filter:blur(18px);opacity:.55;background:conic-gradient(from 90deg,var(--neon-1),var(--neon-2));mix-blend-mode:screen}
+    .avatar-bio{margin-top:12px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* ========== GRID / SECTIONS ========== */
+    section.h-section{padding:50px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:12px}
+    .section-title{font-size:20px;color:#2171b6;font-weight:700}
+    .grid{display:grid;gap:18px}
+    .projects-grid{grid-template-columns:repeat(3,1fr)}
+
+    /* project card */
+    .project{
+      border-radius:12px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border:1px solid #e6e8f0;transition:transform .28s ease, box-shadow .28s ease;
+    }
+    .project:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,240,255,0.04)}
+    .project .thumb{height:160px;overflow:hidden;background:#ddeffd}
+    .project img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+    .project:hover img{transform:scale(1.07)}
+    .project .body{padding:14px}
+    .project h3{margin:0 0 6px;font-size:16px;color:#286bb2}
+    .project p{margin:0;color:var(--muted);font-size:13px;color:#38698c}
+
+    /* contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .input, textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);outline:none;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .form-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px}
+    .small-muted{color:var(--muted);font-size:13px}
+
+    /* footer */
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid rgba(255,255,255,0.03);margin-top:34px;background:#fff;color:#97a7b5;box-shadow:0 -2px 10px #eef6fb20;border:none;}
+
+    /* ========== Utilities & Responsive ========== */
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+    @media (max-width:1024px){
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .hero{grid-template-columns:1fr 360px;gap:20px}
+      .card-avatar{width:320px}
+    }
+    @media (max-width:720px){
+      .hero{grid-template-columns:1fr;gap:18px;padding:18px 0}
+      .projects-grid{grid-template-columns:1fr}
+      nav ul{display:none}
+      .card-avatar{width:100%}
+      .contact-grid{grid-template-columns:1fr}
+    }
+
+    /* little neon motion: subtle pulse */
+    .pulse{animation:pulse 2.6s ease-in-out infinite}
+    @keyframes pulse{0%{transform:translateY(0)}50%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+
+    /* tiny focus glow for inputs */
+    .input:focus, textarea:focus{box-shadow:0 6px 30px rgba(0,240,255,0.06),0 0 10px rgba(0,240,255,0.03);border-color:rgba(0,240,255,0.12)}
+    /* Tag/card/project */
+    .tags .tag{background:#f5fafd;border:1px solid #d4ebfa;color:#2075a7;transition:.22s;}
+    .tag[contenteditable="true"]:focus{background:#e4f3ff;border-color:#82befa;outline:1.2px solid #43aef8}
+    .card{background:#fff;border:1px solid #e7ebf2;color:#19344d;box-shadow:0 2px 22px #aee6f215;}
+    .project{background:#fff;border:1px solid #e6e8f0;box-shadow:0 2px 28px #f6fafd20;}
+    .meta-small,.subtitle{color:#686f7a}
+    .project .thumb{background:#ddeffd;}
+    .project h3{color:#286bb2}
+    .project .body p{color:#38698c}
+    /* contact */
+    .contact-grid .btn{background:#e3f5fc;color:#277fd7;border:1px solid #cbe4fa;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- <header>
+      <div class="brand">
+        <div class="logo">HA</div>
+        <div>
+          <div style="font-weight:700">Hoàng Anh</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Game Engineer · Graphics & Engine</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#languages">Languages</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header> -->
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="kicker">Game Engineer · Graphics · Physics</div>
+        <h1 class="title">Hoàng Anh — Build high-performance game systems</h1>
+        <p class="subtitle">Xây engine, shader và bộ mô phỏng vật lý cho game. Tập trung vào hiệu năng, kiến trúc sạch và visual polish.</p>
+
+        <div class="hero-cta" style="margin-top:18px">
+          <a class="btn neon" href="https://github.com/hoanganhdev" target="_blank">GitHub</a>
+          <a class="btn btn-ghost" href="#projects">Xem Projects</a>
+          <a class="btn btn-ghost" href="#" download>CV (PDF)</a>
+        </div>
+
+        <div class="meta-small" style="margin-top:16px">C++ · C# · Unity · Unreal · OpenGL/Vulkan · Shader · Physics · Networking</div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card-avatar">
+          <div class="avatar-wrap">
+            <img class="avatar" src="https://i.imgur.com/A5wLWAF.png" alt="Avatar Hoang Anh" />
+          </div>
+          <div class="avatar-bio">
+            <div style="font-weight:700">@hoanganhdev</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:6px">4th-year student @ UIT-VNUHCM · Game engines & graphics</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="h-section">
+      <div class="section-head" style="margin-bottom:12px">
+        <div class="section-title">Skills</div>
+        <div style="color:var(--muted);font-size:13px">Kéo để chỉnh/sửa — click để sửa tag</div>
+      </div>
+      <div class="card" style="padding:16px">
+        <div class="tags" id="skill-tags">
+          <span class="tag editable-skill" contenteditable="true">C++</span>
+          <span class="tag editable-skill" contenteditable="true">C#</span>
+          <span class="tag editable-skill" contenteditable="true">Unity</span>
+          <span class="tag editable-skill" contenteditable="true">Unreal Engine</span>
+          <span class="tag editable-skill" contenteditable="true">Shader Programming</span>
+          <span class="tag editable-skill" contenteditable="true">OpenGL</span>
+          <span class="tag editable-skill" contenteditable="true">Vulkan</span>
+          <span class="tag editable-skill" contenteditable="true">Physics Engine</span>
+          <span class="tag editable-skill" contenteditable="true">AI Scripting</span>
+        </div>
+      </div>
+    </section>
+    <!-- LANGUAGES -->
+    <section id="languages" class="h-section">
+      <div class="section-head" style="margin-bottom:12px">
+        <div class="section-title">Languages & Tools</div>
+        <div style="color:var(--muted);font-size:13px">Bấm vào để edit, có thể kéo thêm/làm JS động sau</div>
+      </div>
+      <div class="card" style="padding:16px">
+        <div class="tags" id="lang-tags">
+          <span class="tag editable-lang" contenteditable="true">English — TOEIC 850+</span>
+          <span class="tag editable-lang" contenteditable="true">Vietnamese — Native</span>
+          <span class="tag editable-lang" contenteditable="true">Python</span>
+          <span class="tag editable-lang" contenteditable="true">Node.js</span>
+          <span class="tag editable-lang" contenteditable="true">Git</span>
+          <span class="tag editable-lang" contenteditable="true">Photoshop</span>
+          <span class="tag editable-lang" contenteditable="true">Figma</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="h-section">
+      <div class="section-head" style="margin-bottom:12px">
+        <div class="section-title">Projects</div>
+        <div style="color:var(--muted);font-size:13px">Selected works — engine, multiplayer & graphics</div>
+      </div>
+
+      <div class="grid projects-grid">
+        <article class="project">
+          <div class="thumb"><img src="/assets/images/HoangAnh/Portfolio/Coder/img1.jpg" alt="SunEngine"></div>
+          <div class="body">
+            <h3>SunEngine — Custom 3D Engine</h3>
+            <p>Modern engine with custom render pipeline, ECS and physics core. C++ · OpenGL/Vulkan</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="thumb"><img src="/assets/images/HoangAnh/Portfolio/Artist & Designer/img2.jpg" alt="Multiplayer Puzzle"></div>
+          <div class="body">
+            <h3>Multiplayer Puzzle Game</h3>
+            <p>Hackathon winner — real-time networking, chat & polished UX. Unity · C#</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="thumb"><img src="/assets/images/HoangAnh/Portfolio/Fashion/img3.jpg" alt="Unreal Shooter"></div>
+          <div class="body">
+            <h3>Unreal Shooter Clone</h3>
+            <p>Gameplay systems, server sync and visuals on UE5. C++ & Blueprints</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="h-section">
+      <div class="section-head" style="margin-bottom:12px">
+        <div class="section-title">Contact</div>
+        <div style="color:var(--muted);font-size:13px">Bạn có thể liên hệ với mình qua:</div>
+      </div>
+      <div class="grid contact-grid">
+        <div>
+          <div class="card" style="display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:start;text-align:left">
+            <a class="btn neon" href="mailto:hoanganh.game@gmail.com" style="margin-bottom:2px;">📧 Email: hoanganh.game@gmail.com</a>
+            <a class="btn btn-ghost" href="https://linkedin.com/in/hoanganhdev" target="_blank">🔗 LinkedIn: @hoanganhdev</a>
+            <div class="btn btn-ghost" contenteditable="false">💬 Discord: <code style="background:rgba(255,255,255,0.02);padding:4px 8px;border-radius:8px;" contenteditable="true">hanhengineer</code></div>
+            <a class="btn btn-ghost" href="tel:+84901234567">📱 Phone: +84 901 234 567</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Hoàng Anh — Game Engineer</footer>
+  </div>
+
+  <script>
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // email via mailto (simple)
+    function sendMail(ev){
+      ev.preventDefault();
+      const fd = new FormData(ev.target);
+      const subject = encodeURIComponent(fd.get('subject') || '[Portfolio] ' + fd.get('name'));
+      const body = encodeURIComponent(`Name: ${fd.get('name')}\nEmail: ${fd.get('email')}\n\n${fd.get('message')}`);
+      window.location.href = `mailto:hoanganh.game@gmail.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+
+    // OPTIONAL: reveal animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveal = (els, delay=80) => {
+        els.forEach((el,i)=> {
+          el.style.opacity = 0;
+          el.style.transform = 'translateY(10px)';
+          setTimeout(()=> {
+            el.style.transition = 'opacity 420ms ease, transform 420ms ease';
+            el.style.opacity = 1;
+            el.style.transform = 'none';
+          }, i * delay);
+        });
+      };
+      reveal(document.querySelectorAll('.hero-left, .card-avatar, .project'));
+    });
+
+    // If you want to populate projects from GitHub API, un-comment and adapt:
+    // fetch(`https://api.github.com/users/hoanganhdev/repos?per_page=100&sort=updated`)
+    //  .then(r=>r.json()).then(repos=>{/* render into .projects-grid */});
+  </script>
+</body>
+</html>
