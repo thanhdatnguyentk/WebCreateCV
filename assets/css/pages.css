@@ -32,8 +32,8 @@ h1 {
   font-weight: 700;
   line-height: normal;
   letter-spacing: -1;
-  margin-left: 85px;
   margin-bottom: 0.3%;
+  padding-left: 0.2em;
 }
 
 h3 {
@@ -60,7 +60,7 @@ h3 {
 .Category-Selector1 {
   /* Use block container - tags will be placed inside a .row with .col-* children (layout.css) */
   display: block;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0.4rem;
   gap: 12px;
 }
 
@@ -195,7 +195,7 @@ h3 {
 .swiper-nav {
     position: absolute;
     top: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--white-bg);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -204,14 +204,14 @@ h3 {
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     line-height: 1;
     transition: background-color 0.3s ease;
 }
 
 .swiper-nav:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--accent-600);
 }
 
 .swiper-nav.prev {
@@ -522,6 +522,14 @@ img:not([src]):not([srcset]) {
   font-weight: var(--fw-bold);
   color: var(--accent-700);
   font-size: clamp(1.5rem, 2rem + 1vw, 2.25rem);
+}
+
+.Template-Tag {
+  color: black;
+}
+
+.Template-Tags {
+  padding: 0.5rem 1.6rem 0.5rem;
 }
 
 .Primary-Button {
