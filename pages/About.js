@@ -93,8 +93,8 @@ export default function AboutPage() {
           <div class="slide" style="background-image: url('../assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');"></div>
           <div class="slide" style="background-image: url('assets/images/HoangAnh/gradient-portfolio-banner-template_23-2149225563.jpg');"></div>
         </div>
-        <button class="slider-nav prev">&lt;</button>
-        <button class="slider-nav next">&gt;</button>
+        <button class="slider-nav prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="slider-nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
         <div class="slider-dots">
           <span class="dot active" data-slide="0"></span>
           <span class="dot" data-slide="1"></span>
