@@ -1,60 +1,52 @@
 // about.js
 
-// Cấu hình dữ liệu cho từng category
-const portfolioData = {
-  edit: {
-    title: "Edit",
-    folder: "Edit",
-    items: [
-      { title: "Video Editor Portfolio", subtitle: "Professional Video Editing", tag: "" },
-      { title: "Photo Editor Showcase", subtitle: "Creative Photo Editing", tag: "Premium" },
-      { title: "Content Editor CV", subtitle: "Editorial & Content Creation", tag: "Premium" }
-    ]
-  },
-  coder: {
-    title: "Coder",
-    folder: "Coder",
-    items: [
-      { title: "Full Stack Developer", subtitle: "Web Development Expert", tag: "Premium" },
-      { title: "Frontend Developer", subtitle: "UI/UX Implementation", tag: "" },
-      { title: "Backend Developer", subtitle: "Server & Database Specialist", tag: "Premium" }
-    ]
-  },
-  design: {
-    title: "Art & Design",
-    folder: "Artist & Designer",
-    items: [
-      { title: "Graphic Designer", subtitle: "Visual Design Expert", tag: "Premium" },
-      { title: "UI/UX Designer", subtitle: "User Experience Designer", tag: "Premium" },
-      { title: "Digital Artist", subtitle: "Creative Digital Arts", tag: "" },
-      { title: "Photographer", subtitle: "Professional Photography", tag: "" }
-    ]
-  },
-  fashion: {
-    title: "Fashion",
-    folder: "Fashion",
-    items: [
-      { title: "Fashion Designer", subtitle: "Trendy Fashion Design", tag: "Premium" },
-      { title: "Style Consultant", subtitle: "Personal Styling Expert", tag: "Premium" },
-      { title: "Fashion Photographer", subtitle: "Fashion Photography", tag: "Premium" }
-    ]
-  }
-};
-
-export default function AboutPage() {
-  // Tính tổng số templates
-  const totalTemplates = Object.values(portfolioData).reduce((sum, category) => sum + category.items.length, 0);
+// 1. HÀM RENDER DỮ LIỆU TỪ JSON
+async function renderAboutTemplates() {
+  const res = await fetch('assets/js/templates-manifest.json');
+  const templates = await res.json();
   
-  // Tạo HTML cho các sections
-  const sectionsHTML = Object.entries(portfolioData).map(([key, category]) => {
-    const cardsHTML = category.items.map((item, index) => {
-      const imagePath = `/HoangAnh/Portfolio/${category.folder}/img${index + 1}.jpg`;
-      return createCard(item.title, item.subtitle, imagePath, item.tag);
-    }).join('');
+  // Category mapping: đổi tên theo sidebar filter (edit/coder/design/fashion)
+  const catMap = {
+    edit: ["Edit", "Video", "Photo", "Content"],
+    coder: ["Coder", "Developer", "Engineer", "Full Stack", "Frontend", "Backend", "Web", "AI", "Game"],
+    design: ["Art", "Design", "Graphic", "Artist", "UI/UX", "Photographer", "Digital"],
+    fashion: ["Fashion", "Style"],
+  };
 
+  // Tạo hàm gán category cho từng template
+  function getCategoryBtnKey(template) {
+    const lowerName = template.name.toLowerCase();
+    // Ưu tiên map category trường manifest nếu trùng
+    if (template.category && catMap[template.category.toLowerCase()]) {
+      return template.category.toLowerCase();
+    }
+    // Không thì dựa theo keyword trong name
+    for (const key in catMap) {
+      if (catMap[key].some(w => lowerName.includes(w.toLowerCase()))) {
+        return key;
+      }
+    }
+    return 'other'; // Sẽ không được hiển thị nếu không khớp
+  }
+
+  // Tạo data group templates cho từng nhánh
+  const group = {};
+  Object.keys(catMap).forEach(k => (group[k] = []));
+
+  templates.forEach(tpl => {
+    const cat = getCategoryBtnKey(tpl);
+    if (group[cat]) group[cat].push(tpl);
+  });
+
+  // Render sections HTML giống code cũ nhưng dựa group mới
+  const sectionsHTML = Object.entries(group).map(([key, arr]) => {
+    if (!arr.length) return '';
+    const cardsHTML = arr.map(
+      tpl => createCard(tpl.name, tpl.tags?.join(', ')||'', tpl.preview, tpl.tags?.[0], tpl.id, tpl.type)
+    ).join('');
     return `
       <section class="portfolio-section" data-category="${key}">
-        <h2>${category.title}</h2>
+        <h2>${key==='edit'? 'Edit': key==='coder'? 'Coder': key==='design'? 'Art & Design': 'Fashion'}</h2>
         <div class="portfolio-grid">
           ${cardsHTML}
         </div>
@@ -62,6 +54,37 @@ export default function AboutPage() {
     `;
   }).join('');
 
+  const totalTemplates = templates.length;
+  // Gắn HTML vào container
+  const contentEl = document.querySelector('.portfolio-content');
+  if (contentEl) {
+    contentEl.innerHTML = `
+      <h2>Popular Designs Templates (${totalTemplates})</h2>
+      ${sectionsHTML}
+    `;
+  }
+}
+
+// 2. HÀM TẠO CARD (CÓ THÊM data-type)
+function createCard(title, subtitle, preview, tag, id, type) {
+  return `
+    <div class="image-wrapper" data-type="${type || 'other'}">
+      <a href="#/template/${id}" class="portfolio-card-link">
+        <div class="portfolio-card">
+          <img src="${preview}" alt="${title}">
+          <div class="card-content">
+            <h3>${title}</h3>
+            <p>${subtitle}</p>
+            ${tag ? `<span class="tag">${tag}</span>` : ""}
+          </div>
+        </div>
+      </a>
+    </div>
+  `;
+}
+
+// 3. HÀM EXPORT CHÍNH (TRẢ VỀ HTML SƯỜN)
+export default function AboutPage() {
   return `
     <main class="gioithieu-page">
       <section class="hero-slider">
@@ -92,89 +115,111 @@ export default function AboutPage() {
 
           <h3 class="sidebar-title" style="margin-top: 20px;">Type</h3>
           <div class="filter-menu">
-            <label class="filter-type"><input type="checkbox" checked disabled>Portfolio</label>
-            <label class="filter-type"><input type="checkbox" disabled>Blog</label>
-            <label class="filter-type"><input type="checkbox" disabled>Scheduling</label>
+            <button class="filter-btn active" data-type="all">All Types</button>
+            <button class="filter-btn" data-type="Portfolio">Portfolio</button>
+            <button class="filter-btn" data-type="CV">CV</button>
           </div>
         </aside>
 
         <div class="portfolio-content">
-          <h2>Popular Designs Templates (${totalTemplates})</h2>
-          ${sectionsHTML}
-        </div>
+          </div>
       </section>
     </main>
   `;
 }
-function createCard(title, subtitle, image, tag) {
-  return `
-    <div class="image-wrapper">
-      <div class="portfolio-card">
-        <img src="assets/images/${image}" alt="${title}">
-        <div class="card-content">
-          <h3>${title}</h3>
-          <p>${subtitle}</p>
-          ${tag ? `<span class="tag">${tag}</span>` : ""}
-        </div>
-      </div>
-    </div>
-  `;
-}
 
+// 4. HÀM SETUP (GẮN EVENT VÀ CHẠY SLIDER)
 export function initPortfolioPage() {
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const portfolioSections = document.querySelectorAll('.portfolio-section');
+  
+  // Lấy tham chiếu đến CẢ HAI nhóm nút
+  const topicButtons = document.querySelectorAll('.filter-btn[data-filter]');
+  const typeButtons = document.querySelectorAll('.filter-btn[data-type]');
 
-  function filterPortfolio(filterValue) {
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    const activeBtn = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
-    if (activeBtn) activeBtn.classList.add('active');
+  /**
+   * Hàm lọc TỔNG HỢP
+   */
+  function applyAllFilters() {
+    const activeTopic = document.querySelector('.filter-btn[data-filter].active')?.dataset.filter || 'all';
+    const activeType = document.querySelector('.filter-btn[data-type].active')?.dataset.type || 'all';
 
-    portfolioSections.forEach(section => {
-      const category = section.getAttribute('data-category');
-      if (filterValue === 'all' || category === filterValue) {
-        section.classList.remove('hidden');
-      } else {
-        section.classList.add('hidden');
-      }
+    document.querySelectorAll('.portfolio-section').forEach(section => {
+      const sectionCategory = section.dataset.category;
+      const isTopicMatch = (activeTopic === 'all' || sectionCategory === activeTopic);
+
+      // Ẩn/Hiện section (Topic)
+      section.classList.toggle('hidden', !isTopicMatch);
+
+      // Lọc card (Type) bên trong section
+      section.querySelectorAll('.image-wrapper').forEach(card => {
+        const cardType = card.dataset.type;
+        const isTypeMatch = (activeType === 'all' || cardType === activeType);
+        
+        // Ẩn/Hiện card (Type)
+        card.classList.toggle('hidden', !isTypeMatch);
+      });
     });
   }
 
-  filterButtons.forEach(button => {
-    if (button.getAttribute('data-filter')) {
-      button.addEventListener('click', e => filterPortfolio(e.target.getAttribute('data-filter')));
-    }
+  // --- Gắn sự kiện click ---
+
+  // 1. Gắn sự kiện cho các nút Topic
+  topicButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      topicButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      applyAllFilters();
+    });
   });
 
-  filterPortfolio('all');
+  // 2. Gắn sự kiện cho các nút Type
+  typeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      typeButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      applyAllFilters();
+    });
+  });
 
-  // --- SLIDER ---
+  // --- Chạy lần đầu khi tải trang ---
+  renderAboutTemplates().then(() => {
+    applyAllFilters();
+  }).catch(err => {
+    console.error("Lỗi khi render template:", err);
+    // Xử lý lỗi, ví dụ hiển thị thông báo
+    const contentEl = document.querySelector('.portfolio-content');
+    if (contentEl) contentEl.innerHTML = "<h2>Không thể tải được template. Vui lòng thử lại sau.</h2>";
+  });
+
+  // --- Code Slider ---
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
   const numSlides = slides.length;
 
-  function showSlide(slideIndex) {
-    if (slideIndex >= numSlides) currentSlide = 0;
-    else if (slideIndex < 0) currentSlide = numSlides - 1;
-    else currentSlide = slideIndex;
+  if (numSlides > 0) { // Chỉ chạy slider nếu có slide
+    function showSlide(slideIndex) {
+      if (slideIndex >= numSlides) currentSlide = 0;
+      else if (slideIndex < 0) currentSlide = numSlides - 1;
+      else currentSlide = slideIndex;
 
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
 
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    let autoPlayInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+    
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+    }
+
+    document.querySelector('.slider-nav.prev').addEventListener('click', () => { showSlide(currentSlide - 1); resetAutoPlay(); });
+    document.querySelector('.slider-nav.next').addEventListener('click', () => { showSlide(currentSlide + 1); resetAutoPlay(); });
+    dots.forEach(dot => dot.addEventListener('click', e => { showSlide(parseInt(e.target.dataset.slide)); resetAutoPlay(); }));
+
+    showSlide(0);
   }
-
-  document.querySelector('.slider-nav.prev').addEventListener('click', () => { showSlide(currentSlide - 1); resetAutoPlay(); });
-  document.querySelector('.slider-nav.next').addEventListener('click', () => { showSlide(currentSlide + 1); resetAutoPlay(); });
-  dots.forEach(dot => dot.addEventListener('click', e => { showSlide(parseInt(e.target.dataset.slide)); resetAutoPlay(); }));
-
-  let autoPlayInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
-  function resetAutoPlay() {
-    clearInterval(autoPlayInterval);
-    autoPlayInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
-  }
-
-  showSlide(0);
 }

@@ -100,7 +100,9 @@
 .slide-content .btn-primary:hover {
     background-color: #0056b3;
 }
-
+.image-wrapper.hidden {
+    display: none;
+  }
 
 /* --- Nút điều khiển (Prev/Next) --- */
 .slider-nav {

@@ -6,7 +6,9 @@
     "preview": "/assets/template/dat_portfolio/thumbnail.png",
     "folder": "dat_portfolio",
     "category": "Portfolio",
-    "tags": ["AI", "Engineer", "Portfolio"]
+    "tags": ["AI", "Engineer", "Portfolio"],
+    "type": "Portfolio"
+  
   },
 
   {
@@ -16,7 +18,8 @@
     "preview": "/assets/img/hai_page-0001.jpg",
     "folder": "Hai-CV",
     "category": "Professional",
-    "tags": ["Professional", "Simple", "Clean"]
+    "tags": ["Professional", "Simple", "Clean"],
+    "type": "CV"
   },
 
   {
@@ -26,7 +29,8 @@
     "preview": "assets/img/Mau-Anh-Le-TopCV.vn-021125.211047_page-0001.jpg",
     "folder": "Mau_Anh_portfolio",
     "category": "Portfolio",
-    "tags": ["Professional", "Simple", "Clean"]
+    "tags": ["Professional", "Simple", "Clean"],
+    "type": "CV"
   },
   {
     "id": "anh_gamedesigner_portfolio",
@@ -35,7 +39,8 @@
     "preview": "/assets/template/anh/ScreenShot.jpeg",
     "folder": "anh",
     "category": "Portfolio",
-    "tags": ["Game Engineer", "Simple", "Clean"]
+    "tags": ["Game Engineer", "Simple", "Clean"],
+    "type": "Portfolio"
   },
   {
     "id": "HoangAnh-Portfolio",
@@ -44,6 +49,7 @@
     "preview": "/assets/template/HoangAnh_Portfolio/thumbnail.png",
     "folder": "HoangAnh_Portfolio",
     "category": "Portfolio",
-    "tags": ["Creative", "Modern", "Professional"]
+    "tags": ["Creative", "Modern", "Professional"],
+    "type": "Portfolio"
   }
 ]
