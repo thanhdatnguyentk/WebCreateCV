@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <meta name="theme-color" content="#111">
+   <meta name="author" content="fazle rabbi">
+   <title>Fazle Rabbi - Web Developer</title>
+   <meta name="keywords" content="fhrabbi,fazle rabbi,fhrabbi github,fazlerabbi github,fazle rabbi github,,fhrabbi portfolio,fazle rabbi portfolio,devrabbi, fazle rabbi dev,fazle rabbi web developer,web developer rabbi">
+   <meta name="description" content="Fazle Rabbi - MERN Stack Web Developer Portfolio: Showcase of Fazle Rabbi's skills and expertise in MERN stack web development. Explore a collection of innovative and dynamic projects, including responsive web applications, interactive user interfaces, and optimized solutions. Get in touch to discuss collaborations and opportunities in front-end and back-end web development.">  
+   <!--Fav Icon-->
+   <link rel="shortcut icon" href="./favicon512.png" title="Logo" type="image/ico" />
+   <!--Custom CSS-->
+   <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+   <link rel="stylesheet" href="css/about.css" type="text/css" media="all" />
+   <link rel="stylesheet" href="css/skills.css" type="text/css" media="all" />
+   <link rel="stylesheet" href="css/projects.css" type="text/css" media="all" />
+   <link rel="stylesheet" href="css/contact.css" type="text/css" media="all" />
+   <link rel="stylesheet" href="css/footer.css" type="text/css" media="all" />
+   <link rel="stylesheet" href="css/utility.css" type="text/css" media="all" />
+   <!-- FONTAWESOME KIT -->
+   <script src="https://kit.fontawesome.com/2982aea746.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   
+  <span id="toop"></span>
+   <header>
+		<div class="nav-container">
+			<div class="">
+				<!-- <img width="28px" class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT01aPyJJO04sk-jjLqXwPhbGXq8z0Lq1mgcQ&usqp=CAU" alt="" /> -->
+				<a class="" onclick="goToSection('toop')"><span class="nav-logo">FR</span></a>
+			</div>
+			<div class="header-righ-div">
+				<i class="mode fa-xl far fa-moon"></i>
+				<iconify-icon class="nav-menu menu-icon" icon="ri:menu-2-fill"></iconify-icon>
+			</div>
+		</div>
+   <nav class="nav-bar test">
+			<div class="navbar-wrapper">
+				<span>Menu</span>
+				<iconify-icon style="color:white;" class="close close-nav" icon="ic:outline-close"></iconify-icon>
+			</div>
+			<hr class="navbar-hr"/>
+			<div class="nav-link-wrapper">
+				<li class="nav-item about-link"><a onclick="goToSection('home')" class="nav-link"><iconify-icon class="nav-link-icon" icon="mdi:home-outline"></iconify-icon>Home</a></li>
+				<li class="nav-item about-link"><a onclick="goToSection('about')" class="nav-link"><iconify-icon class="nav-link-icon" icon="mdi:about-circle-outline"></iconify-icon>About</a></li>
+				<li class="nav-item skill-link"><a onclick="goToSection('skills')" class="nav-link"><iconify-icon class="nav-link-icon" icon="game-icons:skills"></iconify-icon>Skills</a></li>
+				<li class="nav-item project-link"><a onclick="goToSection('projects')" class="nav-link"> <iconify-icon class="nav-link-icon" icon="ri:projector-2-line"></iconify-icon>Projects</a></li>
+				<li class="nav-item contact-link"><a onclick="goToSection('contact')" class="nav-link"><iconify-icon class="nav-link-icon" icon="lucide:contact-2"></iconify-icon>Contact</a></li>
+			</div>
+	</nav>
+   </header>
+   
+   <main>
+		<!--Toast Message-->
+		<div class="toast-container">
+		  <h4 id="toast-text">✅ Dark mode enabled</h4>
+		</div>
+		<!-- Introduction -->
+		<span id="home"></span>
+		<p id="home"></p>
+		<div class="intro">
+			<h4 class="hi">Hi 👋, Im</h4>
+			<h1 class="name">Fazle Rabbi</h1>
+			<h4 class="label">Web Developer</h4>
+			<h4 class="label">Android Developer</h4>
+			<h4 class="label">Programmer</h4>
+			<div class="btn-wrapper">
+				<button class="btn btn-resume">Get Resume</button>
+				<button class="btn btn-about" onclick="window.location.href = '#about'">About Me</button>
+			</div>
+			<div class="follow-container">
+				<div class="section-label">
+					<hr />
+					<!--section-label previously have = follow -->
+					<h3 class="follow-me-text">Follow Me</h3>
+					<hr />
+				</div>
+				<div class="follow-link-container">
+					<a href="https://github.com/fh-rabbi"><i class="socialicon fab fa-github"></i></a>
+					<a href="https://facebook.com/fozley.rabbi"><i class="socialicon fab fa-facebook"></i></a>
+					<a href="https://instagram.com/im_fazle_rabbi"><i class="socialicon fab fa-instagram"></i></a>
+					<a href="https://linkedin.com/in/im-fazlerabbi"><i class="socialicon fab fa-linkedin"></i></a>
+					<a href="https://twitter.com/fhrabbi"><i class="socialicon fab fa-twitter"></i></a>
+					<a href="https://t.me/fhrabbi"><i class="socialicon fab fa-telegram"></i></a>
+				</div>
+			</div>
+		</div>
+		<!-- About Me -->
+		<p id="about"></p>
+		<div class="about">
+			<div class="section-label">
+				<hr />
+				<h3>About Me</h3>
+				<hr />
+			</div>
+			<div class="about-container">
+				<div class="image-wrapper">
+					<img src="images/fazle-rabbi.jpg" alt="" />
+				</div>
+				<div class="about-info">
+					<p id="about-text">
+						<!--Hello! i am Fazle Rabbi,a passionate Web & Mobile application developer and I am currently studying B.S.C honours in botany department.I love to do awesome things by writing codes. My favourite hobby is coding.Writing codes & developing apps are my passion.-->
+						<!--My favourite languages are Javascript & Python.That's why,-->
+						<!--i love to do most of the things using JavaScript & Python-->
+						I am Fazle Rabbi, a highly dedicated and skilled Web and Mobile application developer currently pursuing my B.S.C. Honours degree in the Botany department. With a profound passion for coding, I constantly strive to create exceptional solutions through my expertise in JavaScript and Python. I thrive on the opportunity to develop innovative applications and write clean, efficient code.
+					</p>
+					<div class="btn-wrapper btn-wrapper-inside-about">
+						<button class="btn btn-resume">Get Resume</button>
+						<button class="btn btn-about" onclick="window.location = '#skills'">My Skills</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- My Skills -->
+		<p id="skills"></p>
+		<div class="skills">
+			<div class="section-label">
+				<hr />
+				<h3>My Skills</h3>
+				<hr />
+			</div>
+			<div class="skills-label-box">
+				<button class="btn-global btn-web">Web</button>
+				<button class="btn-global btn-programming">Programming</button>
+				<button class="btn-global btn-others">Others</button>
+			</div>
+			<div class="skills-container">
+				<!--Web Skills-->
+				<div class="web-skills">
+					<!--Skil Div-->
+					<div class="skill">
+						<i class="fab fa-html5"></i>
+						<p class="skill-text">Html</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-css3"></i>
+						<p class="skill-text">Css</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-js"></i>
+						<p class="skill-text">Javascript</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-react"></i>
+						<p class="skill-text">React</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="teenyicons:nextjs-outline"></iconify-icon>
+						<p class="skill-text">Nextjs</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="akar-icons:redux-fill"></iconify-icon>
+						<p class="skill-text">Redux</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="akar-icons:typescript-fill"></iconify-icon>
+						<p class="skill-text">Typescript</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="teenyicons:nodejs-outline"></iconify-icon>
+						<p class="skill-text">Node Js</p>
+					</div>
+					<div class="skill">
+						<img width="23px" src="https://img.icons8.com/784beb/48/784beb/express-js.png"/>
+						<p class="skill-text">Express Js</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="icon-park-solid:chili"></iconify-icon>
+						<p class="skill-text">Flask</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="simple-icons:mongodb"></iconify-icon>
+						<p class="skill-text">MongoDB</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="grommet-icons:mysql"></iconify-icon>
+						<p class="skill-text">MySQL</p>
+					</div>
+					
+					<div class="skill">
+						<iconify-icon icon="file-icons:sqlite"></iconify-icon>
+						<p class="skill-text">SQLite</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="simple-icons:socketdotio"></iconify-icon>
+						<p class="skill-text">Socketio</p>
+					</div>
+					
+				</div>
+				<!--Programming Skills-->
+				<div class="programming-skills">
+					<!--Skil Div-->
+					<div class="skill">
+						<i class="fab fa-js"></i>
+						<p class="skill-text">Javascript</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-python"></i>
+						<p class="skill-text">Python</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-java"></i>
+						<p class="skill-text">Java</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-c"></i>
+						<p class="skill-text">C</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="akar-icons:typescript-fill"></iconify-icon>
+						<p class="skill-text">Typescript</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="codicon:terminal-bash"></iconify-icon>
+						<p class="skill-text">Bash</p>
+					</div>
+				</div>
+				<!--Others Skills-->
+				<div class="other-skills">
+					<!--Skil Div-->
+					<div class="skill">
+						<i class="fab fa-react"></i>
+						<p class="skill-text">React Native</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-android"></i>
+						<p class="skill-text">Android Development</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="mdi:bash"></iconify-icon>
+						<p class="skill-text">Shell Scripting</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-git"></i>
+						<p class="skill-text">Git</p>
+					</div>
+					<div class="skill">
+						<i class="fab fa-github"></i>
+						<p class="skill-text">Github</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="teenyicons:firebase-outline"></iconify-icon>
+						<p class="skill-text">Firebase</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="carbon:database-mongodb"></iconify-icon>
+						<p class="skill-text">Mongoose</p>
+					</div>
+					<div class="skill">
+						<iconify-icon icon="vscode-icons:file-type-sequelize"></iconify-icon>
+						<p class="skill-text">Sequelize</p>
+					</div>
+				</div>
+				
+				
+			</div>
+			
+		</div>
+		<!--Projects-->
+		<p id="projects"></p>
+		<div class="projects">
+			<div class="section-label">
+				<hr />
+				<h3>Projects</h3>
+				<hr />
+			</div>
+			<div class="skills-label-box">
+				<button class="btn-global btn-web btn-web-projects">Web</button>
+				<button class="btn-global btn-others btn-others-projects">Others</button>
+			</div>
+			<div class="web-projects projects-container">
+				<!--This Div For Responsive Design-->
+				<div class="card-container">
+					
+					<div class="card"> <!--Card Start-->
+						<!--<img width="100%" class="" src="images/projects/gmail.jpg" alt="Banner" />-->
+						<div class="card-body">
+							<h2 class="card-title">Phone Book</h2>
+							<p class="card-text">
+								Phone-Book is an awesome contacts management web application. In this application you can create a free account and store contact information. By using this app you can create,edit,delete contact easily.
+							</p>
+							<div class="wrapper">
+								<a target="__blank" href="https://github.com/fh-rabbi/Phone-Book"><button><i class="fab fa-github"></i></button></a>
+								<a target="__blank" href="https://phone-b00k.vercel.app/"><button><iconify-icon icon="mdi:web"></iconify-icon></button></a>
+							</div>
+							<div class="tech">
+								<span>Next.js</span>
+								<span>Node.js</span>
+								<span>Express.js</span>
+								<span>MongoDB</span>
+							</div>
+						</div>
+					</div> <!--Card Close-->
+					<div class="card"> <!--Card Start-->
+						<!--<img width="100%" class="" src="images/projects/url.jpg" alt="Banner" />-->
+						<div class="card-body">
+							<h2 class="card-title">Url Shortner</h2>
+							<p class="card-text">
+								This is a simple url shortner web app.By using this app/website you can short your long url easily.
+							</p>
+							<div class="wrapper">
+								<a target="__blank" href="https://github.com/fh-rabbi/URL-SHORTNER-APP"><button><i class="fab fa-github"></i></button></a>
+								<a target="__blank" href="https://www.frabbi.cf/"><button><iconify-icon icon="mdi:web"></iconify-icon></button></a>
+							</div>
+							<div class="tech">
+								<span>nodejs</span>
+								<span>expressjs</span>
+								<span>mongodb</span>
+							</div>
+						</div>
+					</div> <!--Card Close-->
+					<div class="card"> <!--Card Start-->
+						<!--<img width="100%" class="" src="images/projects/file.jpg" alt="Banner" />-->
+						<div class="card-body">
+							<h2 class="card-title">File Sharing</h2>
+							<p class="card-text">
+								This is a file sharing web app/website by using this website you can upload your file in this website and share your file over the internet.NOTE:your file will be available only for 15 Minutes.After 15 Minutes your file will be deleted automatically
+							</p>
+							<div class="wrapper">
+								<a target="__blank" href="https://github.com/fh-rabbi/Ftp-Server-Web"><button><i class="fab fa-github"></i></button></a>
+								<a target="__blank" href="https://fr43ftp.onrender.com/"><button><iconify-icon icon="mdi:web"></iconify-icon></button></a>
+							</div>
+							<div class="tech">
+								<span>nodejs</span>
+								<span>expressjs</span>
+								<span>mongodb</span>
+							</div>
+						</div>
+					</div> <!--Card Close-->
+					<div class="card"> <!--Card Start-->
+						<!--<img width="100%" class="" src="images/projects/note.jpg" alt="Banner" />-->
+						<div class="card-body">
+							<h2 class="card-title">Public Note</h2>
+							<p class="card-text">
+								This is a simple note application for public.Anyone can create note in this website without creating account and by sharing this website url you can share your note with anyone over the internet.
+							</p>
+							<div class="wrapper">
+								<a target="__blank" href="https://github.com/fh-rabbi/Public-Note"><button><i class="fab fa-github"></i></button></a>
+								<a target="__blank" href="https://fr43note.web.app/"><button><iconify-icon icon="mdi:web"></iconify-icon></button></a>
+							</div>
+							<div class="tech">
+								<span>nodejs</span>
+								<span>expressjs</span>
+								<span>mongodb</span>
+								<span>firebase</span>
+							</div>
+						</div>
+					</div> <!--Card Close-->
+					
+				</div>
+			</div>
+			
+			<!--Others Projects-->
+			<div class="others-projects projects-container">
+				<!--This Div For Responsive Design-->
+				<div class="card-container">
+					<div class="card"> <!--Card Start-->
+						<!--<img width="100%" class="" src="images/projects/evil.jpg" alt="Thumnail" />-->
+						<div class="card-body">
+							<h2 class="card-title">Evil Text</h2>
+							<p class="card-text">
+								This is a simple text repeater app for android
+							</p>
+							<div class="wrapper">
+								<a target="__blank" href="https://github.com/fh-rabbi/Evil-Text"><button><i class="fab fa-github"></i></button></a>
+								<a target="__blank" href="https://frappstore.up.railway.app/android-apps"><button><iconify-icon icon="mdi:web"></iconify-icon></button></a>
+							</div>
+							<div class="tech">
+								<span>Java</span>
+								<span>xml</span>
+							</div>
+						</div>
+					</div> <!--Card Close-->
+					<div class="card"> <!--Card Start-->
+						<!--<img width="100%" class="" src="images/projects/color.jpg" alt="Thumnail" />-->
+						<div class="card-body">
+							<h2 class="card-title">Random Color</h2>
+							<p class="card-text">
+								This is a simple Random Color generator android app.
+							</p>
+							<div class="wrapper">
+								<a target="__blank" href="https://github.com/fh-rabbi/Random-Color"><button><i class="fab fa-github"></i></button></a>
+								<a target="__blank" href="https://frappstore.up.railway.app/android-apps"><button><iconify-icon icon="mdi:web"></iconify-icon></button></a>
+							</div>
+							<div class="tech">
+								<span>java</span>
+								<span>xml</span>
+							</div>
+						</div>
+					</div> <!--Card Close-->
+					<div class="card"> <!--Card Start-->
+						<!--<img width="100%" class="" src="images/projects/color.jpg" alt="Thumnail" />-->
+						<div class="card-body">
+							<h2 class="card-title">File Sharer</h2>
+							<p class="card-text">
+								This is a crazy file sharing tool for android! by using this (project/tool) you can share your android (phone/external) storage directly over the internet.
+							</p>
+							<div class="wrapper">
+								<a target="__blank" href="https://github.com/fh-rabbi/File-Sharer"><button><i class="fab fa-github"></i></button></a>
+								<a target="__blank" href="https://github.com/fh-rabbi/File-Sharer"><button><iconify-icon icon="mdi:web"></iconify-icon></button></a>
+							</div>
+							<div class="tech">
+								<span>javascript</span>
+								<span>python</span>
+								<span>bash</span>
+							</div>
+						</div>
+					</div> <!--Card Close-->
+					
+				</div>
+			</div>
+		</div>
+		<!--Contact Me-->
+		<p id="contact"></p>
+		<div class="contact-container">
+		<div class="section-label">
+			<hr />
+			<h3>Contact Me</h3>
+			<hr />
+		</div>
+		<form class="" accept-charset="utf-8">
+			<div class="input-box">
+				<input required="" placeholder="Name" class="input name-field" type="text" value="" />
+				<i class="fas fa-user"></i>
+			</div>
+			<div class="input-box">
+				<input required="" placeholder="Email" class="input email-field" type="email" value="" />
+				<i class="fas fa-envelope"></i>
+			</div>
+			<div class="input-box">
+				<input required="" placeholder="Phone" class="input number-field" type="number" value="" />
+				<i class="fas fa-phone"></i>
+			</div>
+			<div class="input-box">
+				<textarea required="" placeholder="Message" class="input message-input" rows="8" cols="40"></textarea>
+				<i class="fa-solid fa-message"></i>
+			</div>
+			<button class="send-btn">Send <iconify-icon icon="bxl:telegram"></iconify-icon></button>
+		</form>
+		</div>
+		<button class="back-to-top">
+			<iconify-icon icon="material-symbols:keyboard-arrow-up-rounded" style="color: #f8f8f8;"></iconify-icon>
+		</button>
+   </main>
+   
+   <footer>
+<!--		<p>Thank you for visiting my personal portfolio website.Connect with me over social.</p>
+		<div class="quic-links">
+			<h2>Quic Links</h2>
+			<div class="quic-links-box">
+				<a class="" onclick="goToSection('home')"><iconify-icon icon="mdi:arrow-right-drop-circle"></iconify-icon> Home</a>
+				<a class="" onclick="goToSection('about')"><iconify-icon icon="mdi:arrow-right-drop-circle"></iconify-icon> About</a>
+				<a class="" onclick="goToSection('skills')"><iconify-icon icon="mdi:arrow-right-drop-circle"></iconify-icon> Skills</a>
+				<a class="" onclick="goToSection('projects')"><iconify-icon icon="mdi:arrow-right-drop-circle"></iconify-icon> Projects</a>
+			</div>
+		</div>
+		<div class="contact-info">
+			<h2>Contact Info</h2>
+			<p class="">
+				<i class="fas fa-envelope"></i>
+				fazlerabbi@mbox.re
+			</p>
+			<div class="social-links">
+				<a class="" href="https://facebook.com/fozley.rabbi"><i class="fab fa-facebook"></i></a>
+				<a class="" href="https://instagram.com/im_fazle_rabbi"><i class="fab fa-instagram"></i></a>
+				<a class="" href="https://github.com/fh-rabbi"><i class="fab fa-github"></i></a>
+				<a class="" href="https://twitter.com/fhrabbi"><i class="fab fa-twitter"></i></a>
+        <a class="" href="https://linkedin.com/in/im-fazlerabbi"><i class="fab fa-linkedin"></i></a>
+				<a class="" href="https://t.me/fhrabbi"><i class="fab fa-telegram"></i></a>
+			</div>
+		</div>
+		<hr class="footer-divider"/>-->
+		<p class="last-text">Made With &hearts; By <span class="last-name">Fazle Rabbi</span></p>
+   </footer>
+   
+   
+   <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
+   <script src="js/navbar.js" type="text/javascript" charset="utf-8"></script>
+   <script src="js/skills.js" type="text/javascript" charset="utf-8"></script>
+   <script src="js/projects.js" type="text/javascript" charset="utf-8"></script>
+   <script src="js/form.js" type="text/javascript" charset="utf-8"></script>
+   <script src="js/utility.js" type="text/javascript" charset="utf-8"></script>
+   
+</body>
+</html>	
