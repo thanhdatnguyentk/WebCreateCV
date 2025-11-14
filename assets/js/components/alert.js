@@ -4,7 +4,7 @@
  * @param {string} [type='info'] - Loại thông báo ('success', 'error', 'warning', 'info').
  * @param {number} [duration=3000] - Thời gian hiển thị (ms).
  */
-export function showAlert(message, type = 'info', duration = 3000) {
+export function showAlert(message, type = 'info', duration = 1000000) {
     let alertContainer = document.getElementById('alert-container');
 
     // Nếu chưa có container, tạo và thêm vào body
@@ -19,10 +19,10 @@ export function showAlert(message, type = 'info', duration = 3000) {
 
     // Icons cho từng loại thông báo
     const icons = {
-        success: '✅',
-        error: '❌',
-        warning: '⚠️',
-        info: 'ℹ️'
+        success: `<img src="./assets/images/icons/success.png" alt="Success">`,
+        error: `<img src="./assets/images/icons/error.png" alt="Error">`,
+        warning: `<img src="./assets/images/icons/warning.png" alt="Warning">`,
+        info: `<img src="./assets/images/icons/info.png" alt="Info">`
     };
 
     alert.innerHTML = `
