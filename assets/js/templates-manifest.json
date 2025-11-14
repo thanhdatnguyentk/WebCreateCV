@@ -5,9 +5,11 @@
     "path": "/assets/template/dat_portfolio/index.html",
     "preview": "/assets/template/dat_portfolio/thumbnail.png",
     "folder": "dat_portfolio",
-    "category": "Technology",
-    "tags": ["AI", "Machine Learning", "Research"],
-    "type": "Portfolio"
+    "category": "Portfolio",
+    "tags": ["AI", "Engineer", "Portfolio"],
+    "type": "Portfolio",
+    "topic": "Coder" 
+  
   },
   {
     "id": "Hai-CV",
@@ -17,7 +19,9 @@
     "folder": "Hai-CV",
     "category": "Web Development",
     "tags": ["Frontend", "HTML", "CSS"],
-    "type": "CV"
+    "type": "CV",
+    "topic": "Coder" 
+    
   },
   {
     "id": "MauAnh-Portfolio",
@@ -27,7 +31,8 @@
     "folder": "Mau_Anh_portfolio",
     "category": "Finance",
     "tags": ["Finance", "Accounting", "Data Analysis"],
-    "type": "Portfolio"
+    "type": "Portfolio",
+    "topic": "Coder" 
   },
   {
     "id": "anh_gamedesigner_portfolio",
@@ -37,7 +42,8 @@
     "folder": "anh",
     "category": "Design",
     "tags": ["Game Design", "Unity", "Level Design"],
-    "type": "Portfolio"
+    "type": "Portfolio",
+    "topic": "Coder" 
   },
   {
     "id": "HoangAnh-Portfolio",
@@ -47,7 +53,8 @@
     "folder": "HoangAnh_Portfolio",
     "category": "Creative Arts",
     "tags": ["Illustration", "Branding", "Creative"],
-    "type": "Portfolio"
+    "type": "Portfolio",
+    "topic": "Designer"
   },
   {
     "id": "vijay-singh-cv",
@@ -57,7 +64,8 @@
     "folder": "vijay-singh/My-Portfolio-main",
     "category": "Web",
     "tags": ["Fullstack", "JavaScript", "Node.js"],
-    "type": "Portfolio"
+    "type": "Portfolio",
+    "topic": "Coder"
   },
   {
     "id": "fazle-rabbi-dev",
@@ -67,6 +75,18 @@
     "folder": "My-Portfolio-main",
     "category": "Software Engineering",
     "tags": ["Python", "Django", "Backend"],
-    "type": "Portfolio"
+    "type": "Portfolio",
+    "topic": "Designer" 
+  },
+  {
+    "id": "HoangAnh-Portfolio-Designer",
+    "name": "UX/UI Designer Portfolio",
+    "path": "/assets/template/HoangAnh_Portfolio/index.html",
+    "preview": "/assets/template/HoangAnh_Portfolio/thumbnail.png",
+    "folder": "HoangAnh_Portfolio",
+    "category": "Portfolio",
+    "tags": ["Modern", "Professional"],
+    "type": "Portfolio",
+    "topic": "Designer" 
   }
 ]

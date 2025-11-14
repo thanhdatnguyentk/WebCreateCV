@@ -19,10 +19,10 @@ export function showAlert(message, type = 'info', duration = 3000) {
 
     // Icons cho từng loại thông báo
     const icons = {
-        success: '✅',
-        error: '❌',
-        warning: '⚠️',
-        info: 'ℹ️'
+        success: `<img src="./assets/images/icons/success.png" alt="Success">`,
+        error: `<img src="./assets/images/icons/error.png" alt="Error">`,
+        warning: `<img src="./assets/images/icons/warning.png" alt="Warning">`,
+        info: `<img src="./assets/images/icons/info.png" alt="Info">`
     };
 
     alert.innerHTML = `

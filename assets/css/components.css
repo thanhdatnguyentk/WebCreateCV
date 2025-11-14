@@ -144,20 +144,27 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 350px;
 }
 
 .custom-alert {
     display: flex;
-    align-items: center;
+    align-items: stretch; 
     padding: 15px 20px;
-    border-radius: 8px;
+    border-radius: 40px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    min-width: 300px;
-    max-width: 350px;
-    color: #fff;
+    border: 1px solid;
     opacity: 0;
+    background: linear-gradient(to right,var(--alert-main-color) 18%, var(--white-bg) 18%);
     transform: translateX(110%);
     transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.alert__icon img {
+  width: 30px; 
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block; 
 }
 
 .custom-alert.alert--visible {
@@ -167,36 +174,48 @@
 
 /* --- Các loại Alert --- */
 .alert--success {
-    background-color: #28a745;
+    border-color: #1db13f;
+    --alert-main-color: #1db13f;
 }
 .alert--error {
-    background-color: #dc3545;
+    border-color: var(--danger);
+    --alert-main-color: var(--danger);
 }
 .alert--warning {
-    background-color: #ffc107;
-    color: #212529;
+    border-color: #ffc107;
+    --alert-main-color: #ffc107;
 }
-.alert--info {
-    background-color: #0fa3b9;
+.alert--info{
+    border-color: #0fa3b9;
+    --alert-main-color: #0fa3b9;
 }
 
 .alert__icon {
-    font-size: 1.5rem;
-    margin-right: 15px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+    width: 30px;
+    flex: 0 0 30px;
+    justify-content: center;
 }
 
 .alert__body {
     flex-grow: 1;
+    display: flex;
+    align-items: center; 
 }
 
 .alert__msg {
     margin: 0;
     font-weight: 500;
     line-height: 1.4;
+    font-family: var(--font-sans);
 }
 
 .alert__close {
     font-size: 1.5rem;
+    color: var(--alert-main-color); 
     font-weight: bold;
     cursor: pointer;
     opacity: 0.8;
