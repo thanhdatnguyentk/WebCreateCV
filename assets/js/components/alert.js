@@ -4,7 +4,7 @@
  * @param {string} [type='info'] - Loại thông báo ('success', 'error', 'warning', 'info').
  * @param {number} [duration=3000] - Thời gian hiển thị (ms).
  */
-export function showAlert(message, type = 'info', duration = 1000000) {
+export function showAlert(message, type = 'info', duration = 3000) {
     let alertContainer = document.getElementById('alert-container');
 
     // Nếu chưa có container, tạo và thêm vào body
