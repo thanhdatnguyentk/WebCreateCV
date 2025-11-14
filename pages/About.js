@@ -5,48 +5,39 @@ async function renderAboutTemplates() {
   const res = await fetch('assets/js/templates-manifest.json');
   const templates = await res.json();
   
-  // Category mapping: đổi tên theo sidebar filter (edit/coder/design/fashion)
-  const catMap = {
-    edit: ["Edit", "Video", "Photo", "Content"],
-    coder: ["Coder", "Developer", "Engineer", "Full Stack", "Frontend", "Backend", "Web", "AI", "Game"],
-    design: ["Art", "Design", "Graphic", "Artist", "UI/UX", "Photographer", "Digital"],
-    fashion: ["Fashion", "Style"],
-  };
+  // ==== 1. TẠO FILTER TOPIC DYNAMIC 
+  // Lấy danh sách topic duy nhất
+  const uniqueTopicsSet = new Set();
+  templates.forEach(item => {
+    if(item.topic) uniqueTopicsSet.add(String(item.topic).trim());
+  });
+  const uniqueTopics = Array.from(uniqueTopicsSet); // Ví dụ ['Coder', 'Designer', ...]
 
-  // Tạo hàm gán category cho từng template
-  function getCategoryBtnKey(template) {
-    const lowerName = template.name.toLowerCase();
-    // Ưu tiên map category trường manifest nếu trùng
-    if (template.category && catMap[template.category.toLowerCase()]) {
-      return template.category.toLowerCase();
-    }
-    // Không thì dựa theo keyword trong name
-    for (const key in catMap) {
-      if (catMap[key].some(w => lowerName.includes(w.toLowerCase()))) {
-        return key;
-      }
-    }
-    return 'other'; // Sẽ không được hiển thị nếu không khớp
+  // Render NÚT filter topic
+  const topicFilterMenu = document.querySelector('.filter-menu.topic');
+  if (topicFilterMenu) {
+    topicFilterMenu.innerHTML = '<button class="filter-btn active" data-filter="all">All Templates</button>' +
+      uniqueTopics.map(tp => `<button class="filter-btn" data-filter="${tp}">${tp}</button>`).join('');
   }
 
-  // Tạo data group templates cho từng nhánh
+  // ==== 2. Nhóm template theo topic
   const group = {};
-  Object.keys(catMap).forEach(k => (group[k] = []));
-
+  uniqueTopics.forEach(t => group[t] = []);
   templates.forEach(tpl => {
-    const cat = getCategoryBtnKey(tpl);
-    if (group[cat]) group[cat].push(tpl);
+    const tp = tpl.topic ? String(tpl.topic).trim() : null;
+    if(tp && group[tp]) group[tp].push(tpl);
   });
 
-  // Render sections HTML giống code cũ nhưng dựa group mới
-  const sectionsHTML = Object.entries(group).map(([key, arr]) => {
+  // ==== 3. Render section mỗi topic
+  const sectionsHTML = uniqueTopics.map(tp => {
+    const arr = group[tp];
     if (!arr.length) return '';
     const cardsHTML = arr.map(
       tpl => createCard(tpl.name, tpl.tags?.join(', ')||'', tpl.preview, tpl.tags?.[0], tpl.id, tpl.type)
     ).join('');
     return `
-      <section class="portfolio-section" data-category="${key}">
-        <h2>${key==='edit'? 'Edit': key==='coder'? 'Coder': key==='design'? 'Art & Design': 'Fashion'}</h2>
+      <section class="portfolio-section" data-category="${tp}">
+        <h2>${tp}</h2>
         <div class="portfolio-grid">
           ${cardsHTML}
         </div>
@@ -55,7 +46,6 @@ async function renderAboutTemplates() {
   }).join('');
 
   const totalTemplates = templates.length;
-  // Gắn HTML vào container
   const contentEl = document.querySelector('.portfolio-content');
   if (contentEl) {
     contentEl.innerHTML = `
@@ -93,8 +83,8 @@ export default function AboutPage() {
           <div class="slide" style="background-image: url('../assets/images/HoangAnh/Flat-Design-Of-Portfolio-Banner-Creative-Template-square.jpg');"></div>
           <div class="slide" style="background-image: url('assets/images/HoangAnh/gradient-portfolio-banner-template_23-2149225563.jpg');"></div>
         </div>
-        <button class="slider-nav prev">&lt;</button>
-        <button class="slider-nav next">&gt;</button>
+        <button class="slider-nav prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="slider-nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
         <div class="slider-dots">
           <span class="dot active" data-slide="0"></span>
           <span class="dot" data-slide="1"></span>
@@ -105,13 +95,7 @@ export default function AboutPage() {
       <section class="portfolio-container">
         <aside class="portfolio-sidebar">
           <h3 class="sidebar-title">Topic</h3>
-          <div class="filter-menu">
-            <button class="filter-btn active" data-filter="all">All Templates</button>
-            <button class="filter-btn" data-filter="edit">Edit</button>
-            <button class="filter-btn" data-filter="coder">Coder</button>
-            <button class="filter-btn" data-filter="design">Art & Design</button>
-            <button class="filter-btn" data-filter="fashion">Fashion</button>
-          </div>
+          <div class="filter-menu topic"></div>
 
           <h3 class="sidebar-title" style="margin-top: 20px;">Type</h3>
           <div class="filter-menu">
@@ -120,41 +104,36 @@ export default function AboutPage() {
             <button class="filter-btn" data-type="CV">CV</button>
           </div>
         </aside>
-
         <div class="portfolio-content">
-          </div>
+        </div>
       </section>
     </main>
   `;
 }
 
 // 4. HÀM SETUP (GẮN EVENT VÀ CHẠY SLIDER)
+// 4. HÀM SETUP (GẮN EVENT VÀ CHẠY SLIDER)
 export function initPortfolioPage() {
   
-  // Lấy tham chiếu đến CẢ HAI nhóm nút
-  const topicButtons = document.querySelectorAll('.filter-btn[data-filter]');
+  // Lấy tham chiếu đến nút Type (vì nó tĩnh, lấy ở đây OK)
   const typeButtons = document.querySelectorAll('.filter-btn[data-type]');
 
   /**
    * Hàm lọc TỔNG HỢP
    */
   function applyAllFilters() {
+    // Luôn query bên trong hàm để lấy trạng thái .active mới nhất
     const activeTopic = document.querySelector('.filter-btn[data-filter].active')?.dataset.filter || 'all';
     const activeType = document.querySelector('.filter-btn[data-type].active')?.dataset.type || 'all';
 
     document.querySelectorAll('.portfolio-section').forEach(section => {
       const sectionCategory = section.dataset.category;
       const isTopicMatch = (activeTopic === 'all' || sectionCategory === activeTopic);
-
-      // Ẩn/Hiện section (Topic)
       section.classList.toggle('hidden', !isTopicMatch);
 
-      // Lọc card (Type) bên trong section
       section.querySelectorAll('.image-wrapper').forEach(card => {
         const cardType = card.dataset.type;
         const isTypeMatch = (activeType === 'all' || cardType === activeType);
-        
-        // Ẩn/Hiện card (Type)
         card.classList.toggle('hidden', !isTypeMatch);
       });
     });
@@ -162,16 +141,7 @@ export function initPortfolioPage() {
 
   // --- Gắn sự kiện click ---
 
-  // 1. Gắn sự kiện cho các nút Topic
-  topicButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      topicButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      applyAllFilters();
-    });
-  });
-
-  // 2. Gắn sự kiện cho các nút Type
+  // 1. Gắn sự kiện cho các nút Type (tĩnh)
   typeButtons.forEach(button => {
     button.addEventListener('click', () => {
       typeButtons.forEach(btn => btn.classList.remove('active'));
@@ -182,21 +152,36 @@ export function initPortfolioPage() {
 
   // --- Chạy lần đầu khi tải trang ---
   renderAboutTemplates().then(() => {
+    
+    // ⭐ SỬA LỖI Ở ĐÂY
+    // Bây giờ các nút Topic MỚI TỒN TẠI
+    // 2. Gắn sự kiện cho các nút Topic (động)
+    const topicButtons = document.querySelectorAll('.filter-btn[data-filter]');
+    topicButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        topicButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        applyAllFilters();
+      });
+    });
+    // ⭐ KẾT THÚC SỬA LỖI
+
+    // Chạy bộ lọc lần đầu sau khi mọi thứ đã render
     applyAllFilters();
+
   }).catch(err => {
     console.error("Lỗi khi render template:", err);
-    // Xử lý lỗi, ví dụ hiển thị thông báo
     const contentEl = document.querySelector('.portfolio-content');
     if (contentEl) contentEl.innerHTML = "<h2>Không thể tải được template. Vui lòng thử lại sau.</h2>";
   });
 
-  // --- Code Slider ---
+  // --- Code Slider (Giữ nguyên) ---
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
   const numSlides = slides.length;
 
-  if (numSlides > 0) { // Chỉ chạy slider nếu có slide
+  if (numSlides > 0) { 
     function showSlide(slideIndex) {
       if (slideIndex >= numSlides) currentSlide = 0;
       else if (slideIndex < 0) currentSlide = numSlides - 1;

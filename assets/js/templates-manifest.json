@@ -7,7 +7,8 @@
     "folder": "dat_portfolio",
     "category": "Portfolio",
     "tags": ["AI", "Engineer", "Portfolio"],
-    "type": "Portfolio"
+    "type": "Portfolio",
+    "topic": "Coder" 
   
   },
 
@@ -19,7 +20,9 @@
     "folder": "Hai-CV",
     "category": "Professional",
     "tags": ["Professional", "Simple", "Clean"],
-    "type": "CV"
+    "type": "CV",
+    "topic": "Coder" 
+    
   },
 
   {
@@ -30,7 +33,8 @@
     "folder": "Mau_Anh_portfolio",
     "category": "Portfolio",
     "tags": ["Professional", "Simple", "Clean"],
-    "type": "CV"
+    "type": "CV",
+    "topic": "Coder" 
   },
   {
     "id": "anh_gamedesigner_portfolio",
@@ -40,7 +44,8 @@
     "folder": "anh",
     "category": "Portfolio",
     "tags": ["Game Engineer", "Simple", "Clean"],
-    "type": "Portfolio"
+    "type": "Portfolio",
+    "topic": "Coder" 
   },
   {
     "id": "HoangAnh-Portfolio",
@@ -50,6 +55,18 @@
     "folder": "HoangAnh_Portfolio",
     "category": "Portfolio",
     "tags": ["Creative", "Modern", "Professional"],
-    "type": "Portfolio"
+    "type": "Portfolio",
+    "topic": "Designer" 
+  },
+  {
+    "id": "HoangAnh-Portfolio-Designer",
+    "name": "UX/UI Designer Portfolio",
+    "path": "/assets/template/HoangAnh_Portfolio/index.html",
+    "preview": "/assets/template/HoangAnh_Portfolio/thumbnail.png",
+    "folder": "HoangAnh_Portfolio",
+    "category": "Portfolio",
+    "tags": ["Modern", "Professional"],
+    "type": "Portfolio",
+    "topic": "Designer" 
   }
 ]
