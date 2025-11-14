@@ -159,6 +159,7 @@ h3 {
   padding-right: 12px;
   display: inline-block;
   margin-right: 8px;
+  font-size: 1em;
 }
 
 .Category-Selector1 .Category-Card {
@@ -525,7 +526,7 @@ img:not([src]):not([srcset]) {
 }
 
 .Template-Tag {
-  color: black;
+  color: var(--white-bg);
 }
 
 .Template-Tags {
