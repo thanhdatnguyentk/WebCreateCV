@@ -1,0 +1,158 @@
+::selection {
+  color: #1c256a;
+  background: yellow;
+  padding: 2px 6px;
+}
+
+.section-label{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.section-label h3{
+	background: #444;
+	height: 35px;
+	padding: 0 10px;
+	color: ghostwhite;
+	text-transform: uppercase;
+	/* font-family: 'Open Sans', sans-serif; */
+	font-family: 'Sofia Sans', sans-serif;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+}
+
+.section-label hr{
+	width: 40px;
+	height: 3px;
+	border: 0;
+	background: #444;
+}
+
+
+.btn-global{
+	height: 48px;
+	/* width: 120px; */
+	padding: 0 10px;
+	margin: 0 3px;
+	font-family: 'Open Sans', sans-serif;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+/* For Nav Menu */
+
+.open{
+	right: 0;
+}
+
+.close{
+	right: -200px;
+}
+
+.back-to-top{
+	position: fixed;
+	/* top: 0; */
+	bottom: 20px;
+	right: 20px;
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	background: #5716fe;
+	z-index: 999990;
+	font-size: 1.3rem;
+	border: none;
+	/* display: none; */
+	opacity: 0;
+	transition: 1s;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.back-to-top iconify-icon{
+	color: #222;
+	font-size: 2rem;
+}
+
+
+.bg-dark{
+  background: #1b0e31!important;
+}
+
+.bg-dark-label{
+  background: #444!important;
+}
+
+.bg-light{
+  background: ghostwhite!important;
+}
+
+.text-light{
+  color: ghostwhite!important;
+}
+
+.text-dark{
+  /* color: #1b0e31!important; */
+  color: #1b0e31!important;
+}
+
+.bg-dark-projects{
+  background: none;
+	border: 1px solid white;
+	color: white;
+}
+
+.bg-light-projects{
+  background: none;
+	border: 1px solid white;
+	color: #000;
+}
+
+.bg-dark-skills{
+  background: none;
+	border: 1px solid white;
+	color: white;
+}
+
+.bg-light-skills{
+  background: none;
+	border: none;
+	color: black;
+}
+
+.bg-dark-contact{
+  background: none!important;
+	border: 1px solid white;
+}
+
+.bg-light-contact{
+  background: ghostwhite!important;
+	border: 1px solid white;
+}
+
+.toast-container{
+  opacity: 0;
+  position: fixed;
+  top: 30;
+  right: 0;
+  left: 0;
+  background: #d1c5f7;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 5px;
+  border: .5px #784beb;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .7rem;
+  transition: 1s linear;
+  z-index: 99;
+}
+
+/*
+change nav style
+remove bookmarking #
+add iconify icons
+*/

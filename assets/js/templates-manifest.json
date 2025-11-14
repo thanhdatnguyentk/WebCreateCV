@@ -1,7 +1,7 @@
 [
   {
     "id": "dat_portfolio",
-    "name": "AI Engineer Portfolio",
+    "name": "AI Research Portfolio",
     "path": "/assets/template/dat_portfolio/index.html",
     "preview": "/assets/template/dat_portfolio/thumbnail.png",
     "folder": "dat_portfolio",
@@ -11,50 +11,70 @@
     "topic": "Coder" 
   
   },
-
   {
     "id": "Hai-CV",
-    "name": "Web Developer CV",
+    "name": "Frontend Developer Resume",
     "path": "/assets/template/Hai-CV/index.html",
     "preview": "/assets/img/hai_page-0001.jpg",
     "folder": "Hai-CV",
-    "category": "Professional",
-    "tags": ["Professional", "Simple", "Clean"],
+    "category": "Web Development",
+    "tags": ["Frontend", "HTML", "CSS"],
     "type": "CV",
     "topic": "Coder" 
     
   },
-
   {
     "id": "MauAnh-Portfolio",
-    "name": "Finance Manager portfolio",
+    "name": "Financial Analyst Showcase",
     "path": "assets/template/Mau_Anh_portfolio/index.html",
     "preview": "assets/img/Mau-Anh-Le-TopCV.vn-021125.211047_page-0001.jpg",
     "folder": "Mau_Anh_portfolio",
-    "category": "Portfolio",
-    "tags": ["Professional", "Simple", "Clean"],
-    "type": "CV",
+    "category": "Finance",
+    "tags": ["Finance", "Accounting", "Data Analysis"],
+    "type": "Portfolio",
     "topic": "Coder" 
   },
   {
     "id": "anh_gamedesigner_portfolio",
-    "name": "Game Engineer Portfolio",
+    "name": "Interactive Game Designer Portfolio",
     "path": "/assets/template/anh/index.html",
     "preview": "/assets/template/anh/ScreenShot.jpeg",
     "folder": "anh",
-    "category": "Portfolio",
-    "tags": ["Game Engineer", "Simple", "Clean"],
+    "category": "Design",
+    "tags": ["Game Design", "Unity", "Level Design"],
     "type": "Portfolio",
     "topic": "Coder" 
   },
   {
     "id": "HoangAnh-Portfolio",
-    "name": "Game designer Portfolio",
+    "name": "Illustrative Designer Portfolio",
     "path": "/assets/template/HoangAnh_Portfolio/index.html",
     "preview": "/assets/template/HoangAnh_Portfolio/thumbnail.png",
     "folder": "HoangAnh_Portfolio",
-    "category": "Portfolio",
-    "tags": ["Creative", "Modern", "Professional"],
+    "category": "Creative Arts",
+    "tags": ["Illustration", "Branding", "Creative"],
+    "type": "Portfolio",
+    "topic": "Designer"
+  },
+  {
+    "id": "vijay-singh-cv",
+    "name": "Full-Stack Web Portfolio",
+    "path": "assets/template/vijay-singh/My-Portfolio-main/index.html",
+    "preview": "assets/template/vijay-singh/My-Portfolio-main/thumbnail.png",
+    "folder": "vijay-singh/My-Portfolio-main",
+    "category": "Web",
+    "tags": ["Fullstack", "JavaScript", "Node.js"],
+    "type": "Portfolio",
+    "topic": "Coder"
+  },
+  {
+    "id": "fazle-rabbi-dev",
+    "name": "Python Backend Portfolio",
+    "path": "assets/template/My-Portfolio-main/index.html",
+    "preview": "assets/template/My-Portfolio-main/thumbnail.png",
+    "folder": "My-Portfolio-main",
+    "category": "Software Engineering",
+    "tags": ["Python", "Django", "Backend"],
     "type": "Portfolio",
     "topic": "Designer" 
   },

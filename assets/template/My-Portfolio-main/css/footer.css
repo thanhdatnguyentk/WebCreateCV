@@ -1,0 +1,129 @@
+footer{
+	padding: 20px 30px;
+	/*background: #222;
+	color: whitesmoke;*/
+	background: white;
+	box-shadow:
+  0px 1.9px 2px -17px rgba(0, 0, 0, 0.028),
+  0px 4.7px 4.9px -17px rgba(0, 0, 0, 0.04),
+  0px 8.8px 9.3px -17px rgba(0, 0, 0, 0.05),
+  0px 15.6px 16.5px -17px rgba(0, 0, 0, 0.06),
+  0px 29.2px 30.9px -17px rgba(0, 0, 0, 0.072),
+  0px 70px 74px -17px rgba(0, 0, 0, 0.1);
+}
+
+footer > h2{
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 2px;
+	margin-bottom: 10px;
+}
+
+footer > p{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	color: #222;
+}
+
+.quic-links{
+	margin-top: 15px;
+}
+
+.quic-links h2{
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 2px;
+}
+
+.quic-links-box{
+	margin-top: 10px;
+}
+
+.quic-links-box > li{
+	
+}
+
+.quic-links-box a{
+	color: ghostwhite;
+	/* display: block; */
+	font-family: 'Montserrat', sans-serif;
+	margin: 6px 0;
+	font-size: 14px;
+	height: 30px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	/* padding-top: 5px; */
+}
+
+.quic-links-box a:hover{
+	color: orange;
+}
+
+.quic-links-box a:hover > iconify-icon{
+	color: orange;
+}
+
+.quic-links-box a iconify-icon{
+	margin-right: 7px;
+	font-size: 17px;
+	color: white;
+}
+
+.contact-info{
+	margin-top: 15px;
+}
+
+.contact-info h2{
+	/* font-family: 'Sofia Sans', sans-serif; */
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 2px;
+}
+
+.contact-info p{
+	margin-top: 10px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.contact-info p i{
+	margin-right: 7px;
+	color: orange;
+}
+
+.social-links{
+	margin: 20px 0;
+}
+
+.social-links a{
+	color: #222;
+}
+
+.social-links a i{
+	background: white;
+	padding: 10px;
+	border-radius: 50px;
+	border: .4px solid transparent;
+	margin-right: 5px;
+}
+
+
+.social-links a i:hover{
+	background: none;
+	color: orange;
+	border: .4px solid orange;
+}
+
+
+.footer-divider{
+	height: .3px;
+	background: #555;
+	border: none;
+}
+
+.last-text{
+	margin: 7px 0;
+	text-align: center;
+	font-family: 'Sofia Sans', sans-serif;
+}
+
+.last-name{
+	color: #5716fe;
+}

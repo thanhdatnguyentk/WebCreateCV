@@ -1,0 +1,95 @@
+.projects{
+	margin-top: 70px;
+}
+
+.projects-container{
+	/* background: #090427; */
+	/* height: 400px; */
+	padding: 30px 20px;
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+.web-projects{
+	/* display: none; */
+}
+
+.others-projects{
+	display: none;
+}
+
+
+.card{
+	background: white;
+	box-shadow: 0px 10px 25px rgba(0,0,0,.20);
+	margin-top: 20px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.card-body{
+	padding: 10px;
+}
+
+.card-title{
+	font-size: 1.3rem;
+	font-family: 'Unbounded', cursive;
+}
+
+.card-text{
+  font-family: 'Open Sans', sans-serif;	
+  margin-top: 10px;
+}
+
+.card-body .wrapper{
+	/* margin: 10px 0; */
+}
+
+.card-body .wrapper a > button{
+	margin: 10px 0;
+	background: white;
+	border: none;
+	border-radius: 5px;
+	/* padding: 5px 20px; */
+	height: 40px;
+	width: 40px;
+	padding: 5px;
+	/* box-shadow: 0px 5px 15px rgba(0,0,0,.20); */
+	color: #784beb;
+	border: .5px solid gray;
+}
+
+.card-body .wrapper a > button:hover{
+	background: #ededed;
+}
+
+.card .tech{
+	display: flex;
+}
+
+.card .tech > span{
+	font-family: 'Montserrat', sans-serif;
+	margin-right: 10px;
+}
+
+
+.card-container{
+	width: 100%;
+}
+
+/* Responsive Design */
+
+@media only screen and (min-width: 768px) {
+	.card-container{
+		/* background: red; */
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		/* align-items: ; */
+		/* padding: 10px; */
+	}
+	
+	.card{
+		width: 45%;
+	}
+}

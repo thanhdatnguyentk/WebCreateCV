@@ -1,0 +1,118 @@
+.contact-container{
+	margin-top: 70px;
+	margin-bottom: 30px;
+	/* width: 100%; */
+}
+
+.contact-container > form{
+	padding: 10px 20px;
+	background: white;
+	box-shadow: 0px 5px 15px rgba(0,0,0,.20);
+	border-radius: 10px;
+	margin: 20px 20px;
+}
+
+.input-box{
+	margin: 10px 0;
+	position: relative;
+}
+
+.input-box > i{
+	position: absolute;
+	top: 13px;
+	left: 10px;
+}
+
+.input::placeholder{
+	/* color: #222; */
+	font-family: 'Sofia Sans', sans-serif;
+
+}
+
+.input{
+	font-family: 'Sofia Sans', sans-serif;
+	height: 45px;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #222;
+	padding: 0 5px;
+	padding-left: 30px;
+	outline: 0;
+	font-size: 15px;
+	background: ghostwhite;
+	/* background: none; */
+	/* border: .5px solid white; */
+}
+
+.input:hover{
+	border: 1px solid #5716fe;
+}
+
+.message-input:hover{
+	border: 1px solid #5716fe;
+}
+
+.input:hover + i{
+	color: #5716fe;
+}
+
+.input-box > i{
+	/* color: #5716fe; */
+}
+
+.message-input{
+	height: 130px;
+	/* vertical-align: top; */
+	/* line-height: 45px; */
+	resize: none;
+	padding-top: 10px;
+}
+
+.send-btn{
+	height: 48px;
+	background: #5716fe;
+	color: white;
+	font-size: 18px;
+	padding: 0 10px;
+	border: none;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	box-shadow: 0px 5px 15px rgba(52,18,239,.40);
+}
+
+.send-btn:hover{
+	background: #3c54ff;
+}
+
+.send-btn > iconify-icon{
+	color: white;
+	margin-left: 5px;
+}
+
+.send-btn:hover > iconify-icon{
+	transform: translateX(6px);
+	transition: .6s;
+}
+
+
+
+/* Responsive Design */
+
+
+
+@media only screen and (min-width: 768px) {
+	.contact-container{
+		margin: 100px 20px;
+	}
+	
+	.contact-container > form{
+		margin: 20px 20px;
+		padding: 80px;
+	}
+}
+
