@@ -1,6 +1,8 @@
 import { showAlert } from "./alert.js";
 
 export function setupHeader() {
+  const toggler = document.getElementById("navbar-toggler");
+  const collapseMenu = document.getElementById("navbar-collapse");
   const avatar = document.getElementById("profile-avatar-btn");
   const dropdown = document.getElementById("profile-dropdown");
   const logoutBtn = document.getElementById("logout-btn");
@@ -29,6 +31,31 @@ export function setupHeader() {
       window.location.hash = "/login";
     });
   }
+
+  // Xử lý bật/tắt menu mobile
+  if (toggler && collapseMenu) {
+    toggler.addEventListener("click", (e) => {
+      e.stopPropagation();
+      collapseMenu.classList.toggle("active");
+      toggler.classList.toggle("active");
+    });
+
+    // Đóng menu khi click ra ngoài
+    document.addEventListener("click", (e) => {
+      if (collapseMenu.classList.contains('active') && !collapseMenu.contains(e.target) && !toggler.contains(e.target)) {
+        collapseMenu.classList.remove("active");
+        toggler.classList.remove("active");
+      }
+    });
+
+    // Đóng menu khi click vào một link bên trong
+    collapseMenu.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        collapseMenu.classList.remove('active');
+        toggler.classList.remove('active');
+      }
+    });
+  }
 }
 
 
@@ -55,32 +82,36 @@ export default function Header() {
                     <img src="./assets/images/uit.png" alt="Logo" class="uit-logo" style="height: 36px;">
                 </a>
             </div>
-            <div class="navbar-links">
-                <a href="#/homePage" class="${currentHash === '#/homePage' ? 'active' : ''}">Library</a>
-                <a href="#/contact" class="${currentHash === '#/contact' ? 'active' : ''}">Contact</a>
-
-            </div>
-            <div class="navbar-actions">
-            ${isLoggedIn
-              ? `
-              <div class="profile-menu-container">
-                <img src="${userAvatar}" alt="User Avatar" class="profile-avatar" id="profile-avatar-btn">
-                <div class="profile-dropdown" id="profile-dropdown">
-                  <div class="dropdown-header">
-                    <img src="${userAvatar}" alt="User Avatar" class="dropdown-avatar">
-                    <div class="user-info">
-                      <span class="username">${username}</span>
-                      <span class="email">${userEmail}</span>
-                    </div>
-                  </div>
-                  <a href="#/profile" class="dropdown-item"><img src="./assets/images/icons/account.svg" alt="profile icon"><span>Profile</span></a>
-                  <a href="#" id="logout-btn" class="dropdown-item"><img src="./assets/images/icons/logout.svg" alt="logout icon"><span>Logout</span></a>
+            <button class="navbar-toggler" id="navbar-toggler" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse" id="navbar-collapse">
+                <div class="navbar-links">
+                    <a href="#/homePage" class="${currentHash === '#/homePage' ? 'active' : ''}">Library</a>
+                    <a href="#/contact" class="${currentHash === '#/contact' ? 'active' : ''}">Contact</a>
                 </div>
-              </div>`
-              : `
-              <a href="#/login" class="btn btn-login">Log in</a>
-              <a href="#/signup" class="btn btn-signup">Sign up</a>`
-            }
+                <div class="navbar-actions">
+                ${isLoggedIn
+                  ? `
+                  <div class="profile-menu-container">
+                    <img src="${userAvatar}" alt="User Avatar" class="profile-avatar" id="profile-avatar-btn">
+                    <div class="profile-dropdown" id="profile-dropdown">
+                      <div class="dropdown-header">
+                        <img src="${userAvatar}" alt="User Avatar" class="dropdown-avatar">
+                        <div class="user-info">
+                          <span class="username">${username}</span>
+                          <span class="email">${userEmail}</span>
+                        </div>
+                      </div>
+                      <a href="#/profile" class="dropdown-item"><img src="./assets/images/icons/account.svg" alt="profile icon"><span>Profile</span></a>
+                      <a href="#" id="logout-btn" class="dropdown-item"><img src="./assets/images/icons/logout.svg" alt="logout icon"><span>Logout</span></a>
+                    </div>
+                  </div>`
+                  : `
+                  <a href="#/login" class="btn btn-login">Log in</a>
+                  <a href="#/signup" class="btn btn-signup">Sign up</a>`
+                }
+                </div>
             </div>
         </div>
     </div>

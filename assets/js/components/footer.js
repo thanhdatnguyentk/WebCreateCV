@@ -5,15 +5,13 @@ export default function Footer() {
         <div class="footer-grid">
           <div class="footer-column about-us">
             <h4 class="footer-heading">ARTNOC</h4>
-            <p>Công cụ tạo CV nhanh chóng, chuyên nghiệp và dễ dàng tùy chỉnh cho mọi ngành nghề.</p>
+            <p>Trang web tìm kiếm portfolio và CV nhanh chóng, chuyên nghiệp và dễ dàng tùy chỉnh cho mọi ngành nghề.</p>
           </div>
           <div class="footer-column">
             <h4 class="footer-heading">Quick Links</h4>
             <ul class="footer-links">
-              <li><a href="#/homePage">Portfolio</a></li>
+              <li><a href="#/homePage">Library</a></li>
               <li><a href="#/contact">Contact</a></li>
-              <li><a href="#/about">About</a></li>
-              <li><a href="#/create">Create CV</a></li>
             </ul>
           </div>
           <div class="footer-column">

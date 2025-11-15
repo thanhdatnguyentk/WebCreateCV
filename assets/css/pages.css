@@ -450,6 +450,20 @@ img:not([src]):not([srcset]) {
      text-decoration: underline;
  }
 
+@media (max-width: 600px) {
+    .login-bg, .signup-bg {
+        padding: 1rem 0.5rem; 
+        align-items: flex-start; 
+        padding-top: 40px;
+    }
+
+    .login-container, .signup-container {
+        padding: 20px; 
+        min-height: auto; 
+        max-width: 300px;
+    }
+}
+
 /* Keyframes animation */
 @keyframes fadeInDown {
     from {

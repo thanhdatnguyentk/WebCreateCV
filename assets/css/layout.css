@@ -84,6 +84,7 @@ nav a {
     padding: 20px 40px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: var(--radius);
+    position: relative; /* Thêm thuộc tính này để làm điểm neo cho menu mobile */
 }
 .navbar-logo {
     display: flex; 
@@ -98,6 +99,15 @@ nav a {
     max-width: none; 
 }
 .navbar-links {
+    display: flex;
+    justify-self: start; /* Căn các link về bên trái của vùng chứa nó */
+    margin-left: 40px;
+    gap: 40px;
+}
+.navbar-collapse {
+    display: contents; /* Cho phép các phần tử con hoạt động như con trực tiếp của grid */
+}
+.navbar-links-desktop {
     display: flex;
     margin-left: 40px;
     gap: 40px;
@@ -115,6 +125,7 @@ nav a {
 .navbar-actions {
     display: flex;
     gap: 16px;
+    justify-self: end; /* Đẩy các nút về cuối (bên phải) */
 }
 .navbar-actions .btn {
     border: none;
@@ -135,6 +146,7 @@ nav a {
     background: #222;
     color: #fff;
 }
+.navbar-toggler { display: none; } /* Ẩn nút toggle trên desktop */
 
 /* =========================
   Navbar Responsive 
@@ -149,6 +161,89 @@ nav a {
   .navbar-actions {
     gap: 10px;
   }
+}
+
+/* Responsive cho mobile - Thêm menu toggle */
+@media (max-width: 860px) {
+    .navbar {
+        grid-template-columns: auto 1fr;
+        justify-content: space-between;
+    }
+    .navbar-logo {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .navbar-toggler {
+        display: block;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+    .navbar-toggler-icon {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #222;
+        position: relative;
+        transition: background 0.2s ease-out;
+    }
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background: #222;
+        transition: transform 0.3s ease, top 0.3s ease;
+    }
+    .navbar-toggler-icon::before { top: -7px; }
+    .navbar-toggler-icon::after { top: 7px; }
+
+    .navbar-toggler.active .navbar-toggler-icon { background: transparent; }
+    .navbar-toggler.active .navbar-toggler-icon::before { transform: rotate(45deg); top: 0; }
+    .navbar-toggler.active .navbar-toggler-icon::after { transform: rotate(-45deg); top: 0; }
+
+    .navbar-collapse {
+        display: flex; /* Ghi đè display: contents trên mobile */
+        position: absolute;
+        top: calc(100% + 10px); /* Thêm khoảng cách với navbar */
+        right: 0; /* Căn chỉnh menu về bên phải */
+        left: auto; /* Bỏ căn trái */
+        width: 200px; /* Giới hạn chiều rộng của menu */
+        background: #fff;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 20px; /* Bỏ padding top/bottom ban đầu */
+        z-index: 1000; /* Đảm bảo menu hiển thị trên các nội dung khác */
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        overflow: hidden;
+        border-radius: 8px; /* Thêm bo góc cho đẹp */
+        transition: max-height 0.3s ease-out, 
+                    padding-top 0.3s ease-out, 
+                    padding-bottom 0.3s ease-out,
+                    opacity 0.3s ease-out,
+                    transform 0.3s ease-out,
+                    visibility 0.3s;
+    }
+    .navbar-collapse.active { 
+        max-height: 500px; padding-top: 20px; padding-bottom: 20px; 
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .navbar-links, .navbar-actions { flex-direction: column; gap: 15px; width: 100%; }
+    .navbar-links { margin-left: 0; margin-bottom: 15px; }
+    .navbar-links a { color: #222; }
 }
 /* =================== 
     HEADER ACTIVE                                   
@@ -174,19 +269,13 @@ nav a {
     background-color: var(--highlight-text);
 }
 
-@media (max-width: 860px) {
-    .profile-forms-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
 /* =========================
   FOOTER STYLES
   ========================= */
 .site-footer {
-  background-color: #222;
+  background-color: #000000;
   color: #a0aec0; 
-  padding: 48px 0 0 0;
+  padding: 24px 0 0 0;
   font-size: 0.95rem;
 }
 
@@ -194,7 +283,7 @@ nav a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 32px;
-  padding-bottom: 40px;
+  padding-bottom: 24px;
 }
 
 .footer-column.about-us {
@@ -256,7 +345,7 @@ nav a {
 
 .footer-bottom {
   border-top: 1px solid #374151; 
-  padding: 20px 0;
+  padding: 12px 0;
   text-align: center;
   font-size: 0.875rem;
 }
@@ -266,6 +355,41 @@ nav a {
   color: #a0aec0;
 }
 
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 24px 0 0 0; 
+    }
+
+    .footer-grid {
+        gap: 20px; 
+        padding-bottom: 24px; 
+    }
+
+    .footer-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 0 10px; 
+    }
+
+    .footer-links li {
+        margin-bottom: 8px; 
+    }
+    .footer-bottom {
+        padding: 16px 0; 
+    }
+
+    .footer-column {
+        text-align: center; 
+    }
+
+    .footer-heading {
+        font-size: 1rem; 
+    }
+
+    .social-links {
+        justify-content: center; 
+    }
+}
 /* ====================
         PROFILE MENU                                         
    ==================== */
