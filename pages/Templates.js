@@ -1,4 +1,4 @@
-import { showAlert } from "../assets/js/components/alert.js";
+﻿import { showAlert } from "../assets/js/components/alert.js";
 
 let flagListeners = [];
 
@@ -6,6 +6,201 @@ let flagListeners = [];
 const EDITABLE_SELECTOR = 'h1,h2,h3,h4,h5,h6,p,span,li,td,th,figcaption,blockquote,div';
 const NON_EDITABLE_TAGS = ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON', 'IMG', 'SVG', 'CANVAS'];
 const IFRAME_SELECTOR = '.Template-preview-iframe';
+
+// Helper function to create link editing modal - synchronized with alert notification style
+function createLinkEditModal(doc, linkEl, currentUrl) {
+  // Create modal backdrop - matches alert component design
+  const modal = doc.createElement('div');
+  modal.className = 'link-edit-modal-backdrop';
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  `;
+
+  // Modal content dialog - matches alert notification styling
+  const modalContent = doc.createElement('div');
+  modalContent.className = 'link-edit-modal-content';
+  modalContent.style.cssText = `
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0,0,0,0.08);
+    width: 90%;
+    max-width: 480px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  `;
+
+  // Title
+  const title = doc.createElement('h3');
+  title.textContent = 'Edit Link';
+  title.style.cssText = `
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+  `;
+
+  // URL Label
+  const inputLabel = doc.createElement('label');
+  inputLabel.textContent = 'URL:';
+  inputLabel.style.cssText = `
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #3b3b3b;
+    font-size: 14px;
+  `;
+
+  // URL Input
+  const input = doc.createElement('input');
+  input.type = 'text';
+  input.value = currentUrl;
+  input.placeholder = 'https://example.com';
+  input.style.cssText = `
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  `;
+
+  // Add focus state styling
+  input.addEventListener('focus', () => {
+    input.style.borderColor = '#007bff';
+    input.style.boxShadow = '0 0 0 3px rgba(0, 123, 255, 0.1)';
+  });
+  input.addEventListener('blur', () => {
+    input.style.borderColor = '#ddd';
+    input.style.boxShadow = 'none';
+  });
+
+  // Button container
+  const buttonContainer = doc.createElement('div');
+  buttonContainer.style.cssText = `
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  `;
+
+  // Cancel button
+  const cancelBtn = doc.createElement('button');
+  cancelBtn.textContent = 'Cancel';
+  cancelBtn.style.cssText = `
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: #3b3b3b;
+  `;
+  cancelBtn.addEventListener('mouseover', () => {
+    cancelBtn.style.background = '#e8e8e8';
+    cancelBtn.style.borderColor = '#ccc';
+  });
+  cancelBtn.addEventListener('mouseout', () => {
+    cancelBtn.style.background = '#f5f5f5';
+    cancelBtn.style.borderColor = '#ddd';
+  });
+
+  // Save button
+  const saveBtn = doc.createElement('button');
+  saveBtn.textContent = 'Save';
+  saveBtn.style.cssText = `
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: 1px solid #0056b3;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+  `;
+  saveBtn.addEventListener('mouseover', () => {
+    saveBtn.style.background = '#0056b3';
+    saveBtn.style.borderColor = '#003d82';
+    saveBtn.style.transform = 'translateY(-1px)';
+    saveBtn.style.boxShadow = '0 4px 12px rgba(0, 123, 255, 0.3)';
+  });
+  saveBtn.addEventListener('mouseout', () => {
+    saveBtn.style.background = '#007bff';
+    saveBtn.style.borderColor = '#0056b3';
+    saveBtn.style.transform = 'translateY(0)';
+    saveBtn.style.boxShadow = 'none';
+  });
+
+  // Close modal function
+  const closeModal = () => {
+    modal.style.opacity = '0';
+    modal.style.transition = 'opacity 0.2s';
+    setTimeout(() => modal.remove(), 200);
+  };
+
+  // Cancel button click
+  cancelBtn.addEventListener('click', closeModal);
+
+  // Save button click
+  saveBtn.addEventListener('click', () => {
+    const newUrl = input.value.trim();
+    if (newUrl) {
+      linkEl.setAttribute('href', newUrl);
+      closeModal();
+    } else {
+      input.style.borderColor = '#dc3545';
+      input.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
+      setTimeout(() => {
+        input.style.borderColor = '#ddd';
+        input.style.boxShadow = 'none';
+      }, 1500);
+    }
+  });
+
+  // Keyboard shortcuts
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      saveBtn.click();
+    }
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // Click outside modal to close
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Build DOM
+  buttonContainer.appendChild(cancelBtn);
+  buttonContainer.appendChild(saveBtn);
+  modalContent.appendChild(title);
+  modalContent.appendChild(inputLabel);
+  modalContent.appendChild(input);
+  modalContent.appendChild(buttonContainer);
+  modal.appendChild(modalContent);
+  doc.body.appendChild(modal);
+  
+  // Auto-focus and select text
+  input.focus();
+  input.select();
+}
 
 export function setupTemplatePage() {
   const btn = document.querySelector('.Primary-Button');
@@ -66,19 +261,33 @@ export function setupTemplatePage() {
         /* Styles for link edit icons */
         .editable-link-icon {
           position: absolute;
-          top: 5px;
-          right: 5px;
+          top: 50%;
+          right: 4px;
+          transform: translateY(-50%);
           z-index: 100;
-          background: #007bff;
+          background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
           color: white;
-          padding: 2px 6px;
-          border-radius: 5px;
-          font-size: 14px;
+          padding: 6px 8px;
+          border-radius: 6px;
+          font-size: 13px;
           cursor: pointer;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+          box-shadow: 0 2px 8px rgba(0, 123, 255, 0.25);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 28px;
+          transition: all 0.2s;
+          opacity: 0;
+        }
+        a:hover .editable-link-icon {
+          opacity: 1;
+          transform: translateY(-50%) scale(1.05);
         }
         .editable-link-icon:hover {
-          background: #0056b3;
+          background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+          box-shadow: 0 4px 12px rgba(0, 123, 255, 0.35);
+          transform: translateY(-50%) scale(1.1);
         }
       `;
       (doc.head || doc.documentElement).appendChild(style);
@@ -159,19 +368,23 @@ export function setupTemplatePage() {
       });
     });
 
-    // Enable link URL editing
+    // Enable link URL editing with modal popup
     doc.querySelectorAll('a[target="_blank"]').forEach(linkEl => {
       linkEl.style.position = 'relative';
+      // SVG edit icon - modern and professional
       const editIcon = doc.createElement('span');
       editIcon.className = 'editable-link-icon';
-      editIcon.textContent = '✏️';
-      editIcon.addEventListener('click', () => {
+      editIcon.innerHTML = `
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+        </svg>
+      `;
+      editIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const currentUrl = linkEl.getAttribute('href') || '';
-        const newUrl = prompt('Enter new URL:', currentUrl);
-
-        if (newUrl && newUrl.trim() !== '') {
-          linkEl.setAttribute('href', newUrl);
-        }
+        createLinkEditModal(doc, linkEl, currentUrl);
       });
 
       linkEl.appendChild(editIcon);
@@ -347,10 +560,10 @@ export default function templatePage(selectedTemplate) {
           );
           const folderUrl = templatePath.replace(/index\.html$/i, '');
           await downloadTemplate(folderUrl);
-          showAlert('Template downloaded successfully.', 'success');
+          showAlert('Mẫu đã được tải.', 'success');
         } catch (err) {
           console.error('Download failed:', err);
-          showAlert('Template download failed.', 'error');
+          showAlert('Tải mẫu thất bại.', 'error');
         }
       });
     }
@@ -388,19 +601,19 @@ export default function templatePage(selectedTemplate) {
                 jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
               };
               window.html2pdf().set(opt).from(element).save();
-              showAlert('PDF downloaded successfully.', 'success');
+              showAlert('PDF đã được tải.', 'success');
             } catch (err) {
               console.error('PDF generation failed:', err);
-              showAlert('PDF download failed.', 'error');
+              showAlert('Tải PDF thất bại.', 'error');
             }
           };
           script.onerror = () => {
-            showAlert('Could not load html2pdf library.', 'error');
+            showAlert('Không thể tải thư viện html2pdf.', 'error');
           };
           document.head.appendChild(script);
         } catch (err) {
           console.error('PDF download error:', err);
-          showAlert('PDF error.', 'error');
+          showAlert('Lỗi PDF.', 'error');
         }
       });
     }
