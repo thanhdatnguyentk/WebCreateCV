@@ -104,7 +104,8 @@ h3 {
   border-radius: 29px;
   background: var(--surface);
   transition: 1s;
-
+  min-height: 460px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 /* ------------------- */
@@ -144,7 +145,7 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* gap: 8px; */
+  gap: 5px; 
   padding: 4px 5px;
   margin-left: 19px;
   margin-top: 0.3em;
@@ -205,22 +206,27 @@ h3 {
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
+    
     width: 60px;
     height: 60px;
     line-height: 1;
     transition: background-color 0.3s ease;
 }
 
+
+
 .swiper-nav:hover {
   background-color: var(--accent-600);
 }
 
-.swiper-nav.prev {
+.Referrence-container > .swiper-nav.prev {
   left: -20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.swiper-nav.next {
+.Referrence-container > .swiper-nav.next {
   right: -20px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .swiper-nav svg {
@@ -621,6 +627,7 @@ img:not([src]):not([srcset]) {
 
 .Template-Tags {
   padding: 0.5rem 1.6rem 0.5rem;
+  gap: 5px; 
 }
 
 .Primary-Button {
@@ -691,6 +698,7 @@ img:not([src]):not([srcset]) {
   font-size: 1.25rem;
   font-weight: var(--fw-bold);
   margin-left: 28px;
+  max-width: 80%;
 }
 
 .Referrence-button {

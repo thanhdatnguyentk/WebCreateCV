@@ -105,7 +105,7 @@
   }
 
 /* --- Nút điều khiển (Prev/Next) --- */
-.slider-nav, .swiper-nav {
+.slider-nav {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,7 +127,7 @@
     transition: background-color 0.3s ease;
 }
 
-.slider-nav:hover, .swiper-nav:hover {
+.slider-nav:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
