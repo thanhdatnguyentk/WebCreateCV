@@ -147,6 +147,31 @@
     width: 350px;
 }
 
+@media (max-width: 480px) {
+    #alert-container {
+        width: 85%; 
+        max-width: 350px; 
+        left: 50%;   
+        transform: translateX(-50%);
+        right: auto; 
+        top: 70px;   
+    }
+    .custom-alert {
+        border-radius: 25px; 
+        padding: 12px 15px; 
+    }
+    .alert__icon {
+        margin-right: 12px; 
+    }
+    .alert__icon img {
+        width: 24px; 
+    }
+    .alert__msg {
+        font-size: 0.9rem; 
+    }
+}
+
+
 .custom-alert {
     display: flex;
     align-items: stretch; 
