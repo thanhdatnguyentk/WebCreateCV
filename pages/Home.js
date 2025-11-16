@@ -202,5 +202,3 @@ export async function setupHomePage(){
         console.warn('setupHomePage error', err);
     }
 }
-
-/* http://127.0.0.1:5500/index.html#/homePage */
