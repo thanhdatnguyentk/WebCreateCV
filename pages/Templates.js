@@ -377,6 +377,60 @@ export default function templatePage(selectedTemplate) {
       }
     });
   }
+  
+  // PDF Download button handler
+  const pdfDownloadBtn = document.querySelector('.Primary-Button.pdf-download-btn');
+  if (pdfDownloadBtn) {
+    pdfDownloadBtn.addEventListener("click", async (e) => {
+      const isLoggedIn = !!sessionStorage.getItem("authToken");
+      if (!isLoggedIn) {
+        showAlert("Vui lòng đăng nhập để sử dụng tính năng này.", "warning");
+        window.location.hash = "/login";
+        return;
+      }
+      e.preventDefault();
+      try {
+        // Load html2pdf library
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+        script.onload = async () => {
+          const iframe = document.querySelector('.Template-preview-iframe');
+          if (!iframe) {
+            showAlert("Preview not found.", "error");
+            return;
+          }
+          try {
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            if (!iframeDoc) {
+              showAlert("Cannot access iframe content.", "error");
+              return;
+            }
+            const element = iframeDoc.documentElement;
+            const fileName = (selectedTemplate && selectedTemplate.name) ? selectedTemplate.name.replace(/\s+/g, '_') : 'template';
+            const opt = {
+              margin: 10,
+              filename: fileName + '.pdf',
+              image: { type: 'jpeg', quality: 0.98 },
+              html2canvas: { scale: 2 },
+              jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+            };
+            window.html2pdf().set(opt).from(element).save();
+            showAlert("Đã tải xuống PDF thành công.", "success");
+          } catch (err) {
+            console.error("PDF generation failed:", err);
+            showAlert("Tải xuống PDF không thành công.", "error");
+          }
+        };
+        script.onerror = () => {
+          showAlert("Không thể tải thư viện html2pdf.", "error");
+        };
+        document.head.appendChild(script);
+      } catch (err) {
+        console.error("PDF download error:", err);
+        showAlert("Lỗi khi tải PDF.", "error");
+      }
+    });
+  }
     }, 0);
 
   const titleText = (selectedTemplate && selectedTemplate.name) ? selectedTemplate.name : 'Templates';
@@ -387,10 +441,11 @@ export default function templatePage(selectedTemplate) {
   <div class="Template-container">
     <div class="row Template-header">
       <div class="col-1"></div>
-      <div class="Template-title col-8">${titleText}</div>
+      <div class="Template-title col-4">${titleText}</div>
       <div class="col-2"></div>
       <button class="Primary-Button col-3" data-template="${selectedTemplate && selectedTemplate.path ? selectedTemplate.path : ''}">Use this template</button>
       <button class="Primary-Button col-1 download-btn" data-template="${selectedTemplate && selectedTemplate.path ? selectedTemplate.path : ''}">Download</button>
+      <button class="Primary-Button col-4 pdf-download-btn" data-template="${selectedTemplate && selectedTemplate.path ? selectedTemplate.path : ''}">Download PDF</button>
     </div>
 
     <div class="row">
