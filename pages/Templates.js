@@ -202,6 +202,133 @@ function createLinkEditModal(doc, linkEl, currentUrl) {
   input.select();
 }
 
+
+// Helper function to create flag country code editing modal
+function createFlagEditModal(doc, flagImg, currentCountryCode) {
+  // Create modal popup for flag country code editing
+  const modal = doc.createElement('div');
+  modal.className = 'flag-edit-modal';
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  `;
+
+  const modalContent = doc.createElement('div');
+  modalContent.style.cssText = `
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  `;
+
+  const title = doc.createElement('h3');
+  title.textContent = 'Change Flag';
+  title.style.cssText = 'margin: 0 0 16px 0; font-size: 18px; color: #333;';
+
+  const inputLabel = doc.createElement('label');
+  inputLabel.textContent = 'Country Code (e.g., us, fr, vn):';
+  inputLabel.style.cssText = 'display: block; margin-bottom: 8px; font-weight: 500; color: #555;';
+
+  const input = doc.createElement('input');
+  input.type = 'text';
+  input.value = currentCountryCode;
+  input.placeholder = 'us';
+  input.style.cssText = `
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-transform: lowercase;
+  `;
+
+  const info = doc.createElement('p');
+  info.textContent = 'Examples: us, gb, fr, de, jp, vn, kr, etc.';
+  info.style.cssText = 'margin: 0 0 16px 0; font-size: 12px; color: #999;';
+
+  const buttonContainer = doc.createElement('div');
+  buttonContainer.style.cssText = 'display: flex; gap: 10px; justify-content: flex-end;';
+
+  const cancelBtn = doc.createElement('button');
+  cancelBtn.textContent = 'Cancel';
+  cancelBtn.style.cssText = `
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+  `;
+  cancelBtn.onmouseover = () => { cancelBtn.style.background = '#e8e8e8'; };
+  cancelBtn.onmouseout = () => { cancelBtn.style.background = '#f5f5f5'; };
+
+  const saveBtn = doc.createElement('button');
+  saveBtn.textContent = 'Save';
+  saveBtn.style.cssText = `
+    padding: 10px 20px; 
+    background: rgb(0, 123, 255); 
+    color: white; 
+    border: 1px solid rgb(0, 86, 179); 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    font-weight: 500; 
+    transition: 0.2s; 
+    transform: translateY(0px); 
+    box-shadow: none;
+  `;
+  saveBtn.onmouseover = () => { saveBtn.style.background = '#218838'; };
+  saveBtn.onmouseout = () => { saveBtn.style.background = '#28a745'; };
+
+  const closeModal = () => { modal.remove(); };
+
+  cancelBtn.addEventListener('click', closeModal);
+
+  saveBtn.addEventListener('click', () => {
+    const countryCode = input.value.trim().toLowerCase();
+    if (countryCode) {
+      const newUrl = `https://flagcdn.com/w40/${countryCode}.png`;
+      flagImg.src = newUrl;
+      closeModal();
+    }
+  });
+
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') saveBtn.click();
+    if (e.key === 'Escape') closeModal();
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  buttonContainer.appendChild(cancelBtn);
+  buttonContainer.appendChild(saveBtn);
+  modalContent.appendChild(title);
+  modalContent.appendChild(inputLabel);
+  modalContent.appendChild(input);
+  modalContent.appendChild(info);
+  modalContent.appendChild(buttonContainer);
+  modal.appendChild(modalContent);
+  doc.body.appendChild(modal);
+  input.focus();
+  input.select();
+}
+
 export function setupTemplatePage() {
   const btn = document.querySelector('.Primary-Button');
   if (!btn) return;
@@ -299,11 +426,8 @@ export function setupTemplatePage() {
       img.classList.add('editable-flag-in-iframe');
       img.style.position = 'relative';
       img.addEventListener('click', () => {
-        const countryCode = prompt('Enter country code (e.g., us, fr, vn):');
-        if (countryCode) {
-          const newUrl = `https://flagcdn.com/w40/${countryCode.toLowerCase()}.png`;
-          img.src = newUrl;
-        }
+        const currentCode = img.src.match(/\/([a-z]{2,})\.png/)?.[1] || '';
+        createFlagEditModal(doc, img, currentCode);
       });
     });
 
@@ -474,7 +598,7 @@ export function setupTemplatePage() {
 // Load templates manifest from JSON file
 async function loadTemplatesManifest() {
   try {
-    const res = await fetch('/assets/js/templates-manifest.json', {cache: 'no-store'});
+    const res = await fetch('./assets/js/templates-manifest.json', {cache: 'no-store'});
     if (!res.ok) throw new Error('manifest not found');
     return await res.json();
   } catch (e) {
@@ -691,3 +815,4 @@ export default function templatePage(selectedTemplate) {
 </div>
 `;
 }
+
