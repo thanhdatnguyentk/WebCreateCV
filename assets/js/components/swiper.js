@@ -6,7 +6,7 @@ export async function initSwiper(wrapperId = 'swiperWrapper', manifestOrUrl = nu
   if (Array.isArray(manifestOrUrl)) {
     manifest = manifestOrUrl;
   } else {
-    const url = typeof manifestOrUrl === 'string' ? manifestOrUrl : '/assets/js/templates-manifest.json';
+    const url = typeof manifestOrUrl === 'string' ? manifestOrUrl : '../js/templates-manifest.json';
     try {
       const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error('manifest not found');

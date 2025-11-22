@@ -64,7 +64,7 @@ export default function HomePage() {
 // Initialization: load manifest and render dynamic blocks for Home page.
 export async function setupHomePage(){
     try{
-        const res = await fetch('/assets/js/templates-manifest.json', {cache: 'no-store'});
+        const res = await fetch('./assets/js/templates-manifest.json', {cache: 'no-store'});
         if(!res.ok) throw new Error('manifest not found');
         const manifest = await res.json();
 
