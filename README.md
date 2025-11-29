@@ -33,6 +33,11 @@ WebCreateCV là một ứng dụng web được thiết kế để giúp ngườ
 - **Quản lý mẫu**: Tệp `Templates.js` đã được sửa đổi để chấp nhận tham số mẫu cho nội dung iframe động.
 - **Tương thích với Router**: Router đã được xác minh để hỗ trợ cả hai tuyến đường `/template/:id` và `/templatePage`.
 
+## Hotfixes
+- **Sửa lỗi đường dẫn tĩnh**: Sửa lỗi đường dẫn tĩnh cho tệp `templates-manifest.json` trong `swiper.js` và `Templates.js` để đảm bảo tệp được tải chính xác từ thư mục `assets/js/`.
+- **Cập nhật Swiper.js**: Tệp `swiper.js` đã được cập nhật để sửa lỗi liên quan đến việc tải tệp manifest.
+- Nếu bạn gặp lỗi ở các phiên bản trước, hãy đảm bảo workspace của bạn là WebCreateCV và thử lại.
+
 
 ## Giấy phép
 Dự án này được cấp phép theo Giấy phép MIT. Xem tệp [LICENSE](LICENSE) để biết chi tiết.

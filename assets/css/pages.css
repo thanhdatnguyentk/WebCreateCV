@@ -50,7 +50,7 @@ h3 {
 .Referrence-container h3 {
   margin-left: 0;
   margin-bottom: 20px;
-  color: white;
+  color: var(--text);
 }
 
 .Homepage-Container {

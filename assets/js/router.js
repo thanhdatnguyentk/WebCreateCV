@@ -13,7 +13,7 @@ import Footer from "./components/footer.js";
 // Hàm để load template manifest
 async function loadTemplatesManifest() {
   try {
-    const res = await fetch('/assets/js/templates-manifest.json');
+    const res = await fetch('./assets/js/templates-manifest.json');
     return await res.json();
   } catch (e) {
     console.warn('Could not load templates manifest:', e);
