@@ -10,9 +10,9 @@ export function setupProfilePage() {
     const avatarPreview = document.getElementById('avatar-preview');
     const avatarUploadInput = document.getElementById('avatar-upload');
 
-    // Nếu chưa đăng nhập, chuyển về trang login
+    // If not logged in, redirect to login page
     if (!userEmail) {
-        showAlert('Vui lòng đăng nhập để xem trang cá nhân.', 'warning');
+        showAlert('Please log in to view your profile.', 'warning');
         window.location.hash = '/login';
         return;
     }
@@ -74,9 +74,9 @@ export function setupProfilePage() {
             // Lưu lại vào localStorage
             localStorage.setItem('userProfiles', JSON.stringify(allProfiles));
 
-            showAlert('Cập nhật thông tin thành công!', 'success');
+            showAlert('Profile updated successfully!', 'success');
             setTimeout(() => {
-                window.location.reload(); // Tải lại để header và trang cập nhật
+                window.location.reload(); // Reload to update header and page
             }, 1500); 
         });
     }
@@ -88,7 +88,7 @@ export function setupProfilePage() {
             const data = Object.fromEntries(new FormData(passwordForm));
 
             if (data.newPassword !== data.confirmPassword) {
-                showAlert('Mật khẩu mới không khớp. Vui lòng nhập lại.', 'error');
+                showAlert('New passwords do not match. Please try again.', 'error');
                 return;
             }
 
@@ -96,21 +96,21 @@ export function setupProfilePage() {
             const userIndex = users.findIndex(user => user.email === userEmail);
 
             if (userIndex === -1) {
-                showAlert('Lỗi: Không tìm thấy người dùng.', 'error');
+                showAlert('Error: User not found.', 'error');
                 return;
             }
 
             if (users[userIndex].password !== data.currentPassword) {
-                showAlert('Mật khẩu hiện tại không đúng.', 'error');
+                showAlert('Current password is incorrect.', 'error');
                 return;
             }
 
-            // Cập nhật mật khẩu mới
+            // Update new password
             users[userIndex].password = data.newPassword;
             localStorage.setItem('users', JSON.stringify(users));
 
-            showAlert('Đổi mật khẩu thành công!', 'success');
-            passwordForm.reset(); // Xóa các trường trong form
+            showAlert('Password changed successfully!', 'success');
+            passwordForm.reset(); // Clear form fields
         });
     }
 }
@@ -137,67 +137,67 @@ export default function ProfilePage() {
                 <div class="profile-forms-grid">
                     <!-- Personal Info Section -->
                     <div class="profile-form-container">
-                        <h3>Thông Tin Cá Nhân</h3>
+                        <h3>Personal Information</h3>
                         <form id="profile-form" class="profile-form">
                             <div class="form-grid">
                                 <div class="form-group">
-                                    <label for="fullName">Họ và Tên</label>
-                                    <input type="text" id="fullName" name="fullName" placeholder="Nhập họ và tên" required>
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" name="fullName" placeholder="Enter full name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input type="email" id="email" name="email" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jobTitle">Chức danh</label>
-                                    <input type="text" id="jobTitle" name="jobTitle" placeholder="VD: Lập trình viên...">
+                                    <label for="jobTitle">Job Title</label>
+                                    <input type="text" id="jobTitle" name="jobTitle" placeholder="E.g: Software Developer...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">Số điện thoại</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Enter phone number">
                                 </div>
                                 <div class="form-group">
-                                    <label for="address">Địa chỉ</label>
-                                    <input type="text" id="address" name="address" placeholder="VD: Quận 1, TP. HCM">
+                                    <label for="address">Address</label>
+                                    <input type="text" id="address" name="address" placeholder="E.g: District 1, HCMC">
                                 </div>
                                 <div class="form-group">
-                                    <label for="ngaySinh">Ngày sinh</label>
+                                    <label for="ngaySinh">Date of Birth</label>
                                     <input type="date" id="ngaySinh" name="ngaySinh">
                                 </div>
                                 <div class="form-group">
-                                    <label for="gioiTinh">Giới tính</label>
+                                    <label for="gioiTinh">Gender</label>
                                     <div class="select-wrapper">
                                         <select id="gioiTinh" name="gioiTinh">
-                                            <option value="">-- Chọn giới tính --</option>
-                                            <option value="Nam">Nam</option>
-                                            <option value="Nữ">Nữ</option>
-                                            <option value="Khác">Khác</option>
+                                            <option value="">-- Select gender --</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                         <img src="./assets/images/icons/dropdown.svg" alt="dropdown icon" class="select-arrow">
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-slide btn-slide--bl">Lưu Thông Tin</button>
+                            <button type="submit" class="btn btn-slide btn-slide--bl">Save Information</button>
                         </form>
                     </div>
 
                     <!-- Change Password Section -->
                     <div class="profile-form-container">
-                        <h3>Đổi Mật Khẩu</h3>
+                        <h3>Change Password</h3>
                         <form id="password-form" class="profile-form">
                             <div class="form-group">
-                                <label for="currentPassword">Mật khẩu hiện tại</label>
+                                <label for="currentPassword">Current Password</label>
                                 <input type="password" id="currentPassword" name="currentPassword" required>
                             </div>
                             <div class="form-group">
-                                <label for="newPassword">Mật khẩu mới</label>
+                                <label for="newPassword">New Password</label>
                                 <input type="password" id="newPassword" name="newPassword" required>
                             </div>
                             <div class="form-group">
-                                <label for="confirmPassword">Xác nhận mật khẩu mới</label>
+                                <label for="confirmPassword">Confirm New Password</label>
                                 <input type="password" id="confirmPassword" name="confirmPassword" required>
                             </div>
-                            <button type="submit" class="btn btn-slide btn-slide--gry">Đổi Mật Khẩu</button>
+                            <button type="submit" class="btn btn-slide btn-slide--gry">Change Password</button>
                         </form>
                     </div>
                 </div>

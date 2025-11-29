@@ -20,15 +20,15 @@ export function setupLoginPage() {
       );
 
       if (foundUser) {
-        // Đăng nhập thành công, lưu token vào sessionStorage
-        // (sessionStorage sẽ tự xóa khi đóng tab)
-        sessionStorage.setItem("authToken", foundUser.email); // Dùng email làm "token" giả
-        showAlert("Đăng nhập thành công!", 'success');
-        // Chuyển hướng về trang chủ sau khi đăng nhập
+        // Login successful, save token to sessionStorage
+        // (sessionStorage will auto-clear when tab is closed)
+        sessionStorage.setItem("authToken", foundUser.email); // Use email as fake "token"
+        showAlert("Login successful!", 'success');
+        // Redirect to home page after login
         window.location.hash = "/homePage";
       } else {
-        // Đăng nhập thất bại
-        showAlert("Tên đăng nhập hoặc mật khẩu không chính xác.", 'error');
+        // Login failed
+        showAlert("Username or password is incorrect.", 'error');
       }
     });
   }
@@ -62,9 +62,9 @@ export function setupLoginPage() {
     const foundUser = users.find(user => user.email === email);
 
     if (foundUser) {
-      showAlert(`Mật khẩu của bạn là: "${foundUser.password}". Vui lòng đăng nhập lại.`, 'info', 4000);
+      showAlert(`Your password is: "${foundUser.password}". Please log in again.`, 'info', 4000);
     } else {
-      showAlert("Không tìm thấy người dùng với email này.", 'error');
+      showAlert("No user found with this email.", 'error');
     }
 
     // Sau 4 giây, tự động quay lại màn hình đăng nhập

@@ -22,12 +22,12 @@ export function setupHeader() {
     });
   }
 
-  // Xử lý sự kiện đăng xuất
+  // Handle logout event
   if (logoutBtn) {
     logoutBtn.addEventListener("click", (e) => {
       e.preventDefault();
       sessionStorage.removeItem("authToken");
-      showAlert("Bạn đã đăng xuất.", 'info');
+      showAlert("You have been logged out.", 'info');
       window.location.hash = "/login";
     });
   }
@@ -48,7 +48,7 @@ export function setupHeader() {
       }
     });
 
-    // Đóng menu khi click vào một link bên trong
+    // Close menu when clicking on a link inside
     collapseMenu.addEventListener('click', (e) => {
       if (e.target.tagName === 'A') {
         collapseMenu.classList.remove('active');
@@ -56,6 +56,47 @@ export function setupHeader() {
       }
     });
   }
+
+  // --- Sticky Header & Back to Top Logic ---
+  const navbarContainer = document.querySelector('.navbar-container');
+  
+  // Create Back to Top Button if it doesn't exist
+  let backToTopBtn = document.getElementById('back-to-top');
+  if (!backToTopBtn) {
+    backToTopBtn = document.createElement('button');
+    backToTopBtn.id = 'back-to-top';
+    backToTopBtn.title = "Back to Top";
+    backToTopBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+      </svg>
+    `;
+    document.body.appendChild(backToTopBtn);
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // Handle Scroll Events
+  window.addEventListener('scroll', () => {
+    // Sticky Header
+    if (window.scrollY > 50) {
+      if (navbarContainer) navbarContainer.classList.add('sticky');
+    } else {
+      if (navbarContainer) navbarContainer.classList.remove('sticky');
+    }
+
+    // Back to Top Button
+    if (window.scrollY > 300) {
+      if (backToTopBtn) backToTopBtn.classList.add('show');
+    } else {
+      if (backToTopBtn) backToTopBtn.classList.remove('show');
+    }
+  });
 }
 
 

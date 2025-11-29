@@ -5,7 +5,7 @@ export default function Footer() {
         <div class="footer-grid">
           <div class="footer-column about-us">
             <h4 class="footer-heading">ARTNOC</h4>
-            <p>Trang web tìm kiếm portfolio và CV nhanh chóng, chuyên nghiệp và dễ dàng tùy chỉnh cho mọi ngành nghề.</p>
+            <p>A website to quickly find professional portfolios and CVs that are easy to customize for all industries.</p>
           </div>
           <div class="footer-column">
             <h4 class="footer-heading">Quick Links</h4>

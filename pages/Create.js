@@ -5,7 +5,7 @@ export default function CreatePage() {
   return `
     <main>
       <div class="container">
-        <h2>Tạo CV của bạn</h2>
+        <h2>Create Your CV</h2>
         ${CVForm()}
       </div>
     </main>

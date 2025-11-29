@@ -2,17 +2,17 @@ export default function ContactPage() {
   return `
       <div class="container Contact-Container">
 
-    <h1 >Liên hệ với chúng tôi</h1>
+    <h1>Contact Us</h1>
     <p class="contact-intro">
-      Hãy để lại lời nhắn — đội ngũ WebCreateCV sẽ phản hồi bạn trong thời gian sớm nhất.
+      Leave us a message — the WebCreateCV team will respond to you as soon as possible.
     </p>
 
     <div class="row Contact-card">
       <div class="col-8 contact-form ">
         <form action="#" method="POST" class="Contact-Form">
           <div class="form-group">
-            <label for="name">Họ và tên</label>
-            <input type="text" id="name" name="name" placeholder="Nhập họ tên của bạn" required>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
           </div>
 
           <div class="form-group">
@@ -21,32 +21,32 @@ export default function ContactPage() {
           </div>
 
           <div class="form-group">
-            <label for="subject">Chủ đề</label>
-            <input type="text" id="subject" name="subject" placeholder="Nhập chủ đề liên hệ" required>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Enter contact subject" required>
           </div>
 
           <div class="form-group">
-            <label for="message">Nội dung</label>
-            <textarea id="message" name="message" rows="6" placeholder="Nhập tin nhắn của bạn..." required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Enter your message..." required></textarea>
           </div>
 
           <button type="submit" class="btn-animated btn-animated-1 Contact-submit-btn">
             <svg>
                <rect x="0" y="0"  fill="none"  width="102%" height="102%"/>
             </svg>  
-            Gửi tin nhắn
+            Send Message
           </button>
         </form>
       </div>
 
       <div class="col-7 contact-info">
-        <h2>Thông tin liên hệ</h2>
-        <p><strong>Địa chỉ:</strong> Khu phố 34, Phường Linh Xuân, Thành phố Hồ Chí Minh</p>
+        <h2>Contact Information</h2>
+        <p><strong>Address:</strong> Quarter 34, Linh Xuan Ward, Ho Chi Minh City</p>
         <p><strong>Email:</strong> support@webcreatecv.com</p>
         <p><strong>Hotline:</strong> (+84) 909 123 456</p>
 
         <div class="social-links">
-          <p><strong>Kết nối với chúng tôi:</strong></p>
+          <p><strong>Connect with us:</strong></p>
           <div class="row">
             <div class="col-3"><a href="#"><img src="assets/images/icons/facebook.svg" alt="Facebook"></a></div>
             <div class="col-3"><a href="#"><img src="assets/images/icons/twitter-bird-svgrepo-com.svg" alt="Twitter"></a></div>

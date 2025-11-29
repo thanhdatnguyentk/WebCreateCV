@@ -12,138 +12,38 @@ function createLinkEditModal(doc, linkEl, currentUrl) {
   // Create modal backdrop - matches alert component design
   const modal = doc.createElement('div');
   modal.className = 'link-edit-modal-backdrop';
-  modal.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-  `;
 
   // Modal content dialog - matches alert notification styling
   const modalContent = doc.createElement('div');
   modalContent.className = 'link-edit-modal-content';
-  modalContent.style.cssText = `
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(0,0,0,0.08);
-    width: 90%;
-    max-width: 480px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  `;
 
   // Title
   const title = doc.createElement('h3');
   title.textContent = 'Edit Link';
-  title.style.cssText = `
-    margin: 0 0 20px 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #0f172a;
-  `;
 
   // URL Label
   const inputLabel = doc.createElement('label');
   inputLabel.textContent = 'URL:';
-  inputLabel.style.cssText = `
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #3b3b3b;
-    font-size: 14px;
-  `;
 
   // URL Input
   const input = doc.createElement('input');
   input.type = 'text';
   input.value = currentUrl;
   input.placeholder = 'https://example.com';
-  input.style.cssText = `
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 14px;
-    box-sizing: border-box;
-    font-family: inherit;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  `;
-
-  // Add focus state styling
-  input.addEventListener('focus', () => {
-    input.style.borderColor = '#007bff';
-    input.style.boxShadow = '0 0 0 3px rgba(0, 123, 255, 0.1)';
-  });
-  input.addEventListener('blur', () => {
-    input.style.borderColor = '#ddd';
-    input.style.boxShadow = 'none';
-  });
 
   // Button container
   const buttonContainer = doc.createElement('div');
-  buttonContainer.style.cssText = `
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-  `;
+  buttonContainer.className = 'link-edit-modal-button-container';
 
   // Cancel button
   const cancelBtn = doc.createElement('button');
   cancelBtn.textContent = 'Cancel';
-  cancelBtn.style.cssText = `
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    background: #f5f5f5;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s;
-    color: #3b3b3b;
-  `;
-  cancelBtn.addEventListener('mouseover', () => {
-    cancelBtn.style.background = '#e8e8e8';
-    cancelBtn.style.borderColor = '#ccc';
-  });
-  cancelBtn.addEventListener('mouseout', () => {
-    cancelBtn.style.background = '#f5f5f5';
-    cancelBtn.style.borderColor = '#ddd';
-  });
+  cancelBtn.className = 'link-edit-modal-cancel-btn';
 
   // Save button
   const saveBtn = doc.createElement('button');
   saveBtn.textContent = 'Save';
-  saveBtn.style.cssText = `
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    border: 1px solid #0056b3;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s;
-  `;
-  saveBtn.addEventListener('mouseover', () => {
-    saveBtn.style.background = '#0056b3';
-    saveBtn.style.borderColor = '#003d82';
-    saveBtn.style.transform = 'translateY(-1px)';
-    saveBtn.style.boxShadow = '0 4px 12px rgba(0, 123, 255, 0.3)';
-  });
-  saveBtn.addEventListener('mouseout', () => {
-    saveBtn.style.background = '#007bff';
-    saveBtn.style.borderColor = '#0056b3';
-    saveBtn.style.transform = 'translateY(0)';
-    saveBtn.style.boxShadow = 'none';
-  });
+  saveBtn.className = 'link-edit-modal-save-btn';
 
   // Close modal function
   const closeModal = () => {
@@ -165,8 +65,8 @@ function createLinkEditModal(doc, linkEl, currentUrl) {
       input.style.borderColor = '#dc3545';
       input.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.1)';
       setTimeout(() => {
-        input.style.borderColor = '#ddd';
-        input.style.boxShadow = 'none';
+        input.style.borderColor = '';
+        input.style.boxShadow = '';
       }, 1500);
     }
   });
@@ -208,91 +108,33 @@ function createFlagEditModal(doc, flagImg, currentCountryCode) {
   // Create modal popup for flag country code editing
   const modal = doc.createElement('div');
   modal.className = 'flag-edit-modal';
-  modal.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-  `;
 
   const modalContent = doc.createElement('div');
-  modalContent.style.cssText = `
-    background: white;
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    width: 90%;
-    max-width: 500px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  `;
 
   const title = doc.createElement('h3');
   title.textContent = 'Change Flag';
-  title.style.cssText = 'margin: 0 0 16px 0; font-size: 18px; color: #333;';
 
   const inputLabel = doc.createElement('label');
   inputLabel.textContent = 'Country Code (e.g., us, fr, vn):';
-  inputLabel.style.cssText = 'display: block; margin-bottom: 8px; font-weight: 500; color: #555;';
 
   const input = doc.createElement('input');
   input.type = 'text';
   input.value = currentCountryCode;
   input.placeholder = 'us';
-  input.style.cssText = `
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
-    text-transform: lowercase;
-  `;
 
   const info = doc.createElement('p');
   info.textContent = 'Examples: us, gb, fr, de, jp, vn, kr, etc.';
-  info.style.cssText = 'margin: 0 0 16px 0; font-size: 12px; color: #999;';
 
   const buttonContainer = doc.createElement('div');
-  buttonContainer.style.cssText = 'display: flex; gap: 10px; justify-content: flex-end;';
+  buttonContainer.className = 'flag-edit-modal-button-container';
 
   const cancelBtn = doc.createElement('button');
   cancelBtn.textContent = 'Cancel';
-  cancelBtn.style.cssText = `
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    background: #f5f5f5;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.2s;
-  `;
-  cancelBtn.onmouseover = () => { cancelBtn.style.background = '#e8e8e8'; };
-  cancelBtn.onmouseout = () => { cancelBtn.style.background = '#f5f5f5'; };
+  cancelBtn.className = 'cancel-btn';
 
   const saveBtn = doc.createElement('button');
   saveBtn.textContent = 'Save';
-  saveBtn.style.cssText = `
-    padding: 10px 20px; 
-    background: rgb(0, 123, 255); 
-    color: white; 
-    border: 1px solid rgb(0, 86, 179); 
-    border-radius: 6px; 
-    cursor: pointer; 
-    font-size: 14px; 
-    font-weight: 500; 
-    transition: 0.2s; 
-    transform: translateY(0px); 
-    box-shadow: none;
-  `;
-  saveBtn.onmouseover = () => { saveBtn.style.background = '#218838'; };
-  saveBtn.onmouseout = () => { saveBtn.style.background = '#28a745'; };
+  saveBtn.className = 'save-btn';
 
   const closeModal = () => { modal.remove(); };
 
@@ -359,65 +201,13 @@ export function setupTemplatePage() {
     };
     doc.addEventListener('click', clickBlocker, true);
 
-    // Inject editable styles for visual feedback
+    // Inject editable styles for visual feedback - now using external CSS
     if (!doc.getElementById('editable-style-by-parent')) {
-      const style = doc.createElement('style');
-      style.id = 'editable-style-by-parent';
-      style.textContent = `
-        .editable-in-iframe {
-          outline: 2px dashed rgba(59,130,246,0.85);
-          padding: 2px;
-          border-radius: 4px;
-        }
-        .editable-in-iframe:focus {
-          outline: 2px solid rgba(37,99,235,0.9);
-          box-shadow: 0 6px 18px rgba(37,99,235,0.12);
-        }
-        /* Styles for editable flag elements */
-        .editable-flag-in-iframe {
-          outline: 2px dashed rgba(16,185,129,0.85);
-          padding: 2px;
-          border-radius: 4px;
-          cursor: pointer;
-          transition: all 0.2s;
-        }
-        .editable-flag-in-iframe:hover {
-          outline: 2px solid rgba(5,150,105,0.9);
-          box-shadow: 0 6px 18px rgba(5,150,105,0.12);
-        }
-        /* Styles for link edit icons */
-        .editable-link-icon {
-          position: absolute;
-          top: 50%;
-          right: 4px;
-          transform: translateY(-50%);
-          z-index: 100;
-          background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-          color: white;
-          padding: 6px 8px;
-          border-radius: 6px;
-          font-size: 13px;
-          cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0, 123, 255, 0.25);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 28px;
-          height: 28px;
-          transition: all 0.2s;
-          opacity: 0;
-        }
-        a:hover .editable-link-icon {
-          opacity: 1;
-          transform: translateY(-50%) scale(1.05);
-        }
-        .editable-link-icon:hover {
-          background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
-          box-shadow: 0 4px 12px rgba(0, 123, 255, 0.35);
-          transform: translateY(-50%) scale(1.1);
-        }
-      `;
-      (doc.head || doc.documentElement).appendChild(style);
+      const link = doc.createElement('link');
+      link.id = 'editable-style-by-parent';
+      link.rel = 'stylesheet';
+      link.href = '/assets/css/style.css';
+      (doc.head || doc.documentElement).appendChild(link);
     }
 
     // Enable editing for flag images
@@ -432,36 +222,8 @@ export function setupTemplatePage() {
     });
 
     // Setup image upload functionality (except flags)
+    // Styles are now in external CSS file
     const imageUploadWrappers = doc.querySelectorAll('img:not([src*="flagcdn.com"])');
-    const imageUploadStyles = doc.getElementById('image-upload-styles');
-    if (!imageUploadStyles) {
-      const styles = doc.createElement('style');
-      styles.id = 'image-upload-styles';
-      styles.textContent = `
-        .img-upload-wrapper {
-          position: relative;
-          display: inline-block;
-        }
-        .img-upload-overlay {
-          display: none;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0,0,0,0.5);
-          color: white;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          border-radius: 4px;
-        }
-        .img-upload-wrapper:hover .img-upload-overlay {
-          display: flex;
-        }
-      `;
-      doc.head.appendChild(styles);
-    }
 
     // Attach upload handlers to images
     imageUploadWrappers.forEach(img => {
@@ -471,7 +233,6 @@ export function setupTemplatePage() {
       uploadBtn.type = 'file';
       uploadBtn.accept = 'image/*';
       uploadBtn.className = 'img-upload-input';
-      uploadBtn.style.display = 'none';
       const overlay = doc.createElement('div');
       overlay.className = 'img-upload-overlay';
       overlay.innerHTML = '<span>Click to change image</span>';
@@ -539,9 +300,6 @@ export function setupTemplatePage() {
       wrapper.remove();
     });
 
-    const imageStyles = doc.getElementById('image-upload-styles');
-    if (imageStyles) imageStyles.remove();
-
     // Clean up flag listeners and styles
     flagListeners.forEach(pair => {
       pair.el.removeEventListener('click', pair.listener);
@@ -562,7 +320,7 @@ export function setupTemplatePage() {
   btn.addEventListener('click', function(e) {
     const isLoggedIn = !!sessionStorage.getItem('authToken');
     if (!isLoggedIn) {
-      showAlert('Hãy đăng nhập để sử dụng tính năng này.', 'warning');
+      showAlert('Please log in to use this feature.', 'warning');
       window.location.hash = '/login';
       return;
     }
@@ -642,7 +400,7 @@ export async function renderTemplateBlocks(manifest) {
 const ensureLoggedIn = () => {
   const isLoggedIn = !!sessionStorage.getItem('authToken');
   if (!isLoggedIn) {
-    showAlert('Hãy đăng nhập để sử dụng tính năng này.', 'warning');
+    showAlert('Please log in to use this feature.', 'warning');
     window.location.hash = '/login';
   }
   return isLoggedIn;
@@ -684,10 +442,10 @@ export default function templatePage(selectedTemplate) {
           );
           const folderUrl = templatePath.replace(/index\.html$/i, '');
           await downloadTemplate(folderUrl);
-          showAlert('Mẫu đã được tải.', 'success');
+          showAlert('Template downloaded successfully.', 'success');
         } catch (err) {
           console.error('Download failed:', err);
-          showAlert('Tải mẫu thất bại.', 'error');
+          showAlert('Template download failed.', 'error');
         }
       });
     }
@@ -725,19 +483,19 @@ export default function templatePage(selectedTemplate) {
                 jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
               };
               window.html2pdf().set(opt).from(element).save();
-              showAlert('PDF đã được tải.', 'success');
+              showAlert('PDF downloaded successfully.', 'success');
             } catch (err) {
               console.error('PDF generation failed:', err);
-              showAlert('Tải PDF thất bại.', 'error');
+              showAlert('PDF download failed.', 'error');
             }
           };
           script.onerror = () => {
-            showAlert('Không thể tải thư viện html2pdf.', 'error');
+            showAlert('Failed to load html2pdf library.', 'error');
           };
           document.head.appendChild(script);
         } catch (err) {
           console.error('PDF download error:', err);
-          showAlert('Lỗi PDF.', 'error');
+          showAlert('PDF error.', 'error');
         }
       });
     }
