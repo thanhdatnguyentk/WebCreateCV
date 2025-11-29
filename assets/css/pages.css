@@ -290,6 +290,8 @@ img:not([src]):not([srcset]) {
   display: none; /* Hides the alt text if the image source is missing */
 }
 
+
+
 /* =========================
   Login & Signup Pages
   ========================= */
@@ -965,6 +967,49 @@ img:not([src]):not([srcset]) {
 @media only screen and (max-width: 480px) and (min-resolution: 2dppx),
        only screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
   .Template-Thumbnail img { image-rendering: -webkit-optimize-contrast; }
+}
+
+/* ====================
+     Mobile dimesions fix for template cards                                        
+ ====================== */
+
+ @media screen and (max-width: 768px) {
+    
+    /* 1. Force the card to be full width */
+    .template-grid .row .Template-Card.col-4 {
+        width: 100% !important; 
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        height: auto !important; /* Allow height to adapt */
+        min-height: auto !important; /* Remove the large desktop min-height */
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 2. Fix the Thumbnail Image */
+    /* Resets the width constraint so the image fills the new wider card */
+    .Template-Card .Template-Thumbnail {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9; /* Ensures the image doesn't get cut off */
+        margin: 0 0 16px 0 !important; /* Remove auto margins and add bottom space */
+        border-radius: 20px 20px 0 0; /* Optional: Match card top radius */
+    }
+
+    /* 3. Adjust Text Spacing */
+    .Template-Card .Template-Name {
+        margin-left: 20px; /* Add breathing room for text */
+        margin-right: 20px;
+        margin-top: 0;
+        font-size: 1.2rem;
+    }
+    
+    .Template-Card .Category-Selector2 {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
 }
 
 /* End device-specific tweaks */
