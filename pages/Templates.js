@@ -457,11 +457,7 @@ export default function templatePage(selectedTemplate) {
         if (!ensureLoggedIn()) return;
         e.preventDefault();
         try {
-          // Dynamically load html2pdf library
-          const script = document.createElement('script');
-          script.src =
-            'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
-          script.onload = async () => {
+          const generatePDF = () => {
             const iframe = document.querySelector(IFRAME_SELECTOR);
             if (!iframe) {
               showAlert('Preview not found.', 'error');
@@ -489,10 +485,20 @@ export default function templatePage(selectedTemplate) {
               showAlert('PDF download failed.', 'error');
             }
           };
-          script.onerror = () => {
-            showAlert('Failed to load html2pdf library.', 'error');
-          };
-          document.head.appendChild(script);
+
+          if (window.html2pdf) {
+            generatePDF();
+          } else {
+            // Dynamically load html2pdf library
+            const script = document.createElement('script');
+            script.src =
+              'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+            script.onload = generatePDF;
+            script.onerror = () => {
+              showAlert('Failed to load html2pdf library.', 'error');
+            };
+            document.head.appendChild(script);
+          }
         } catch (err) {
           console.error('PDF download error:', err);
           showAlert('PDF error.', 'error');

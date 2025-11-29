@@ -1,8 +1,8 @@
 /**
- * Hiển thị một thông báo (alert notification).
- * @param {string} message - Nội dung thông báo.
- * @param {string} [type='info'] - Loại thông báo ('success', 'error', 'warning', 'info').
- * @param {number} [duration=3000] - Thời gian hiển thị (ms).
+ * Show an alert notification.
+ * @param {string} message - Notification content.
+ * @param {string} [type='info'] - Notification type ('success', 'error', 'warning', 'info').
+ * @param {number} [duration=3000] - Display duration (ms).
  */
 export function showAlert(message, type = 'info', duration = 3000) {
     let alertContainer = document.getElementById('alert-container');
