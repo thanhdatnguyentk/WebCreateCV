@@ -8,9 +8,9 @@ export function setupSignupPage() {
 
       const data = Object.fromEntries(new FormData(form));
 
-      // --- Logic đăng ký ---
+      // --- Signup logic ---
       if (data.password !== data.confirm_password) {
-        showAlert("Mật khẩu xác nhận không khớp!", 'error');
+        showAlert("Passwords do not match!", 'error');
         return;
       }
 
@@ -23,15 +23,15 @@ export function setupSignupPage() {
       );
 
       if (userExists) {
-        showAlert("Tên người dùng hoặc email đã tồn tại!", 'error');
+        showAlert("Username or email already exists!", 'error');
         return;
       }
 
       users.push({ username: data.username, email: data.email, password: data.password });
       localStorage.setItem("users", JSON.stringify(users));
 
-      showAlert("Đăng ký thành công! Vui lòng đăng nhập.", 'success');
-      window.location.hash = "/login"; // Chuyển hướng đến trang đăng nhập
+      showAlert("Registration successful! Please log in.", 'success');
+      window.location.hash = "/login"; // Redirect to login page
     });
   }
 }

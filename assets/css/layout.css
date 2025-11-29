@@ -75,6 +75,7 @@ nav a {
 .navbar-container {
     max-width: 99%;
     margin: 0 auto;
+    transition: all 0.3s ease;
 }
 .navbar {
     display: grid;
@@ -85,6 +86,7 @@ nav a {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: var(--radius);
     position: relative; /* Thêm thuộc tính này để làm điểm neo cho menu mobile */
+    transition: all 0.3s ease;
 }
 .navbar-logo {
     display: flex; 
@@ -498,4 +500,77 @@ nav a {
 
 .dropdown-item#logout-btn:hover {
     color: #d9534f; 
+}
+
+/* =========================
+  STICKY HEADER & BACK TO TOP
+  ========================= */
+.navbar-container.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    margin: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-in-out;
+}
+
+.navbar-container.sticky .navbar {
+    border: none;
+    border-radius: 0;
+    padding: 15px 40px;
+    background: transparent;
+    box-shadow: none;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background: #1976d2;
+    transform: translateY(-5px);
+}
+
+#back-to-top svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
 }

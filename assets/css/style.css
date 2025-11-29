@@ -452,6 +452,11 @@
     .hero-slider {
         height: 200px; /* Giảm chiều cao slider trên tablet */
     }
+
+    /* Ẩn tag trên màn hình tablet */
+    .Category-Selector1 {
+        display: none;
+    }
 }
 
 /* Mobile (max-width: 768px) */
@@ -520,6 +525,11 @@
     .card-content p {
         font-size: 0.85em;
     }
+    
+    /* Ẩn tag trên màn hình mobile */
+    .Category-Selector1 {
+        display: none;
+    }
 }
 
 /* Mobile nhỏ (max-width: 480px) */
@@ -570,4 +580,292 @@
         font-size: 1.3em;
         margin-top: 25px;
     }
+    
+    /* Ẩn tag trên màn hình mobile nhỏ */
+    .Category-Selector1 {
+        display: none;
+    }
+}
+
+/* ======================================================= */
+/* 3. Template Editor Styles (từ Templates.js)           */
+/* ======================================================= */
+
+/* --- Link Edit Modal --- */
+.link-edit-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.link-edit-modal-content {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0,0,0,0.08);
+    width: 90%;
+    max-width: 480px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.link-edit-modal-content h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.link-edit-modal-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #3b3b3b;
+    font-size: 14px;
+}
+
+.link-edit-modal-content input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.link-edit-modal-content input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+.link-edit-modal-button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.link-edit-modal-cancel-btn {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: #3b3b3b;
+}
+
+.link-edit-modal-cancel-btn:hover {
+    background: #e8e8e8;
+    border-color: #ccc;
+}
+
+.link-edit-modal-save-btn {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: 1px solid #0056b3;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.link-edit-modal-save-btn:hover {
+    background: #0056b3;
+    border-color: #003d82;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* --- Flag Edit Modal --- */
+.flag-edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.flag-edit-modal > div {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.flag-edit-modal h3 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.flag-edit-modal label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.flag-edit-modal input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-transform: lowercase;
+}
+
+.flag-edit-modal p {
+    margin: 0 0 16px 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.flag-edit-modal-button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.flag-edit-modal button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.flag-edit-modal .cancel-btn {
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+}
+
+.flag-edit-modal .cancel-btn:hover {
+    background: #e8e8e8;
+}
+
+.flag-edit-modal .save-btn {
+    padding: 10px 20px;
+    background: rgb(0, 123, 255);
+    color: white;
+    border: 1px solid rgb(0, 86, 179);
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.flag-edit-modal .save-btn:hover {
+    background: #218838;
+}
+
+/* --- Editable Styles in Iframe --- */
+.editable-in-iframe {
+    outline: 2px dashed rgba(59,130,246,0.85);
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.editable-in-iframe:focus {
+    outline: 2px solid rgba(37,99,235,0.9);
+    box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+}
+
+/* Styles for editable flag elements */
+.editable-flag-in-iframe {
+    outline: 2px dashed rgba(16,185,129,0.85);
+    padding: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.editable-flag-in-iframe:hover {
+    outline: 2px solid rgba(5,150,105,0.9);
+    box-shadow: 0 6px 18px rgba(5,150,105,0.12);
+}
+
+/* Styles for link edit icons */
+.editable-link-icon {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    transition: all 0.2s;
+    opacity: 0;
+}
+
+a:hover .editable-link-icon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.editable-link-icon:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.35);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* --- Image Upload Styles --- */
+.img-upload-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.img-upload-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.img-upload-wrapper:hover .img-upload-overlay {
+    display: flex;
+}
+
+.img-upload-input {
+    display: none;
 }
