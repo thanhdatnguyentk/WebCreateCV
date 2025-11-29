@@ -452,6 +452,11 @@
     .hero-slider {
         height: 200px; /* Giảm chiều cao slider trên tablet */
     }
+
+    /* Ẩn tag trên màn hình tablet */
+    .Category-Selector1 {
+        display: none;
+    }
 }
 
 /* Mobile (max-width: 768px) */
@@ -520,6 +525,11 @@
     .card-content p {
         font-size: 0.85em;
     }
+    
+    /* Ẩn tag trên màn hình mobile */
+    .Category-Selector1 {
+        display: none;
+    }
 }
 
 /* Mobile nhỏ (max-width: 480px) */
@@ -569,5 +579,10 @@
     .portfolio-section h2 {
         font-size: 1.3em;
         margin-top: 25px;
+    }
+    
+    /* Ẩn tag trên màn hình mobile nhỏ */
+    .Category-Selector1 {
+        display: none;
     }
 }
