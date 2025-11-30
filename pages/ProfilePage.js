@@ -92,6 +92,17 @@ export function setupProfilePage() {
                 return;
             }
 
+            // Ràng buộc mật khẩu mới: ít nhất 8 ký tự, có chữ hoa và chữ thường
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            if (!passwordRegex.test(data.newPassword)) {
+                showAlert(
+                    'Mật khẩu mới phải có ít nhất 8 ký tự, ít nhất 1 chữ hoa và 1 chữ thường.',
+                    'error',
+                    5000 
+                );
+                return;
+            }
+
             const users = JSON.parse(localStorage.getItem("users") || "[]");
             const userIndex = users.findIndex(user => user.email === userEmail);
 
